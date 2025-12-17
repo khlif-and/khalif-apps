@@ -20,6 +20,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -52,6 +54,7 @@ fun PlayerFooter(
             .fillMaxWidth()
             .padding(horizontal = 8.dp, vertical = 8.dp)
             .height(64.dp)
+            .semantics { contentDescription = "Open Player" }
             .clickable { onItemClick() },
         shape = RoundedCornerShape(8.dp),
         color = PlayerFooterBackground,

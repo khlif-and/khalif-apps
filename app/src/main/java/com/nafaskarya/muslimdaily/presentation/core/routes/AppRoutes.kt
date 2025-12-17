@@ -1,7 +1,8 @@
 package com.nafaskarya.muslimdaily.presentation.core.routes
 
-import androidx.compose.animation.EnterTransition
-import androidx.compose.animation.ExitTransition
+import androidx.compose.animation.core.snap
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Surface
@@ -32,10 +33,10 @@ fun AppRoutes() {
         NavHost(
             navController = navController,
             startDestination = AppDestination.Splash.route,
-            enterTransition = { EnterTransition.None },
-            exitTransition = { ExitTransition.None },
-            popEnterTransition = { EnterTransition.None },
-            popExitTransition = { ExitTransition.None }
+            enterTransition = { fadeIn(animationSpec = snap()) },
+            exitTransition = { fadeOut(animationSpec = snap()) },
+            popEnterTransition = { fadeIn(animationSpec = snap()) },
+            popExitTransition = { fadeOut(animationSpec = snap()) }
         ) {
             composable(AppDestination.Splash.route) {
                 SplashScreen {
@@ -49,13 +50,7 @@ fun AppRoutes() {
                 GuestScreen(navController)
             }
 
-            composable(
-                route = "profile_screen",
-                enterTransition = { EnterTransition.None },
-                exitTransition = { ExitTransition.None },
-                popEnterTransition = { EnterTransition.None },
-                popExitTransition = { ExitTransition.None }
-            ) {
+            composable(AppDestination.Profile.route) {
                 ProfileAccountScreen(
                     onBackClick = { navController.popBackStack() },
                     onLogoutConfirmed = {
@@ -66,7 +61,7 @@ fun AppRoutes() {
                 )
             }
 
-            composable("playlist_screen") {
+            composable(AppDestination.Playlist.route) {
                 PlaylistScreen(
                     onBackClick = { navController.popBackStack() }
                 )
@@ -89,13 +84,14 @@ fun AppRoutes() {
             composable(AppDestination.Signup.route) {
             }
 
-            composable("share") {
+            composable(AppDestination.Share.route) {
                 ShareScreen(
                     onBackClick = { navController.popBackStack() },
                     onCloseClick = { navController.popBackStack() }
                 )
             }
-            composable("player_more_menu") {
+
+            composable(AppDestination.PlayerMoreMenu.route) {
                 MoreMenuBottomSheet(
                     onDismissRequest = { navController.popBackStack() }
                 )

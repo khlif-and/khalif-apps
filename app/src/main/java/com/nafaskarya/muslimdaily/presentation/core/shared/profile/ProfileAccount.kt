@@ -31,7 +31,7 @@ fun ProfileAccountScreen(
     val dimen = rememberWindowDimensions()
     var showLogoutDialog by remember { mutableStateOf(false) }
 
-    // Menggunakan Teks dari TextConstant
+    // Optimasi: Memastikan list konfigurasi hanya dibuat sekali selama komposisi
     val accountSettings = remember {
         listOf(
             MenuOption(ProfileText.MENU_PERSONAL_INFO, Icons.Default.Person),
@@ -85,45 +85,54 @@ fun ProfileAccountScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             // 1. HEADER PROFILE
-            item(key = "header") {
+            item(key = "header", contentType = "header") {
                 ProfileHeaderSection(dimen)
                 Spacer(modifier = Modifier.height(dimen.getResponsiveHeight(0.03f)))
             }
 
             // 2. PREMIUM CARD
-            item(key = "premium_card") {
+            item(key = "premium_card", contentType = "card") {
                 PremiumPlanCard(dimen)
                 Spacer(modifier = Modifier.height(dimen.getResponsiveHeight(0.03f)))
             }
 
             // 3. ACCOUNT SETTINGS
-            item(key = "title_account") {
+            item(key = "title_account", contentType = "section_title") {
                 SettingsGroupTitle(ProfileText.GROUP_ACCOUNT)
             }
+
             items(
                 items = accountSettings,
-                key = { it.title }
+                key = { "acc_${it.title}" }, // Key unik untuk stabilitas list
+                contentType = { "menu_item" } // ContentType membantu efisiensi daur ulang view
             ) { item ->
                 ProfileMenuItem(dimen, item.icon, item.title, item.action)
             }
 
-            item { Spacer(modifier = Modifier.height(24.dp)) }
+            // Optimasi: Memberikan key pada spacer agar posisi scroll tetap terjaga saat terjadi recompose
+            item(key = "spacer_middle") {
+                Spacer(modifier = Modifier.height(24.dp))
+            }
 
             // 4. APP INFO
-            item(key = "title_app_info") {
+            item(key = "title_app_info", contentType = "section_title") {
                 SettingsGroupTitle(ProfileText.GROUP_APP_INFO)
             }
+
             items(
                 items = appInfoSettings,
-                key = { it.title }
+                key = { "app_${it.title}" },
+                contentType = { "menu_item" }
             ) { item ->
                 ProfileMenuItem(dimen, item.icon, item.title, item.action)
             }
 
-            item { Spacer(modifier = Modifier.height(24.dp)) }
+            item(key = "spacer_bottom") {
+                Spacer(modifier = Modifier.height(24.dp))
+            }
 
             // 5. LOGOUT BUTTON
-            item(key = "logout_btn") {
+            item(key = "logout_section", contentType = "footer") {
                 LogoutButton(dimen) {
                     showLogoutDialog = true
                 }

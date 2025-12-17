@@ -8,7 +8,9 @@ sealed class AppDestination(val route: String) {
     data object Signup : AppDestination("signup")
     data object ForgotPassword : AppDestination("forgot_password")
     data object Home : AppDestination("home")
-
-    // 🚀 Player screen baru (untuk card klik di Guest)
     data object Player : AppDestination("player")
+    data object Profile : AppDestination("profile_screen")
+    data object Playlist : AppDestination("playlist_screen")
+    data object Share : AppDestination("share")
+    data object PlayerMoreMenu : AppDestination("player_more_menu")
 }

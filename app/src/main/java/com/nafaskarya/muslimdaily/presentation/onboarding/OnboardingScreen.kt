@@ -5,12 +5,12 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -22,9 +22,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.nafaskarya.muslimdaily.R
+import com.nafaskarya.muslimdaily.presentation.core.utils.windows.WindowDimensions
 import com.nafaskarya.muslimdaily.presentation.core.utils.windows.rememberWindowDimensions
 
 @Composable
@@ -52,7 +54,9 @@ fun OnboardingScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             LogoSection(
-                size = dimen.getResponsiveTextSize(0.25f, min = 80f, max = 150f).value.dp
+                size = remember(dimen) {
+                    dimen.getResponsiveTextSize(0.25f, min = 80f, max = 150f).value.dp
+                }
             )
 
             Spacer(modifier = Modifier.weight(1f))
@@ -67,7 +71,7 @@ fun OnboardingScreen(
 }
 
 @Composable
-private fun LogoSection(size: androidx.compose.ui.unit.Dp) {
+private fun LogoSection(size: Dp) {
     Image(
         painter = painterResource(id = R.drawable.img_logo),
         contentDescription = "App Logo",
@@ -80,13 +84,14 @@ private fun LogoSection(size: androidx.compose.ui.unit.Dp) {
 
 @Composable
 private fun ContentSection(
-    dimen: com.nafaskarya.muslimdaily.presentation.core.utils.windows.WindowDimensions,
+    dimen: WindowDimensions,
     onLoginClick: () -> Unit,
     onSignUpClick: () -> Unit
 ) {
-    val titleSize = dimen.getResponsiveTextSize(0.06f, min = 20f, max = 32f)
-    val dateSize = dimen.getResponsiveTextSize(0.05f, min = 16f, max = 28f)
-    val welcomeSize = dimen.getResponsiveTextSize(0.045f, min = 14f, max = 24f)
+    // Menggunakan `remember` untuk menghindari kalkulasi ulang pada setiap recomposition
+    val titleSize = remember(dimen) { dimen.getResponsiveTextSize(0.06f, min = 20f, max = 32f) }
+    val dateSize = remember(dimen) { dimen.getResponsiveTextSize(0.05f, min = 16f, max = 28f) }
+    val welcomeSize = remember(dimen) { dimen.getResponsiveTextSize(0.045f, min = 14f, max = 24f) }
 
     Column(
         horizontalAlignment = Alignment.Start,
@@ -156,19 +161,23 @@ private fun ContentSection(
             modifier = Modifier.fillMaxWidth(),
             contentAlignment = Alignment.Center
         ) {
-            val annotatedString = buildAnnotatedString {
-                withStyle(style = SpanStyle(color = Color.LightGray)) {
-                    append("Don't have an account? ")
-                }
-                withStyle(style = SpanStyle(color = Color(0xFFE57373), fontWeight = FontWeight.Bold)) {
-                    append("Sign in")
+            // Menggunakan `remember` untuk memastikan `AnnotatedString` hanya dibuat sekali
+            val annotatedString = remember {
+                buildAnnotatedString {
+                    withStyle(style = SpanStyle(color = Color.LightGray)) {
+                        append("Don't have an account? ")
+                    }
+                    withStyle(style = SpanStyle(color = Color(0xFFE57373), fontWeight = FontWeight.Bold)) {
+                        append("Sign up") // Mengganti Sign In menjadi Sign Up agar sesuai dengan aksi
+                    }
                 }
             }
 
             Text(
                 text = annotatedString,
                 fontSize = 14.sp,
-                modifier = Modifier.clickable { onSignUpClick() }
+                // Menggunakan referensi fungsi langsung untuk stabilitas
+                modifier = Modifier.clickable(onClick = onSignUpClick)
             )
         }
     }
