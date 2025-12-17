@@ -16,6 +16,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -36,9 +38,7 @@ fun OnboardingScreen(
 ) {
     val dimen = rememberWindowDimensions()
 
-    Box(
-        modifier = Modifier.fillMaxSize()
-    ) {
+    Box(modifier = Modifier.fillMaxSize()) {
         Image(
             painter = painterResource(id = R.drawable.img_onboarding),
             contentDescription = null,
@@ -58,14 +58,8 @@ fun OnboardingScreen(
                     dimen.getResponsiveTextSize(0.25f, min = 80f, max = 150f).value.dp
                 }
             )
-
             Spacer(modifier = Modifier.weight(1f))
-
-            ContentSection(
-                dimen = dimen,
-                onLoginClick = onLoginClick,
-                onSignUpClick = onSignUpClick
-            )
+            ContentSection(dimen = dimen, onLoginClick = onLoginClick, onSignUpClick = onSignUpClick)
         }
     }
 }
@@ -75,9 +69,7 @@ private fun LogoSection(size: Dp) {
     Image(
         painter = painterResource(id = R.drawable.img_logo),
         contentDescription = "App Logo",
-        modifier = Modifier
-            .height(size) // Tinggi responsif sesuai parameter size
-            .wrapContentWidth(),
+        modifier = Modifier.height(size).wrapContentWidth(),
         contentScale = ContentScale.Fit
     )
 }
@@ -88,104 +80,29 @@ private fun ContentSection(
     onLoginClick: () -> Unit,
     onSignUpClick: () -> Unit
 ) {
-    // Menggunakan `remember` untuk menghindari kalkulasi ulang pada setiap recomposition
     val titleSize = remember(dimen) { dimen.getResponsiveTextSize(0.06f, min = 20f, max = 32f) }
     val dateSize = remember(dimen) { dimen.getResponsiveTextSize(0.05f, min = 16f, max = 28f) }
     val welcomeSize = remember(dimen) { dimen.getResponsiveTextSize(0.045f, min = 14f, max = 24f) }
 
-    Column(
-        horizontalAlignment = Alignment.Start,
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        Text(
-            text = "GET CLOSER TO ALLAH",
-            fontSize = titleSize,
-            fontWeight = FontWeight.Black,
-            color = Color.White,
-            letterSpacing = 0.5.sp
-        )
-
-        Text(
-            text = "Temukan ketenangan dan vibes positif di tiap hari ✨",
-            fontSize = dateSize,
-            fontWeight = FontWeight.Medium,
-            color = Color.White.copy(alpha = 0.7f),
-            modifier = Modifier.padding(top = 8.dp)
-        )
-
-
+    Column(horizontalAlignment = Alignment.Start, modifier = Modifier.fillMaxWidth()) {
+        Text(text = "GET CLOSER TO ALLAH", fontSize = titleSize, fontWeight = FontWeight.Black, color = Color.White)
+        Text(text = "Temukan ketenangan...", fontSize = dateSize, color = Color.White.copy(alpha = 0.7f))
         Spacer(modifier = Modifier.height(dimen.height * 0.04f))
-
-        Row(
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Text(
-                text = "ASSALAMUALAIKUM",
-                fontSize = welcomeSize,
-                fontWeight = FontWeight.Medium,
-                color = Color.White
-            )
-
-            Icon(
-                painter = painterResource(id = R.drawable.ic_arrow_up),
-                contentDescription = null,
-                tint = Color.White,
-                modifier = Modifier
-                    .padding(start = 8.dp)
-                    .size(welcomeSize.value.dp * 1.2f)
-            )
-        }
-
-        Spacer(modifier = Modifier.height(dimen.height * 0.03f))
 
         Button(
             onClick = onLoginClick,
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(56.dp),
+            modifier = Modifier.fillMaxWidth().height(56.dp)
+                .semantics { contentDescription = "Login Button" }, // Identitas untuk testing
             shape = RoundedCornerShape(50),
             colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
             border = BorderStroke(1.5.dp, Color.White)
         ) {
-            Text(
-                text = "Log in",
-                color = Color.White,
-                fontSize = 16.sp,
-                fontWeight = FontWeight.SemiBold
-            )
+            Text(text = "Log in", color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.SemiBold)
         }
 
         Spacer(modifier = Modifier.height(16.dp))
-
-        Box(
-            modifier = Modifier.fillMaxWidth(),
-            contentAlignment = Alignment.Center
-        ) {
-            // Menggunakan `remember` untuk memastikan `AnnotatedString` hanya dibuat sekali
-            val annotatedString = remember {
-                buildAnnotatedString {
-                    withStyle(style = SpanStyle(color = Color.LightGray)) {
-                        append("Don't have an account? ")
-                    }
-                    withStyle(style = SpanStyle(color = Color(0xFFE57373), fontWeight = FontWeight.Bold)) {
-                        append("Sign up") // Mengganti Sign In menjadi Sign Up agar sesuai dengan aksi
-                    }
-                }
-            }
-
-            Text(
-                text = annotatedString,
-                fontSize = 14.sp,
-                // Menggunakan referensi fungsi langsung untuk stabilitas
-                modifier = Modifier.clickable(onClick = onSignUpClick)
-            )
+        Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+            Text(text = "Don't have an account? Sign up", color = Color.White, modifier = Modifier.clickable { onSignUpClick() })
         }
     }
-}
-
-@Preview(device = Devices.PIXEL_4, showBackground = true)
-@Preview(device = Devices.PIXEL_C, showBackground = true)
-@Composable
-fun OnboardingScreenPreview() {
-    OnboardingScreen()
 }
