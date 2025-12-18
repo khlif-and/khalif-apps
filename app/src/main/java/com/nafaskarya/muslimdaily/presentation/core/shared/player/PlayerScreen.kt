@@ -9,7 +9,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.nafaskarya.muslimdaily.presentation.core.constant.PlayerScreenBackground
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.PlayerScreenBackground
 import com.nafaskarya.muslimdaily.presentation.core.shared.player.part.PlayerArtworkSection
 import com.nafaskarya.muslimdaily.presentation.core.shared.player.part.PlayerControlsSection
 import com.nafaskarya.muslimdaily.presentation.core.shared.player.part.PlayerFooterActionsSection

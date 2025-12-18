@@ -16,10 +16,10 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.Alignment
-import com.nafaskarya.muslimdaily.presentation.core.constant.BorderColor
-import com.nafaskarya.muslimdaily.presentation.core.constant.GreenPrimary
-import com.nafaskarya.muslimdaily.presentation.core.constant.TextGray
 import androidx.compose.ui.graphics.Color
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.BorderColor
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.GreenPrimary
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.TextGray
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

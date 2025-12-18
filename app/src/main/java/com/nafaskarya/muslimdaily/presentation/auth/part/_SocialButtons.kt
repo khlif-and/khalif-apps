@@ -15,8 +15,9 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.ui.Alignment
 import com.nafaskarya.muslimdaily.R
-import com.nafaskarya.muslimdaily.presentation.core.constant.BorderColor
-import com.nafaskarya.muslimdaily.presentation.core.constant.TextWhite
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.BorderColor
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.TextWhite
+
 
 @Composable
 fun SocialButtons(

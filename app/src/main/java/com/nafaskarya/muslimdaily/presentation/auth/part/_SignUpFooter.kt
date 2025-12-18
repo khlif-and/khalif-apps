@@ -11,8 +11,9 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.sp
-import com.nafaskarya.muslimdaily.presentation.core.constant.GreenPrimary
-import com.nafaskarya.muslimdaily.presentation.core.constant.TextGray
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.GreenPrimary
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.TextGray
+
 
 @Composable
 fun SignUpFooter(onSignUpClick: () -> Unit) {
