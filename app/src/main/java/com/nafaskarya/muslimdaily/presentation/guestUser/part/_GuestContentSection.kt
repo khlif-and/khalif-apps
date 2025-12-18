@@ -13,7 +13,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.nafaskarya.muslimdaily.presentation.core.utils.windows.WindowDimensions
-import com.nafaskarya.muslimdaily.presentation.guestUser.ContentItem
 
 private val TextWhite = Color(0xFFEEEEEE)
 private val TextGray = Color(0xFFAAAAAA)

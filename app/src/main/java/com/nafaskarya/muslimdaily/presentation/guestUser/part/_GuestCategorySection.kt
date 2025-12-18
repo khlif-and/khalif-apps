@@ -9,15 +9,11 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.nafaskarya.muslimdaily.presentation.core.utils.windows.WindowDimensions
-
-private val AccentOrange = Color(0xFFC67C4E)
-private val SurfaceDark = Color(0xFF2C2C2C)
-private val TextWhite = Color(0xFFEEEEEE)
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant
 
 @Composable
 fun GuestCategorySection(dimen: WindowDimensions) {
@@ -31,7 +27,7 @@ fun GuestCategorySection(dimen: WindowDimensions) {
     ) {
         items(categories) { category ->
             val isSelected = category == "All"
-            val backgroundColor = if (isSelected) AccentOrange else SurfaceDark
+            val backgroundColor = if (isSelected) ColorConstant.AccentOrange else ColorConstant.SurfaceDark
 
             Surface(
                 color = backgroundColor,
@@ -40,7 +36,7 @@ fun GuestCategorySection(dimen: WindowDimensions) {
             ) {
                 Text(
                     text = category,
-                    color = TextWhite,
+                    color = ColorConstant.TextWhite,
                     fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium,
                     modifier = Modifier.padding(horizontal = 24.dp, vertical = 10.dp),
                     fontSize = 14.sp

@@ -8,11 +8,11 @@ import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import com.nafaskarya.muslimdaily.presentation.core.constant.PlayerTextSecondary
-import com.nafaskarya.muslimdaily.presentation.core.constant.TextWhite
 import com.nafaskarya.muslimdaily.presentation.core.utils.windows.rememberWindowDimensions
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.PlayerTextSecondary
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.TextWhite
 
 @Composable
 fun PlayerSeekBarSection() {

@@ -5,8 +5,6 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.nafaskarya.muslimdaily.presentation.core.constant.ShareCardColors
-import com.nafaskarya.muslimdaily.presentation.core.constant.ShareScreenBackground
 import com.nafaskarya.muslimdaily.presentation.core.shared.player.sharing.part.ShareColorPickerSection
 import com.nafaskarya.muslimdaily.presentation.core.shared.player.sharing.part.ShareLyricsCardSection
 import com.nafaskarya.muslimdaily.presentation.core.shared.player.sharing.part.ShareOptionsSection
@@ -14,6 +12,8 @@ import com.nafaskarya.muslimdaily.presentation.core.shared.player.sharing.part.S
 import com.nafaskarya.muslimdaily.presentation.core.utils.windows.rememberWindowDimensions
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.ShareScreenBackground
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.ShareCardColors
 
 data class ShareOption(
     val label: String,

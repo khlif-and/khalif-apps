@@ -27,10 +27,10 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.nafaskarya.muslimdaily.R
-import com.nafaskarya.muslimdaily.presentation.core.constant.PlayerFooterBackground
-import com.nafaskarya.muslimdaily.presentation.core.constant.PlayerIconColor
-import com.nafaskarya.muslimdaily.presentation.core.constant.PlayerTextSecondary
-import com.nafaskarya.muslimdaily.presentation.core.constant.TextWhite
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.PlayerFooterBackground
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.PlayerIconColor
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.PlayerTextSecondary
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.TextWhite
 import com.nafaskarya.muslimdaily.presentation.core.utils.windows.rememberWindowDimensions
 
 @Composable

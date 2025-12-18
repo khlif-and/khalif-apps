@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.foundation.shape.RoundedCornerShape
 import com.nafaskarya.muslimdaily.presentation.auth.part.*
-import com.nafaskarya.muslimdaily.presentation.core.constant.GreenPrimary
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.GreenPrimary
 import com.nafaskarya.muslimdaily.presentation.core.utils.windows.rememberWindowDimensions
 
 @Composable

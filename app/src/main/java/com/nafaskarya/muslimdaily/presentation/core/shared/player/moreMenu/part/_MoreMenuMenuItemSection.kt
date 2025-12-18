@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.text.font.FontWeight
-import com.nafaskarya.muslimdaily.presentation.core.constant.TextWhite
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.TextWhite
 import com.nafaskarya.muslimdaily.presentation.core.utils.windows.WindowDimensions
 
 @Composable

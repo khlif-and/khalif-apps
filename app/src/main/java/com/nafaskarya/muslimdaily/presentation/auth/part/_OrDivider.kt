@@ -11,8 +11,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.nafaskarya.muslimdaily.presentation.core.constant.BorderColor
-import com.nafaskarya.muslimdaily.presentation.core.constant.TextWhite
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.BorderColor
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.TextWhite
+
 
 @Composable
 fun OrDivider() {

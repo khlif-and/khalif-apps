@@ -25,7 +25,7 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.nafaskarya.muslimdaily.R
 import com.nafaskarya.muslimdaily.presentation.core.components.kitabSection.CommunitySong
-import com.nafaskarya.muslimdaily.presentation.core.constant.TextWhite
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.TextWhite
 import com.nafaskarya.muslimdaily.presentation.core.shared.card.CircleIconButton
 import com.nafaskarya.muslimdaily.presentation.core.shared.card.GradientRoundedCard
 import com.nafaskarya.muslimdaily.presentation.core.shared.card.PrimaryPillButton

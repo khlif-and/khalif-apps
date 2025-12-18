@@ -13,7 +13,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.nafaskarya.muslimdaily.presentation.core.constant.PlayerTextSecondary
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.PlayerTextSecondary
 import com.nafaskarya.muslimdaily.presentation.core.utils.windows.rememberWindowDimensions
 
 @Composable

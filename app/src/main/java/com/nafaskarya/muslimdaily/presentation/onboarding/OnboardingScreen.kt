@@ -92,7 +92,7 @@ private fun ContentSection(
         Button(
             onClick = onLoginClick,
             modifier = Modifier.fillMaxWidth().height(56.dp)
-                .semantics { contentDescription = "Login Button" }, // Identitas untuk testing
+                .semantics { contentDescription = "Login Button" },
             shape = RoundedCornerShape(50),
             colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
             border = BorderStroke(1.5.dp, Color.White)

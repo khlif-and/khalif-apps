@@ -17,9 +17,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.unit.dp
-import com.nafaskarya.muslimdaily.presentation.core.constant.PlayerAccentGreen
-import com.nafaskarya.muslimdaily.presentation.core.constant.PlayerTextSecondary
-import com.nafaskarya.muslimdaily.presentation.core.constant.TextWhite
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.TextWhite
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.PlayerTextSecondary
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.PlayerAccentGreen
 import com.nafaskarya.muslimdaily.presentation.core.utils.windows.rememberWindowDimensions
 
 @Composable

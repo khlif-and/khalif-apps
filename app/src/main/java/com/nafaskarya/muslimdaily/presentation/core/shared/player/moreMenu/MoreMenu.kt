@@ -23,8 +23,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.nafaskarya.muslimdaily.presentation.core.commons.CommonBottomSheet
-import com.nafaskarya.muslimdaily.presentation.core.constant.MoreMenuSeparatorColor
-import com.nafaskarya.muslimdaily.presentation.core.constant.MoreMenuSheetBackground
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.MoreMenuSeparatorColor
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.MoreMenuSheetBackground
 import com.nafaskarya.muslimdaily.presentation.core.shared.player.moreMenu.part.MenuRowItem
 import com.nafaskarya.muslimdaily.presentation.core.shared.player.moreMenu.part.MoreMenuHeader
 import com.nafaskarya.muslimdaily.presentation.core.shared.player.moreMenu.part.TopActionsRow

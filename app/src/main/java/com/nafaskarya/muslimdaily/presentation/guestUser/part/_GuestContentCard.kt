@@ -24,7 +24,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.nafaskarya.muslimdaily.presentation.guestUser.ContentItem
 
 private val SurfaceDark = Color(0xFF2C2C2C)
 private val TextWhite = Color(0xFFEEEEEE)

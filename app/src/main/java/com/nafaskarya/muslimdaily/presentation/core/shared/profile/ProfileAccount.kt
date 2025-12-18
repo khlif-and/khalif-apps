@@ -16,9 +16,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.nafaskarya.muslimdaily.presentation.core.constant.ProfileBackground
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.ProfileBackground
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.TextWhite
 import com.nafaskarya.muslimdaily.presentation.core.constant.ProfileText
-import com.nafaskarya.muslimdaily.presentation.core.constant.TextWhite
 import com.nafaskarya.muslimdaily.presentation.core.shared.profile.part.*
 import com.nafaskarya.muslimdaily.presentation.core.utils.windows.rememberWindowDimensions
 

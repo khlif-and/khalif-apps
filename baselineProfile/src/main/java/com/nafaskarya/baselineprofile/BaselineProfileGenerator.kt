@@ -28,63 +28,64 @@ class BaselineProfileGenerator {
             pressHome()
             startActivityAndWait()
 
-            // bypass onboarding
-            device.wait(Until.findObject(By.desc("Login Button")), 5000)?.click()
-            device.waitForWindowUpdate(targetPackage, 5000)
+            device.wait(Until.hasObject(By.pkg(targetPackage).scrollable(true)), 15000)
+            device.waitForIdle()
 
-            // 1. SCROLL DULU (Vertical)
-            val mainScrollable = device.wait(Until.findObject(By.pkg(targetPackage).scrollable(true)), 5000)
-            if (mainScrollable != null) {
-                mainScrollable.setGestureMargin(device.displayWidth / 10)
+            val scrollables = device.findObjects(By.pkg(targetPackage).scrollable(true))
+            val mainVerticalScroll = scrollables.find { it.visibleBounds.height() > it.visibleBounds.width() }
+
+            if (mainVerticalScroll != null) {
+                mainVerticalScroll.setGestureMargin(device.displayWidth / 10)
                 try {
-                    while (mainScrollable.fling(Direction.DOWN)) { }
-                    device.waitForWindowUpdate(targetPackage, 2000)
-                    while (mainScrollable.fling(Direction.UP)) { }
+                    while (mainVerticalScroll.fling(Direction.DOWN)) { }
+                    device.waitForIdle()
+                    while (mainVerticalScroll.fling(Direction.UP)) { }
+                    device.waitForIdle()
                 } catch (e: Exception) { }
             }
 
-            // 2. SLIDE DULU (Horizontal)
-            repeat(2) { index ->
-                try {
-                    val sliders = device.findObjects(By.pkg(targetPackage).scrollable(true))
-                    val slider = sliders.getOrNull(index)
-                    if (slider != null && slider.visibleBounds.width() > slider.visibleBounds.height()) {
-                        slider.setGestureMargin(device.displayWidth / 10)
-                        while (slider.scroll(Direction.RIGHT, 1.0f)) { }
-                        device.waitForWindowUpdate(targetPackage, 1000)
-                        while (slider.scroll(Direction.LEFT, 1.0f)) { }
-                    }
-                } catch (e: Exception) { }
-            }
+            try {
+                val sliders = device.findObjects(By.pkg(targetPackage).scrollable(true))
+                val horizontalSlider = sliders.find { it.visibleBounds.width() > it.visibleBounds.height() }
+                if (horizontalSlider != null) {
+                    horizontalSlider.setGestureMargin(device.displayWidth / 10)
+                    horizontalSlider.scroll(Direction.RIGHT, 1.0f)
+                    device.waitForIdle()
+                    horizontalSlider.scroll(Direction.LEFT, 1.0f)
+                    device.waitForIdle()
+                }
+            } catch (e: Exception) { }
 
-            // 3. BARU KLIK CARD
-            repeat(2) { index ->
-                try {
-                    val cards = device.findObjects(By.pkg(targetPackage).clickable(true))
-                        .filter { try { it.visibleBounds.height() > 200 } catch (e: Exception) { false } }
+            try {
+                val cards = device.findObjects(By.pkg(targetPackage).clickable(true))
+                    .filter { try { it.visibleBounds.height() > 200 && it.visibleBounds.centerY() < device.displayHeight * 0.8 } catch (e: Exception) { false } }
 
-                    val card = cards.getOrNull(index)
-                    if (card != null) {
-                        card.click()
-                        device.waitForWindowUpdate(targetPackage, 3000)
-                        device.pressBack()
-                        device.waitForWindowUpdate(targetPackage, 2000)
-                    }
-                } catch (e: Exception) { }
-            }
+                val card = cards.getOrNull(0)
+                if (card != null) {
+                    card.click()
+                    device.wait(Until.hasObject(By.pkg(targetPackage)), 5000)
+                    device.waitForIdle()
+                    device.pressBack()
+                    device.waitForIdle()
+                }
+            } catch (e: Exception) { }
 
-            // 4. LALU PROFILE
             val profileBtn = device.wait(Until.findObject(By.desc("Profile Button")), 5000)
             if (profileBtn != null) {
                 profileBtn.click()
                 device.wait(Until.hasObject(By.textContains("Profil")), 5000)
 
-                // Scroll di dalam profil
-                device.findObject(By.scrollable(true))?.fling(Direction.DOWN)
-                device.waitForWindowUpdate(targetPackage, 2000)
+                val profileScroll = device.findObject(By.scrollable(true))
+                profileScroll?.setGestureMargin(device.displayWidth / 10)
+                profileScroll?.fling(Direction.DOWN)
+                device.waitForIdle()
+
+                device.pressBack()
+                device.waitForIdle()
             }
 
             device.pressHome()
+            device.waitForIdle()
         }
     }
 }
