@@ -26,7 +26,10 @@ import com.nafaskarya.muslimdaily.presentation.core.constant.ProfileText
 import com.nafaskarya.muslimdaily.presentation.core.utils.windows.WindowDimensions
 
 @Composable
-fun ProfileHeaderSection(dimen: WindowDimensions) {
+fun ProfileHeaderSection(
+    dimen: WindowDimensions,
+    onProfileClick: () -> Unit
+) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -39,7 +42,8 @@ fun ProfileHeaderSection(dimen: WindowDimensions) {
             modifier = Modifier
                 .size(dimen.width * 0.25f)
                 .clip(CircleShape)
-                .border(2.dp, Color.White.copy(alpha = 0.1f), CircleShape),
+                .border(2.dp, Color.White.copy(alpha = 0.1f), CircleShape)
+                .clickable { onProfileClick() },
             contentScale = ContentScale.Crop
         )
 
@@ -51,7 +55,8 @@ fun ProfileHeaderSection(dimen: WindowDimensions) {
                 color = TextWhite,
                 fontWeight = FontWeight.Bold,
                 fontSize = dimen.getResponsiveTextSize(0.06f, min = 20f, max = 24f)
-            )
+            ),
+            modifier = Modifier.clickable { onProfileClick() }
         )
 
         Text(
