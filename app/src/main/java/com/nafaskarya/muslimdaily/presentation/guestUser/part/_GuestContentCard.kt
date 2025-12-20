@@ -14,20 +14,19 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.AsyncImage
-import coil.request.ImageRequest
-
-private val SurfaceDark = Color(0xFF2C2C2C)
-private val TextWhite = Color(0xFFEEEEEE)
-private val TextGray = Color(0xFFAAAAAA)
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.SurfaceDark
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.TextGray
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.TextWhite
+import com.skydoves.landscapist.ImageOptions
+import com.skydoves.landscapist.animation.crossfade.CrossfadePlugin
+import com.skydoves.landscapist.coil3.CoilImage
+import com.skydoves.landscapist.components.rememberImageComponent
 
 @Composable
 fun GuestContentCard(
@@ -36,7 +35,6 @@ fun GuestContentCard(
     onClick: (ContentItem) -> Unit
 ) {
     val cardWidth = screenWidth * 0.4f
-    val context = LocalContext.current
 
     Column(
         modifier = Modifier
@@ -50,14 +48,15 @@ fun GuestContentCard(
                 .aspectRatio(1f),
             colors = CardDefaults.cardColors(containerColor = SurfaceDark)
         ) {
-            AsyncImage(
-                model = ImageRequest.Builder(context)
-                    .data(item.imageRes)
-                    .crossfade(true)
-                    .build(),
-                contentDescription = item.title,
-                contentScale = ContentScale.Crop,
-                modifier = Modifier.fillMaxSize()
+            CoilImage(
+                imageModel = { item.imageRes },
+                modifier = Modifier.fillMaxSize(),
+                imageOptions = ImageOptions(
+                    contentScale = ContentScale.Crop
+                ),
+                component = rememberImageComponent {
+                    +CrossfadePlugin(duration = 450)
+                }
             )
         }
 
