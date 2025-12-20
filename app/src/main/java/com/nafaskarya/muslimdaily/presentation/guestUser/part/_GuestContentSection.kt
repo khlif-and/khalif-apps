@@ -8,14 +8,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.nafaskarya.muslimdaily.R
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.TextGray
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.TextWhite
 import com.nafaskarya.muslimdaily.presentation.core.utils.windows.WindowDimensions
-
-private val TextWhite = Color(0xFFEEEEEE)
-private val TextGray = Color(0xFFAAAAAA)
 
 @Composable
 fun GuestContentSection(
@@ -43,7 +43,7 @@ fun GuestContentSection(
                 color = TextWhite
             )
             Text(
-                text = "Lihat semuanya",
+                text = stringResource(id = R.string.guest_see_all),
                 fontSize = 12.sp,
                 color = TextGray,
                 modifier = Modifier.clickable { }
@@ -54,10 +54,9 @@ fun GuestContentSection(
             contentPadding = PaddingValues(horizontal = horizontalPadding),
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            // ✅ OPTIMASI 3: Tambahkan KEY!
             items(
                 items = items,
-                key = { item -> item.title.hashCode() } // Gunakan ID unik jika ada
+                key = { item -> item.title.hashCode() }
             ) { item ->
                 GuestContentCard(
                     item = item,

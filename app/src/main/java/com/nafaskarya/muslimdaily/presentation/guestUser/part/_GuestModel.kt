@@ -6,5 +6,5 @@ import androidx.compose.runtime.Immutable
 data class ContentItem(
     val title: String,
     val description: String,
-    val imageRes: Int
+    val imageData: Any
 )

@@ -6,4 +6,5 @@
     <string name="placeholder_password">••••••••</string>
     <string name="forgot_password">Lupa kata sandi?</string>
     <string name="desc_toggle_password">Toggle Password</string>
+    <string name="guest_see_all">Lihat semuanya</string>
 </resources>
