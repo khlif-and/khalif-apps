@@ -4,18 +4,14 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.SheetState
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.PlayerScreenBackground
-import com.nafaskarya.muslimdaily.presentation.core.shared.player.part.PlayerArtworkSection
-import com.nafaskarya.muslimdaily.presentation.core.shared.player.part.PlayerControlsSection
-import com.nafaskarya.muslimdaily.presentation.core.shared.player.part.PlayerFooterActionsSection
-import com.nafaskarya.muslimdaily.presentation.core.shared.player.part.PlayerHeaderSection
-import com.nafaskarya.muslimdaily.presentation.core.shared.player.part.PlayerInfoSection
-import com.nafaskarya.muslimdaily.presentation.core.shared.player.part.PlayerSeekBarSection
+import com.nafaskarya.muslimdaily.presentation.core.shared.player.moreMenu.MoreMenuBottomSheet
+import com.nafaskarya.muslimdaily.presentation.core.shared.player.part.*
+import com.nafaskarya.muslimdaily.presentation.core.shared.player.sharing.ShareScreenBottomSheet
 import com.nafaskarya.muslimdaily.presentation.core.utils.windows.rememberWindowDimensions
 import kotlinx.coroutines.launch
 
@@ -24,9 +20,7 @@ import kotlinx.coroutines.launch
 fun PlayerScreenBottomSheet(
     sheetState: SheetState,
     onDismissRequest: () -> Unit,
-    onShareClick: () -> Unit,
-    onMoreClick: () -> Unit,
-    onTimerClick: () -> Unit, // 👈 1. Terima Callback Timer
+    onTimerClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     val scope = rememberCoroutineScope()
@@ -39,6 +33,7 @@ fun PlayerScreenBottomSheet(
         dragHandle = null,
         modifier = modifier
     ) {
+        // PERBAIKAN: PlayerContent sekarang tidak butuh callback Share/More dari luar
         PlayerContent(
             onCollapse = {
                 scope.launch { sheetState.hide() }.invokeOnCompletion {
@@ -47,9 +42,7 @@ fun PlayerScreenBottomSheet(
                     }
                 }
             },
-            onShareClick = onShareClick,
-            onMoreClick = onMoreClick,
-            onTimerClick = onTimerClick // 👈 2. Teruskan ke Content
+            onTimerClick = onTimerClick
         )
     }
 }
@@ -57,59 +50,74 @@ fun PlayerScreenBottomSheet(
 @Composable
 fun PlayerContent(
     onCollapse: () -> Unit,
-    onShareClick: () -> Unit,
-    onMoreClick: () -> Unit,
-    onTimerClick: () -> Unit // 👈 3. Terima di Content
+    onTimerClick: () -> Unit
 ) {
     val dimen = rememberWindowDimensions()
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(
-                horizontal = dimen.width * 0.06f,
-                vertical = dimen.getResponsiveHeight(0.02f)
-            ),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        PlayerHeaderSection(
-            modifier = Modifier.fillMaxWidth(),
-            onCollapse = onCollapse,
-            onMoreClick = onMoreClick
-        )
+    // State internal agar tetap di dalam Player
+    var showMoreMenu by remember { mutableStateOf(false) }
+    var showShareSheet by remember { mutableStateOf(false) }
 
-        Spacer(modifier = Modifier.weight(1f))
-
-        PlayerArtworkSection(
+    Box(modifier = Modifier.fillMaxSize()) {
+        Column(
             modifier = Modifier
-                .fillMaxWidth()
-                .aspectRatio(1f)
-                .padding(dimen.width * 0.02f)
-        )
+                .fillMaxSize()
+                .padding(
+                    horizontal = dimen.width * 0.06f,
+                    vertical = dimen.getResponsiveHeight(0.02f)
+                ),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            PlayerHeaderSection(
+                modifier = Modifier.fillMaxWidth(),
+                onCollapse = onCollapse,
+                onMoreClick = { showMoreMenu = true } // 👈 Gunakan state local
+            )
 
-        Spacer(modifier = Modifier.weight(1f))
+            Spacer(modifier = Modifier.weight(1f))
 
-        PlayerInfoSection(
-            modifier = Modifier.fillMaxWidth()
-        )
+            PlayerArtworkSection(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .aspectRatio(1f)
+                    .padding(dimen.width * 0.02f)
+            )
 
-        Spacer(modifier = Modifier.height(dimen.getResponsiveHeight(0.03f)))
+            Spacer(modifier = Modifier.weight(1f))
 
-        PlayerSeekBarSection()
+            PlayerInfoSection(modifier = Modifier.fillMaxWidth())
 
-        Spacer(modifier = Modifier.height(dimen.getResponsiveHeight(0.02f)))
+            Spacer(modifier = Modifier.height(dimen.getResponsiveHeight(0.03f)))
 
-        // 👇 4. Pasang Callback di PlayerControlsSection
-        PlayerControlsSection(
-            onTimerClick = onTimerClick
-        )
+            PlayerSeekBarSection()
 
-        Spacer(modifier = Modifier.height(dimen.getResponsiveHeight(0.04f)))
+            Spacer(modifier = Modifier.height(dimen.getResponsiveHeight(0.02f)))
 
-        PlayerFooterActionsSection(
-            onShareClick = onShareClick
-        )
+            PlayerControlsSection(onTimerClick = onTimerClick)
 
-        Spacer(modifier = Modifier.height(dimen.getResponsiveHeight(0.02f)))
+            Spacer(modifier = Modifier.height(dimen.getResponsiveHeight(0.04f)))
+
+            PlayerFooterActionsSection(
+                onShareClick = { showShareSheet = true } // 👈 Gunakan state local
+            )
+
+            Spacer(modifier = Modifier.height(dimen.getResponsiveHeight(0.02f)))
+        }
+
+        // --- OVERLAY SECTION ---
+
+        if (showMoreMenu) {
+            MoreMenuBottomSheet(
+                onDismissRequest = { showMoreMenu = false }
+            )
+        }
+
+        if (showShareSheet) {
+            // 👈 Gunakan BottomSheet wrapper agar efeknya sama dengan More Menu
+            ShareScreenBottomSheet(
+                onDismissRequest = { showShareSheet = false },
+                onBackClick = { showShareSheet = false }
+            )
+        }
     }
 }

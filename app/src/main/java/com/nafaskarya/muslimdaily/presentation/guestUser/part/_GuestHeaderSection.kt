@@ -11,15 +11,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.TextGray
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.TextWhite
 import com.nafaskarya.muslimdaily.presentation.core.utils.windows.WindowDimensions
-
-private val TextWhite = Color(0xFFEEEEEE)
-private val TextGray = Color(0xFFAAAAAA)
 
 @Composable
 fun GuestHeaderSection(
@@ -44,7 +42,7 @@ fun GuestHeaderSection(
                     .semantics { contentDescription = "Profile Button" }
                     .clickable { onProfileClick() },
                 shape = CircleShape,
-                color = Color.LightGray
+                color = TextGray
             ) {}
 
             Spacer(modifier = Modifier.width(16.dp))
