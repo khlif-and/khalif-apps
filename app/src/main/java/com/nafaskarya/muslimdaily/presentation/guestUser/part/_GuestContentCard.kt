@@ -1,18 +1,14 @@
 package com.nafaskarya.muslimdaily.presentation.guestUser.part
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
@@ -25,8 +21,9 @@ import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.TextG
 import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.TextWhite
 import com.skydoves.landscapist.ImageOptions
 import com.skydoves.landscapist.animation.crossfade.CrossfadePlugin
-import com.skydoves.landscapist.coil3.CoilImage
+import com.skydoves.landscapist.coil.CoilImage
 import com.skydoves.landscapist.components.rememberImageComponent
+import com.skydoves.landscapist.placeholder.shimmer.ShimmerPlugin
 
 @Composable
 fun GuestContentCard(
@@ -35,6 +32,7 @@ fun GuestContentCard(
     onClick: (ContentItem) -> Unit
 ) {
     val cardWidth = screenWidth * 0.4f
+    val imageRequest = remember(item.imageRes) { { item.imageRes } }
 
     Column(
         modifier = Modifier
@@ -49,13 +47,15 @@ fun GuestContentCard(
             colors = CardDefaults.cardColors(containerColor = SurfaceDark)
         ) {
             CoilImage(
-                imageModel = { item.imageRes },
+                imageModel = imageRequest,
                 modifier = Modifier.fillMaxSize(),
                 imageOptions = ImageOptions(
-                    contentScale = ContentScale.Crop
+                    contentScale = ContentScale.Crop,
+                    alignment = Alignment.Center
                 ),
                 component = rememberImageComponent {
-                    +CrossfadePlugin(duration = 450)
+                    +CrossfadePlugin(duration = 250)
+                    +ShimmerPlugin()
                 }
             )
         }
