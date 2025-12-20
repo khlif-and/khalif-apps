@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Khalif Apps</string>
+    <string name="label_email">Email</string>
+    <string name="placeholder_email">jance@gmail.com</string>
+    <string name="label_password">Password</string>
+    <string name="placeholder_password">••••••••</string>
+    <string name="forgot_password">Lupa kata sandi?</string>
+    <string name="desc_toggle_password">Toggle Password</string>
 </resources>

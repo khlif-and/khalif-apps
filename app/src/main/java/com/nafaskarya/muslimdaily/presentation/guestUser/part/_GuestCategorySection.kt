@@ -44,6 +44,4 @@ fun GuestCategorySection(dimen: WindowDimensions) {
             }
         }
     }
-
-    Spacer(modifier = Modifier.height(24.dp))
 }

@@ -17,9 +17,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
+import com.nafaskarya.muslimdaily.R
 import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.BorderColor
 import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.GreenPrimary
 import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.TextGray
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.TextWhite
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -39,11 +42,10 @@ fun LoginForm(
             .fillMaxWidth()
             .padding(horizontal = 2.dp)
     ) {
-        // === EMAIL FIELD ===
         Text(
-            text = "Email",
+            text = stringResource(R.string.label_email),
             fontSize = 17.sp,
-            color = Color.White,
+            color = TextWhite,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(bottom = 10.dp)
         )
@@ -53,8 +55,8 @@ fun LoginForm(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(58.dp),
-            placeholder = { Text("jance@gmail.com", color = TextGray, fontSize = 15.sp) },
-            shape = RoundedCornerShape(5.dp), // 🔥 radius 5dp
+            placeholder = { Text(stringResource(R.string.placeholder_email), color = TextGray, fontSize = 15.sp) },
+            shape = RoundedCornerShape(5.dp),
             colors = OutlinedTextFieldDefaults.colors(
                 unfocusedBorderColor = BorderColor,
                 focusedBorderColor = GreenPrimary,
@@ -69,11 +71,10 @@ fun LoginForm(
 
         Spacer(modifier = Modifier.height(28.dp))
 
-        // === PASSWORD FIELD ===
         Text(
-            text = "Password",
+            text = stringResource(R.string.label_password),
             fontSize = 17.sp,
-            color = Color.White,
+            color = TextWhite,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(bottom = 10.dp)
         )
@@ -84,8 +85,8 @@ fun LoginForm(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(58.dp),
-            placeholder = { Text("••••••••", color = TextGray, fontSize = 15.sp) },
-            shape = RoundedCornerShape(10.dp), // 🔥 radius 5dp
+            placeholder = { Text(stringResource(R.string.placeholder_password), color = TextGray, fontSize = 15.sp) },
+            shape = RoundedCornerShape(10.dp),
             colors = OutlinedTextFieldDefaults.colors(
                 unfocusedBorderColor = BorderColor,
                 focusedBorderColor = GreenPrimary,
@@ -98,16 +99,15 @@ fun LoginForm(
                 IconButton(onClick = { passwordVisible = !passwordVisible }) {
                     Icon(
                         imageVector = if (passwordVisible) Icons.Default.Visibility else Icons.Default.VisibilityOff,
-                        contentDescription = "Toggle Password",
+                        contentDescription = stringResource(R.string.desc_toggle_password),
                         tint = TextGray
                     )
                 }
             }
         )
 
-        // === LUPA PASSWORD ===
         Text(
-            text = "Lupa kata sandi?",
+            text = stringResource(R.string.forgot_password),
             fontSize = 14.sp,
             color = GreenPrimary,
             fontWeight = FontWeight.SemiBold,
