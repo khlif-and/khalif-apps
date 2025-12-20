@@ -38,26 +38,25 @@ fun GuestScreen(navController: NavController) {
     val density = LocalDensity.current
     val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
 
-    // Tinggi maksimal header (Header + Category + Spacing) dalam DP
     val headerHeightDp = 210.dp
     val headerHeightPx = with(density) { headerHeightDp.toPx() }
 
-    // State untuk mengontrol offset (perpindahan) secara halus
     var topBarOffsetHeightPx by remember { mutableStateOf(0f) }
+    var showPlayer by remember { mutableStateOf(false) }
+    var showSleepTimer by remember { mutableStateOf(false) }
 
     val nestedScrollConnection = remember {
         object : NestedScrollConnection {
             override fun onPreScroll(available: Offset, source: NestedScrollSource): Offset {
                 val delta = available.y
                 val newOffset = topBarOffsetHeightPx + delta
-                // Membatasi agar offset tidak lebih dari 0 dan tidak kurang dari minus tinggi header
                 topBarOffsetHeightPx = newOffset.coerceIn(-headerHeightPx, 0f)
                 return Offset.Zero
             }
         }
     }
 
-    val scrimAlpha by calculateScrimAlpha(sheetState, true)
+    val scrimAlpha by calculateScrimAlpha(sheetState, showPlayer)
 
     Box(
         modifier = Modifier
@@ -65,7 +64,6 @@ fun GuestScreen(navController: NavController) {
             .background(ColorConstant.BackgroundDark)
             .nestedScroll(nestedScrollConnection)
     ) {
-        // Konten Utama
         Scaffold(containerColor = ColorConstant.BackgroundDark) { paddingValues ->
             LazyColumn(
                 modifier = Modifier
@@ -73,21 +71,17 @@ fun GuestScreen(navController: NavController) {
                     .padding(paddingValues),
                 contentPadding = PaddingValues(bottom = 160.dp)
             ) {
-                // Spacer ini harus sama dengan tinggi header agar konten awal tidak tertutup
                 item { Spacer(modifier = Modifier.height(headerHeightDp)) }
 
-                guestMainContentPart(dimen) { /* showPlayer logic */ }
+                guestMainContentPart(dimen) { showPlayer = true }
                 guestDiscoveryPart(navController)
             }
         }
 
-        // --- TOP SECTION (Efek Tertelan) ---
-        // Kita menggunakan Modifier.offset dan graphicsLayer untuk efek halus
         Box(
             modifier = Modifier
                 .offset { IntOffset(x = 0, y = topBarOffsetHeightPx.roundToInt()) }
                 .graphicsLayer {
-                    // Efek "Tertelan": Semakin ke atas, semakin transparan
                     alpha = 1f + (topBarOffsetHeightPx / headerHeightPx)
                 }
                 .background(ColorConstant.BackgroundDark)
@@ -102,18 +96,35 @@ fun GuestScreen(navController: NavController) {
             }
         }
 
-        // Footer Section
         Column(modifier = Modifier.align(Alignment.BottomCenter)) {
-            PlayerFooter()
+            Box(modifier = Modifier.clickable { showPlayer = true }) {
+                PlayerFooter()
+            }
             BottomNav()
         }
 
-        // Modal Sheets
-        if (false) { // Placeholder logic player
+        if (showPlayer) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(Color.Black.copy(alpha = scrimAlpha))
+                    .clickable(
+                        interactionSource = remember { MutableInteractionSource() },
+                        indication = null
+                    ) { showPlayer = false }
+            )
+
             PlayerScreenBottomSheet(
                 sheetState = sheetState,
-                onDismissRequest = { },
-                onTimerClick = { }
+                onDismissRequest = { showPlayer = false },
+                onTimerClick = { showSleepTimer = true }
+            )
+        }
+
+        if (showSleepTimer) {
+            SleepTimerBottomSheet(
+                onDismissRequest = { showSleepTimer = false },
+                onTimerSelected = { showSleepTimer = false }
             )
         }
     }
@@ -131,9 +142,9 @@ private fun calculateScrimAlpha(sheetState: SheetState, isVisible: Boolean): Sta
             try {
                 val currentOffset = sheetState.requireOffset()
                 val progress = (currentOffset / screenHeightPx).coerceIn(0f, 1f)
-                ( (1f - progress) * 0.85f).coerceIn(0f, 1f)
+                ((1f - progress) * 0.85f).coerceIn(0f, 1f)
             } catch (e: Exception) {
-                if (isVisible) 0.85f else 0f
+                if (isVisible) 0f else 0f
             }
         }
     }

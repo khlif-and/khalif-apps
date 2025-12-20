@@ -25,6 +25,10 @@ fun PlayerScreenBottomSheet(
 ) {
     val scope = rememberCoroutineScope()
 
+    LaunchedEffect(Unit) {
+        sheetState.show()
+    }
+
     ModalBottomSheet(
         onDismissRequest = onDismissRequest,
         sheetState = sheetState,
@@ -33,7 +37,6 @@ fun PlayerScreenBottomSheet(
         dragHandle = null,
         modifier = modifier
     ) {
-        // PERBAIKAN: PlayerContent sekarang tidak butuh callback Share/More dari luar
         PlayerContent(
             onCollapse = {
                 scope.launch { sheetState.hide() }.invokeOnCompletion {
@@ -54,7 +57,6 @@ fun PlayerContent(
 ) {
     val dimen = rememberWindowDimensions()
 
-    // State internal agar tetap di dalam Player
     var showMoreMenu by remember { mutableStateOf(false) }
     var showShareSheet by remember { mutableStateOf(false) }
 
@@ -71,7 +73,7 @@ fun PlayerContent(
             PlayerHeaderSection(
                 modifier = Modifier.fillMaxWidth(),
                 onCollapse = onCollapse,
-                onMoreClick = { showMoreMenu = true } // 👈 Gunakan state local
+                onMoreClick = { showMoreMenu = true }
             )
 
             Spacer(modifier = Modifier.weight(1f))
@@ -98,13 +100,11 @@ fun PlayerContent(
             Spacer(modifier = Modifier.height(dimen.getResponsiveHeight(0.04f)))
 
             PlayerFooterActionsSection(
-                onShareClick = { showShareSheet = true } // 👈 Gunakan state local
+                onShareClick = { showShareSheet = true }
             )
 
             Spacer(modifier = Modifier.height(dimen.getResponsiveHeight(0.02f)))
         }
-
-        // --- OVERLAY SECTION ---
 
         if (showMoreMenu) {
             MoreMenuBottomSheet(
@@ -113,7 +113,6 @@ fun PlayerContent(
         }
 
         if (showShareSheet) {
-            // 👈 Gunakan BottomSheet wrapper agar efeknya sama dengan More Menu
             ShareScreenBottomSheet(
                 onDismissRequest = { showShareSheet = false },
                 onBackClick = { showShareSheet = false }

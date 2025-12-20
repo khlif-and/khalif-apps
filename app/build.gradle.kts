@@ -52,13 +52,13 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_18
+        targetCompatibility = JavaVersion.VERSION_18
         isCoreLibraryDesugaringEnabled = true
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "18"
     }
 
     buildFeatures {
@@ -68,7 +68,6 @@ android {
 }
 
 dependencies {
-    // Core & Material
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -76,7 +75,6 @@ dependencies {
     implementation(libs.androidx.profileinstaller)
     "baselineProfile"(project(":baselineprofile"))
 
-    // Compose
     val composeBom = platform(libs.androidx.compose.bom)
     implementation(composeBom)
     androidTestImplementation(composeBom)
@@ -85,50 +83,38 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     debugImplementation(libs.androidx.ui.tooling)
 
-    // 👇 Material 3 (Versi 1.3.0 diambil dari libs.versions.toml)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.material3.windowSizeClass)
     implementation(libs.androidx.material.icons.extended)
 
-    // 👇 Foundation sudah otomatis dihandle oleh BOM, tidak perlu ditulis manual
-    // implementation("androidx.compose.foundation:foundation:1.6.5") <- HAPUS INI
-
-    // Activity, Lifecycle, Navigation
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.navigation.compose)
 
-    // Data
     implementation(libs.androidx.datastore.preferences)
     implementation(libs.protobuf.javalite)
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
-    implementation(libs.logging.interceptor)
     implementation(libs.kotlinx.serialization.json)
 
-    // Coroutines & Location
     implementation(libs.kotlinx.coroutines.play.services)
     implementation(libs.play.services.location)
 
-    // Utility & UI Helpers
     implementation(libs.coil.compose)
     implementation(libs.coil.gif)
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.shimmer)
     implementation(libs.timber)
 
-    // 👇 Landscapist Coil (Diambil dari libs.versions.toml)
     implementation(libs.landscapist.coil)
+    implementation(libs.landscapist.animation)
 
-    // Worker
     implementation(libs.androidx.work.runtime.ktx)
 
-    // Desugaring
     coreLibraryDesugaring(libs.desugar.jdk.libs)
 
-    // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
