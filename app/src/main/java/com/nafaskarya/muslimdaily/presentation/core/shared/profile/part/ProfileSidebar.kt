@@ -3,6 +3,7 @@ package com.nafaskarya.muslimdaily.presentation.core.shared.profile.part
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material.icons.outlined.Edit
@@ -16,34 +17,37 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.nafaskarya.muslimdaily.presentation.core.utils.windows.WindowDimensions
+import com.nafaskarya.muslimdaily.presentation.core.utils.windows.rememberWindowDimensions
 
 @Composable
 fun ProfileSidebar(
     modifier: Modifier = Modifier
 ) {
+    val dimen = rememberWindowDimensions()
+
     Column(
         modifier = modifier
             .fillMaxSize()
             .background(Color(0xFF121212))
             .padding(horizontal = 16.dp)
     ) {
-        Spacer(modifier = Modifier.height(48.dp))
+        Spacer(modifier = Modifier.height(dimen.getResponsiveHeight(0.06f)))
 
         Row(
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(vertical = 16.dp)
+            modifier = Modifier.padding(vertical = dimen.getResponsiveHeight(0.02f))
         ) {
             Surface(
                 shape = CircleShape,
                 color = Color(0xFF7D583F),
-                modifier = Modifier.size(56.dp)
+                modifier = Modifier.size(dimen.width * 0.14f)
             ) {
                 Box(contentAlignment = Alignment.Center) {
                     Text(
                         text = "K",
                         color = Color.White,
-                        fontSize = 24.sp,
+                        fontSize = dimen.getResponsiveTextSize(0.06f, min = 18f, max = 24f),
                         fontWeight = FontWeight.Bold
                     )
                 }
@@ -53,23 +57,23 @@ fun ProfileSidebar(
                 Text(
                     text = "khalif",
                     color = Color.White,
-                    fontSize = 20.sp,
+                    fontSize = dimen.getResponsiveTextSize(0.05f, min = 16f, max = 20f),
                     fontWeight = FontWeight.Bold
                 )
                 Text(
                     text = "View profile",
                     color = Color.Gray,
-                    fontSize = 14.sp
+                    fontSize = dimen.getResponsiveTextSize(0.035f, min = 12f, max = 14f)
                 )
             }
         }
 
         HorizontalDivider(color = Color.DarkGray, thickness = 0.5.dp)
 
-        SidebarMenuItem(icon = Icons.Default.Add, label = "Add account")
-        SidebarMenuItem(icon = Icons.Default.ElectricBolt, label = "What's new")
-        SidebarMenuItem(icon = Icons.Outlined.History, label = "Recents")
-        SidebarMenuItem(icon = Icons.Outlined.Settings, label = "Settings and privacy")
+        SidebarMenuItem(dimen, Icons.Default.Add, "Add account")
+        SidebarMenuItem(dimen, Icons.Default.ElectricBolt, "What's new")
+        SidebarMenuItem(dimen, Icons.Outlined.History, "Recents")
+        SidebarMenuItem(dimen, Icons.Outlined.Settings, "Settings and privacy")
 
         HorizontalDivider(
             color = Color.DarkGray,
@@ -80,16 +84,16 @@ fun ProfileSidebar(
         Text(
             text = "Messages",
             color = Color.White,
-            fontSize = 22.sp,
+            fontSize = dimen.getResponsiveTextSize(0.055f, min = 18f, max = 22f),
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(vertical = 12.dp)
+            modifier = Modifier.padding(vertical = dimen.getResponsiveHeight(0.015f))
         )
 
         Text(
             text = "Share what you love with friends, right on Muslim Daily.",
             color = Color.Gray,
-            fontSize = 14.sp,
-            modifier = Modifier.padding(bottom = 20.dp)
+            fontSize = dimen.getResponsiveTextSize(0.035f, min = 12f, max = 14f),
+            modifier = Modifier.padding(bottom = dimen.getResponsiveHeight(0.025f))
         )
 
         Row(
@@ -97,15 +101,15 @@ fun ProfileSidebar(
             modifier = Modifier.fillMaxWidth()
         ) {
             Surface(
-                shape = androidx.compose.foundation.shape.RoundedCornerShape(8.dp),
+                shape = RoundedCornerShape(8.dp),
                 color = Color(0xFF282828),
-                modifier = Modifier.size(48.dp)
+                modifier = Modifier.size(dimen.width * 0.12f)
             ) {
                 Box(contentAlignment = Alignment.Center) {
                     Icon(
                         imageVector = Icons.Outlined.Edit,
                         contentDescription = null,
-                        modifier = Modifier.size(24.dp),
+                        modifier = Modifier.size(dimen.width * 0.06f),
                         tint = Color.White
                     )
                 }
@@ -114,7 +118,7 @@ fun ProfileSidebar(
             Text(
                 text = "New message",
                 color = Color.White,
-                fontSize = 16.sp,
+                fontSize = dimen.getResponsiveTextSize(0.04f, min = 14f, max = 16f),
                 fontWeight = FontWeight.Medium
             )
         }
@@ -123,6 +127,7 @@ fun ProfileSidebar(
 
 @Composable
 private fun SidebarMenuItem(
+    dimen: WindowDimensions,
     icon: ImageVector,
     label: String
 ) {
@@ -130,19 +135,19 @@ private fun SidebarMenuItem(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 16.dp)
+            .padding(vertical = dimen.getResponsiveHeight(0.02f))
     ) {
         Icon(
             imageVector = icon,
             contentDescription = null,
-            modifier = Modifier.size(28.dp),
+            modifier = Modifier.size(dimen.width * 0.07f),
             tint = Color.White
         )
         Spacer(modifier = Modifier.width(20.dp))
         Text(
             text = label,
             color = Color.White,
-            fontSize = 16.sp,
+            fontSize = dimen.getResponsiveTextSize(0.04f, min = 14f, max = 16f),
             fontWeight = FontWeight.Medium
         )
     }

@@ -1,96 +1,91 @@
 package com.nafaskarya.muslimdaily.presentation.core.components.menuSection
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.TrendingUp
-import androidx.compose.material.icons.outlined.EmojiEmotions
-import androidx.compose.material.icons.outlined.NewReleases
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.TextUnit
+import com.nafaskarya.muslimdaily.R
+import com.nafaskarya.muslimdaily.presentation.core.components.menuSection.molecules.ExploreCard
+import com.nafaskarya.muslimdaily.presentation.core.components.menuSection.part.MENU_ITEMS
 import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant
+import com.nafaskarya.muslimdaily.presentation.core.constant.Dimens
+import com.nafaskarya.muslimdaily.presentation.core.utils.windows.WindowDimensions
 
 @Composable
 fun MenuSection(
+    dimen: WindowDimensions,
+    onMenuClick: (String) -> Unit = {},
     modifier: Modifier = Modifier
 ) {
+    val layoutInfo = remember(dimen) {
+        MenuLayoutInfo(
+            horizontalPadding = dimen.width * 0.05f,
+            titleSize = dimen.getResponsiveTextSize(0.06f, min = 20f, max = 28f),
+            cardWidth = dimen.width * 0.26f
+        )
+    }
+
     Column(
         modifier = modifier
             .fillMaxWidth()
             .background(ColorConstant.BackgroundDark)
-            .padding(16.dp)
+            .padding(top = Dimens.PaddingLarge) // Hapus vertical, ganti top saja agar bottom diatur Spacer
     ) {
         Text(
-            text = "Explore",
-            style = MaterialTheme.typography.headlineSmall,
+            text = stringResource(R.string.menu_section_title),
+            fontSize = layoutInfo.titleSize,
             color = ColorConstant.TextWhite,
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(bottom = 16.dp)
+            modifier = Modifier.padding(
+                start = layoutInfo.horizontalPadding,
+                bottom = Dimens.PaddingLarge
+            )
         )
 
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(12.dp)
+        LazyRow(
+            contentPadding = PaddingValues(horizontal = layoutInfo.horizontalPadding),
+            horizontalArrangement = Arrangement.spacedBy(Dimens.PaddingSemiLarge)
         ) {
-            ExploreCard(
-                icon = Icons.Outlined.NewReleases,
-                label = "New\nreleases",
-                modifier = Modifier.weight(1f)
-            )
-            ExploreCard(
-                icon = Icons.AutoMirrored.Filled.TrendingUp,
-                label = "Charts",
-                modifier = Modifier.weight(1f)
-            )
-            ExploreCard(
-                icon = Icons.Outlined.EmojiEmotions,
-                label = "Moods &\ngenres",
-                modifier = Modifier.weight(1f)
-            )
+            items(
+                items = MENU_ITEMS,
+                key = { it.labelRes },
+                contentType = { "menu_item" }
+            ) { item ->
+
+                val label = stringResource(item.labelRes)
+
+                ExploreCard(
+                    icon = item.icon,
+                    label = label,
+                    width = layoutInfo.cardWidth,
+                    onClick = { onMenuClick(label) }
+                )
+            }
         }
+
+        // Penambahan Jarak di Bawah
+        Spacer(modifier = Modifier.height(dimen.getResponsiveHeight(0.03f)))
     }
 }
 
-@Composable
-fun ExploreCard(
-    icon: ImageVector,
-    label: String,
-    modifier: Modifier = Modifier
-) {
-    Box(
-        modifier = modifier
-            .aspectRatio(1f)
-            .background(
-                color = ColorConstant.ProfileSurface,
-                shape = RoundedCornerShape(12.dp)
-            )
-            .padding(12.dp)
-    ) {
-        Icon(
-            imageVector = icon,
-            contentDescription = null,
-            tint = ColorConstant.TextWhite,
-            modifier = Modifier
-                .size(28.dp)
-                .align(Alignment.TopStart)
-        )
-
-        Text(
-            text = label,
-            color = ColorConstant.TextWhite,
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Medium,
-            lineHeight = 18.sp,
-            modifier = Modifier.align(Alignment.BottomStart)
-        )
-    }
-}
+@Immutable
+private data class MenuLayoutInfo(
+    val horizontalPadding: Dp,
+    val titleSize: TextUnit,
+    val cardWidth: Dp
+)
