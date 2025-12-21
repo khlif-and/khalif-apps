@@ -1,10 +1,59 @@
 <resources>
     <string name="app_name">Khalif Apps</string>
+
     <string name="label_email">Email</string>
     <string name="placeholder_email">jance@gmail.com</string>
     <string name="label_password">Password</string>
     <string name="placeholder_password">••••••••</string>
     <string name="forgot_password">Lupa kata sandi?</string>
     <string name="desc_toggle_password">Toggle Password</string>
+
     <string name="guest_see_all">Lihat semuanya</string>
+
+    <string name="header_user_name">Khalif Siregar</string>
+    <string name="header_user_status">Si Paling Kece</string>
+    <string name="cd_profile_button">Tombol Profil</string>
+    <string name="cd_notifications">Notifikasi</string>
+
+    <string name="category_all">All</string>
+    <string name="category_dakwah">Dakwah</string>
+    <string name="category_kajian">Kajian</string>
+    <string name="category_podcast">Podcast</string>
+    <string name="category_murottal">Murottal</string>
+
+    <string name="menu_section_title">Pustaka</string>
+    <string name="menu_quran">Al-Qur\'an</string>
+    <string name="menu_hadits">Hadits</string>
+    <string name="menu_kitab">Kitab\nKlasik</string>
+    <string name="menu_nabi">Kisah\nNabi</string>
+    <string name="menu_doa">Doa-Doa</string>
+    <string name="menu_lainnya">Lainnya</string>
+
+    <string name="title_section_gen_z">Lagi Gen Z banget</string>
+    <string name="title_section_trending">Sedang Trending 🔥</string>
+
+    <string name="item_gen_z_1_title">Galau Moment</string>
+    <string name="item_gen_z_1_desc">Kajian buat Gen Z yang lagi galau 😔🫰</string>
+
+    <string name="item_gen_z_2_title">Hijrah Kuy</string>
+    <string name="item_gen_z_2_desc">Hijrah yuk biar hidup makin barokah ✨</string>
+
+    <string name="item_gen_z_3_title">Pengen Tobat</string>
+    <string name="item_gen_z_3_desc">Kadang pengen mulai lagi dari nol, tanpa dosa yang sama.</string>
+
+    <string name="item_gen_z_4_title">Gaul Vibes</string>
+    <string name="item_gen_z_4_desc">Santai boleh, tapi iman jangan libur 😎</string>
+
+    <string name="item_trend_1_title">Ustadz Hanan</string>
+    <string name="item_trend_1_desc">Pembahasan tentang jodoh dan takdir.</string>
+
+    <string name="item_trend_2_title">Healing Hati</string>
+    <string name="item_trend_2_desc">Obat hati yang sedang gelisah.</string>
+
+    <string name="item_trend_3_title">Parenting</string>
+    <string name="item_trend_3_desc">Cara mendidik anak ala Rasulullah.</string>
+
+    <string name="item_trend_4_title">Sejarah Islam</string>
+    <string name="item_trend_4_desc">Kisah para sahabat nabi yang inspiratif.</string>
+
 </resources>
