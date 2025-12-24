@@ -9,6 +9,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
@@ -30,7 +31,6 @@ fun CommonContentCard(
     modifier: Modifier = Modifier
 ) {
     val density = LocalDensity.current
-
     val cardWidthDp = dimen.width * 0.4f
 
     val sizeInPx = remember(cardWidthDp, density) {
@@ -41,7 +41,12 @@ fun CommonContentCard(
         modifier = modifier
             .width(cardWidthDp)
             .padding(end = Dimens.PaddingMedium)
-            .clickable { onClick() }
+            .graphicsLayer {
+                // OPTIMASI: Render sebagai layer tekstur terpisah
+                // Ini mencegah redraw ulang parent saat ripple effect terjadi
+                clip = false
+            }
+            .clickable(onClick = onClick)
     ) {
         Card(
             shape = RoundedCornerShape(Dimens.RadiusSmall),
@@ -65,6 +70,7 @@ fun CommonContentCard(
 
         Spacer(modifier = Modifier.height(Dimens.PaddingSmall))
 
+        // Text optimization: Text juga bisa berat, pastikan modifier seminimal mungkin
         Text(
             text = title,
             color = ColorConstant.TextWhite,
