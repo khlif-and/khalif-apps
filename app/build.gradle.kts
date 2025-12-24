@@ -73,6 +73,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.window)
     implementation(libs.androidx.profileinstaller)
+    implementation(libs.firebase.ai)
     "baselineProfile"(project(":baselineprofile"))
 
     val composeBom = platform(libs.androidx.compose.bom)

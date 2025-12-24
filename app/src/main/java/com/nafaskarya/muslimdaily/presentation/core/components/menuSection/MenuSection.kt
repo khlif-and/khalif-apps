@@ -10,10 +10,14 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -26,12 +30,15 @@ import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant
 import com.nafaskarya.muslimdaily.presentation.core.constant.Dimens
 import com.nafaskarya.muslimdaily.presentation.core.utils.windows.WindowDimensions
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MenuSection(
     dimen: WindowDimensions,
     onMenuClick: (String) -> Unit = {},
     modifier: Modifier = Modifier
 ) {
+    var showMoreMenu by remember { mutableStateOf(false) }
+
     val layoutInfo = remember(dimen) {
         MenuLayoutInfo(
             horizontalPadding = dimen.width * 0.05f,
@@ -44,7 +51,7 @@ fun MenuSection(
         modifier = modifier
             .fillMaxWidth()
             .background(ColorConstant.BackgroundDark)
-            .padding(top = Dimens.PaddingLarge) // Hapus vertical, ganti top saja agar bottom diatur Spacer
+            .padding(top = Dimens.PaddingLarge)
     ) {
         Text(
             text = stringResource(R.string.menu_section_title),
@@ -73,13 +80,25 @@ fun MenuSection(
                     icon = item.icon,
                     label = label,
                     width = layoutInfo.cardWidth,
-                    onClick = { onMenuClick(label) }
+                    onClick = {
+                        if (item.labelRes == R.string.menu_lainnya) {
+                            showMoreMenu = true
+                        } else {
+                            onMenuClick(label)
+                        }
+                    }
                 )
             }
         }
 
-        // Penambahan Jarak di Bawah
         Spacer(modifier = Modifier.height(dimen.getResponsiveHeight(0.03f)))
+    }
+
+    if (showMoreMenu) {
+        MoreMenuSheet(
+            onDismissRequest = { showMoreMenu = false },
+            onMenuClick = onMenuClick
+        )
     }
 }
 

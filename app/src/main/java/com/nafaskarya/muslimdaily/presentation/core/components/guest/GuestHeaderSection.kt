@@ -1,93 +1,135 @@
 package com.nafaskarya.muslimdaily.presentation.core.components.guest
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Notifications
-import androidx.compose.material3.Icon
-import androidx.compose.material3.Surface
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.TextGray
-import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.TextWhite
+import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant
 import com.nafaskarya.muslimdaily.presentation.core.constant.Dimens
 import com.nafaskarya.muslimdaily.presentation.core.utils.windows.WindowDimensions
 
-private val ProfileButtonShape = CircleShape
-private val ProfileSize = 50.dp
-private val NotificationIconSize = 28.dp
-
 @Composable
 fun GuestHeaderSection(
+    modifier: Modifier = Modifier,
     dimen: WindowDimensions,
     onProfileClick: () -> Unit
 ) {
-    val layoutParams = remember(dimen.width) {
-        object {
-            val horizontalPadding = dimen.width * 0.05f
-            val nameSize = dimen.getResponsiveTextSize(0.045f, min = 16f, max = 24f)
-            val emailSize = dimen.getResponsiveTextSize(0.035f, min = 12f, max = 16f)
-        }
-    }
+    val items = List(6) { "Semua" }
+    val backgroundColor = ColorConstant.BackgroundDark
 
-    val onNotificationClick = remember { {} }
+    // Warna Active Orange
+    val activeColor = Color(0xFFFF6F00)
+
+    var selectedIndex by remember { mutableIntStateOf(0) }
 
     Row(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
-            .padding(horizontal = layoutParams.horizontalPadding, vertical = Dimens.PaddingXLarge),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween
+            .background(backgroundColor)
+            .padding(
+                start = Dimens.PaddingXLarge,
+                top = Dimens.PaddingSmall,
+                bottom = Dimens.PaddingLarge
+            ),
+        verticalAlignment = Alignment.CenterVertically
     ) {
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Surface(
-                modifier = Modifier
-                    .size(ProfileSize)
-                    .semantics { contentDescription = "Profile Button" }
-                    .clickable(onClick = onProfileClick),
-                shape = ProfileButtonShape,
-                color = TextGray
-            ) {}
-
-            Spacer(modifier = Modifier.width(Dimens.PaddingLarge))
-
-            Column {
-                Text(
-                    text = "Khalif Siregar",
-                    fontSize = layoutParams.nameSize,
-                    fontWeight = FontWeight.Bold,
-                    color = TextWhite
-                )
-                Text(
-                    text = "Si Paling Kece",
-                    fontSize = layoutParams.emailSize,
-                    color = TextGray
-                )
-            }
-        }
-
-        Icon(
-            imageVector = Icons.Default.Notifications,
-            contentDescription = "Notifications",
-            tint = TextWhite,
+        Box(
             modifier = Modifier
-                .size(NotificationIconSize)
-                .clickable(onClick = onNotificationClick)
+                .size(48.dp)
+                .clip(CircleShape)
+                .background(ColorConstant.TextGray)
+                .clickable { onProfileClick() }
         )
+
+        Spacer(modifier = Modifier.width(Dimens.PaddingSemiLarge))
+
+        Box(
+            modifier = Modifier.weight(1f)
+        ) {
+            LazyRow(
+                horizontalArrangement = Arrangement.spacedBy(Dimens.PaddingMedium),
+                modifier = Modifier.fillMaxWidth(),
+                contentPadding = PaddingValues(
+                    end = Dimens.PaddingLarge,
+                    start = 0.dp
+                )
+            ) {
+                item {
+                    Spacer(modifier = Modifier.width(Dimens.PaddingMedium))
+                }
+
+                itemsIndexed(items) { index, item ->
+                    val isSelected = index == selectedIndex
+
+                    // LOGIC DISAMAKAN SEMUA:
+                    // Jika Selected -> Orange Full
+                    // Jika Tidak -> Surface Gelap
+                    val boxBackground = if (isSelected) activeColor else ColorConstant.ProfileSurface
+
+                    Box(
+                        modifier = Modifier
+                            // HAPUS LOGIC BORDER/STROKE
+                            .background(
+                                color = boxBackground,
+                                shape = RoundedCornerShape(20.dp)
+                            )
+                            .clip(RoundedCornerShape(20.dp))
+                            .clickable { selectedIndex = index }
+                            .padding(
+                                horizontal = Dimens.PaddingLarge,
+                                vertical = Dimens.PaddingMedium
+                            ),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = item,
+                            color = ColorConstant.TextWhite,
+                            fontSize = Dimens.TextBody
+                        )
+                    }
+                }
+            }
+
+            Box(
+                modifier = Modifier
+                    .width(Dimens.PaddingXLarge)
+                    .fillMaxHeight()
+                    .height(40.dp)
+                    .align(Alignment.CenterStart)
+                    .background(
+                        brush = Brush.horizontalGradient(
+                            colors = listOf(
+                                backgroundColor,
+                                Color.Transparent
+                            )
+                        )
+                    )
+            )
+        }
     }
 }
