@@ -11,9 +11,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Density
+import androidx.compose.ui.unit.dp
+import com.nafaskarya.muslimdaily.presentation.core.state.GuestScreenState
 import com.nafaskarya.muslimdaily.presentation.core.utils.windows.WindowDimensions
 import com.nafaskarya.muslimdaily.presentation.core.utils.windows.rememberWindowDimensions
-import com.nafaskarya.muslimdaily.presentation.core.state.GuestScreenState
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -25,6 +26,8 @@ fun rememberGuestScreenState(
     val interactionSource = remember { MutableInteractionSource() }
     val isSidebarOpen = remember { mutableStateOf(false) }
 
+    val headerHeight = 210.dp
+    val headerHeightPx = with(density) { headerHeight.toPx() }
     val sidebarWidthPx = with(density) { (dimen.width * 0.8f).toPx() }
 
     val contentTranslationX = animateFloatAsState(
@@ -42,7 +45,8 @@ fun rememberGuestScreenState(
     return remember(dimen, density, sheetState, interactionSource, isSidebarOpen, contentTranslationX, contentScale) {
         GuestScreenState(
             dimen = dimen,
-            density = density,
+            headerHeight = headerHeight,
+            maxHeaderHeightPx = headerHeightPx,
             sheetState = sheetState,
             interactionSource = interactionSource,
             _isSidebarOpen = isSidebarOpen,

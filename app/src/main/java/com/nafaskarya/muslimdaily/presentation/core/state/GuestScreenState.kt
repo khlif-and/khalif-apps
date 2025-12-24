@@ -4,22 +4,25 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.SheetState
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.Stable
 import androidx.compose.runtime.State
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
 import androidx.compose.ui.input.nestedscroll.NestedScrollSource
-import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
 import com.nafaskarya.muslimdaily.presentation.core.utils.windows.WindowDimensions
 
 @OptIn(ExperimentalMaterial3Api::class)
+@Stable
 class GuestScreenState(
     val dimen: WindowDimensions,
-    private val density: Density,
+    val headerHeight: Dp,
+    private val maxHeaderHeightPx: Float,
     val sheetState: SheetState,
     val interactionSource: MutableInteractionSource,
     private val _isSidebarOpen: MutableState<Boolean>,
@@ -28,6 +31,8 @@ class GuestScreenState(
 ) {
     var showPlayer by mutableStateOf(false)
     var showSleepTimer by mutableStateOf(false)
+
+    var topBarOffsetHeightPx by mutableFloatStateOf(0f)
 
     var isSidebarOpen: Boolean
         get() = _isSidebarOpen.value
@@ -39,27 +44,23 @@ class GuestScreenState(
     val contentScale: Float
         get() = _contentScale.value
 
-    private val headerHeightDp = 210.dp
-    private val headerHeightPx = with(density) { headerHeightDp.toPx() }
-    val sidebarWidthPx = with(density) { (dimen.width * 0.8f).toPx() }
-
-    var topBarOffsetHeightPx by mutableStateOf(0f)
+    val headerAlpha by derivedStateOf {
+        val ratio = (maxHeaderHeightPx + topBarOffsetHeightPx) / maxHeaderHeightPx
+        ratio.coerceIn(0f, 1f)
+    }
 
     val nestedScrollConnection = object : NestedScrollConnection {
         override fun onPreScroll(available: Offset, source: NestedScrollSource): Offset {
             if (isSidebarOpen) return Offset.Zero
+
             val delta = available.y
             val newOffset = topBarOffsetHeightPx + delta
-            topBarOffsetHeightPx = newOffset.coerceIn(-headerHeightPx, 0f)
+
+            topBarOffsetHeightPx = newOffset.coerceIn(-maxHeaderHeightPx, 0f)
+
             return Offset.Zero
         }
     }
-
-    val headerAlpha: Float
-        get() = (1f + (topBarOffsetHeightPx / headerHeightPx)).coerceIn(0f, 1f)
-
-    val headerHeight: Dp
-        get() = headerHeightDp
 
     fun toggleSidebar() {
         isSidebarOpen = !isSidebarOpen
