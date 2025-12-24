@@ -1,7 +1,14 @@
 package com.nafaskarya.muslimdaily.presentation.core.components.guest
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Notifications
@@ -9,6 +16,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.contentDescription
@@ -20,29 +28,39 @@ import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.TextW
 import com.nafaskarya.muslimdaily.presentation.core.constant.Dimens
 import com.nafaskarya.muslimdaily.presentation.core.utils.windows.WindowDimensions
 
+private val ProfileButtonShape = CircleShape
+private val ProfileSize = 50.dp
+private val NotificationIconSize = 28.dp
+
 @Composable
 fun GuestHeaderSection(
     dimen: WindowDimensions,
     onProfileClick: () -> Unit
 ) {
-    val horizontalPadding = dimen.width * 0.05f
-    val nameSize = dimen.getResponsiveTextSize(0.045f, min = 16f, max = 24f)
-    val emailSize = dimen.getResponsiveTextSize(0.035f, min = 12f, max = 16f)
+    val layoutParams = remember(dimen.width) {
+        object {
+            val horizontalPadding = dimen.width * 0.05f
+            val nameSize = dimen.getResponsiveTextSize(0.045f, min = 16f, max = 24f)
+            val emailSize = dimen.getResponsiveTextSize(0.035f, min = 12f, max = 16f)
+        }
+    }
+
+    val onNotificationClick = remember { {} }
 
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = horizontalPadding, vertical = Dimens.PaddingXLarge),
+            .padding(horizontal = layoutParams.horizontalPadding, vertical = Dimens.PaddingXLarge),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Surface(
                 modifier = Modifier
-                    .size(50.dp)
+                    .size(ProfileSize)
                     .semantics { contentDescription = "Profile Button" }
-                    .clickable { onProfileClick() },
-                shape = CircleShape,
+                    .clickable(onClick = onProfileClick),
+                shape = ProfileButtonShape,
                 color = TextGray
             ) {}
 
@@ -51,13 +69,13 @@ fun GuestHeaderSection(
             Column {
                 Text(
                     text = "Khalif Siregar",
-                    fontSize = nameSize,
+                    fontSize = layoutParams.nameSize,
                     fontWeight = FontWeight.Bold,
                     color = TextWhite
                 )
                 Text(
                     text = "Si Paling Kece",
-                    fontSize = emailSize,
+                    fontSize = layoutParams.emailSize,
                     color = TextGray
                 )
             }
@@ -68,8 +86,8 @@ fun GuestHeaderSection(
             contentDescription = "Notifications",
             tint = TextWhite,
             modifier = Modifier
-                .size(28.dp)
-                .clickable { }
+                .size(NotificationIconSize)
+                .clickable(onClick = onNotificationClick)
         )
     }
 }
