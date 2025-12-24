@@ -13,6 +13,7 @@ import coil.size.Scale
 object ImageOptimizer {
 
     @Composable
+    // HAPUS @ReadOnlyComposable KARENA KITA BUTUH 'remember'
     fun rememberBrutalImageRequest(
         model: Any?,
         sizePx: Int,
@@ -20,33 +21,23 @@ object ImageOptimizer {
     ): ImageRequest {
         val context = LocalContext.current
 
+        // 'remember' menyimpan hasil build request.
+        // Jika model/size tidak berubah, object lama dipakai lagi (Zero Allocation).
         return remember(model, sizePx, useRgb565) {
-            buildBrutalRequest(context, model, sizePx, useRgb565)
-        }
-    }
-
-    private fun buildBrutalRequest(
-        context: Context,
-        model: Any?,
-        sizePx: Int,
-        useRgb565: Boolean
-    ): ImageRequest {
-        return ImageRequest.Builder(context)
-            .data(model)
-            .size(width = sizePx, height = sizePx)
-            .scale(Scale.FILL)
-            .precision(Precision.EXACT)
-            .apply {
-                if (useRgb565) {
-                    bitmapConfig(Bitmap.Config.RGB_565)
+            ImageRequest.Builder(context)
+                .data(model)
+                .size(sizePx)
+                .scale(Scale.FILL)
+                .precision(Precision.EXACT)
+                .apply {
+                    if (useRgb565) bitmapConfig(Bitmap.Config.RGB_565)
                 }
-            }
-            .allowHardware(true)
-            .memoryCachePolicy(CachePolicy.ENABLED)
-            .diskCachePolicy(CachePolicy.ENABLED)
-            .networkCachePolicy(CachePolicy.ENABLED)
-            .crossfade(true)
-            .crossfade(300)
-            .build()
+                .allowHardware(true)
+                .memoryCachePolicy(CachePolicy.ENABLED)
+                .diskCachePolicy(CachePolicy.ENABLED)
+                .networkCachePolicy(CachePolicy.ENABLED)
+                .crossfade(false) // Penting untuk list: Matikan crossfade biar instant
+                .build()
+        }
     }
 }

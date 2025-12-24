@@ -25,8 +25,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
@@ -34,6 +35,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.nafaskarya.muslimdaily.R
+import com.nafaskarya.muslimdaily.presentation.core.commons.ImageOptimizer
 import com.nafaskarya.muslimdaily.presentation.core.commons.models.CompilationCardModel
 import com.nafaskarya.muslimdaily.presentation.core.commons.models.CompilationModelSubItem
 import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant.TextWhite
@@ -41,6 +43,7 @@ import com.nafaskarya.muslimdaily.presentation.core.shared.card.CircleIconButton
 import com.nafaskarya.muslimdaily.presentation.core.shared.card.GradientRoundedCard
 import com.nafaskarya.muslimdaily.presentation.core.shared.card.PrimaryPillButton
 import com.nafaskarya.muslimdaily.presentation.core.utils.windows.WindowDimensions
+import kotlin.math.roundToInt
 
 private val DefaultGradient = listOf(
     Color(0xFF3E2B2B),
@@ -56,10 +59,18 @@ fun CommonCompilationCard(
 ) {
     val cardWidth = dimen.width * 0.88f
 
+    // Cache lambda untuk tombol like agar tidak alokasi ulang
+    val onLikeClick = remember { {} }
+
     GradientRoundedCard(
         modifier = modifier
             .width(cardWidth)
-            .padding(vertical = 8.dp),
+            .padding(vertical = 8.dp)
+            .graphicsLayer {
+                // Hardware acceleration layer
+                clip = true
+                shape = RoundedCornerShape(16.dp)
+            },
         cornerRadius = 16.dp,
         gradientColors = DefaultGradient
     ) {
@@ -98,8 +109,12 @@ fun CommonCompilationCard(
 
         Spacer(modifier = Modifier.height(20.dp))
 
+        // Gunakan Column biasa karena items sedikit (3), LazyColumn di dalam LazyRow itu ILEGAL & BERAT
         Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
-            data.items.take(3).forEach { item ->
+            val takeAmount = 3
+            val displayItems = remember(data.items) { data.items.take(takeAmount) }
+
+            displayItems.forEach { item ->
                 CompilationSubItemRow(dimen, item)
             }
         }
@@ -118,7 +133,7 @@ fun CommonCompilationCard(
             CircleIconButton(
                 icon = Icons.Outlined.ThumbUp,
                 contentDescription = "Like",
-                onClick = { }
+                onClick = onLikeClick
             )
         }
     }
@@ -126,15 +141,23 @@ fun CommonCompilationCard(
 
 @Composable
 fun CompilationSubItemRow(dimen: WindowDimensions, item: CompilationModelSubItem) {
+    val density = LocalDensity.current
+    val imageSizePx = remember(dimen.width, density) {
+        with(density) { (dimen.width * 0.12f).toPx().roundToInt() }
+    }
+
+    // DISINI PERBAIKANNYA: Pakai ImageOptimizer yang di-remember
+    val imageRequest = ImageOptimizer.rememberBrutalImageRequest(
+        model = item.imageUrl ?: R.drawable.img_onboarding,
+        sizePx = imageSizePx
+    )
+
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier.fillMaxWidth()
     ) {
         AsyncImage(
-            model = ImageRequest.Builder(LocalContext.current)
-                .data(item.imageUrl ?: R.drawable.img_onboarding)
-                .crossfade(true)
-                .build(),
+            model = imageRequest,
             contentDescription = null,
             contentScale = ContentScale.Crop,
             modifier = Modifier
@@ -178,13 +201,16 @@ fun CompilationSubItemRow(dimen: WindowDimensions, item: CompilationModelSubItem
 
 @Composable
 fun CollageCoverImage(size: Dp) {
-    val context = LocalContext.current
-    val imageRequest = remember(context) {
-        ImageRequest.Builder(context)
-            .data(R.drawable.img_onboarding)
-            .crossfade(false)
-            .build()
+    // Kita optimasi agar 4 gambar menggunakan 1 request cache yang sama
+    val density = LocalDensity.current
+    val sizePx = remember(size, density) {
+        with(density) { (size.value / 2).toInt() } // Bagi 2 karena collage grid
     }
+
+    val imageRequest = ImageOptimizer.rememberBrutalImageRequest(
+        model = R.drawable.img_onboarding,
+        sizePx = sizePx
+    )
 
     Box(
         modifier = Modifier
