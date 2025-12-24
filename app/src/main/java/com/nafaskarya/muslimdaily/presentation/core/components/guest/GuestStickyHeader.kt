@@ -1,40 +1,54 @@
 package com.nafaskarya.muslimdaily.presentation.core.components.guest
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
-import com.nafaskarya.muslimdaily.presentation.core.state.GuestScreenState
 import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant
-import kotlin.math.roundToInt
+import com.nafaskarya.muslimdaily.presentation.core.state.GuestScreenState
+
+private val HeaderBackgroundModifier = Modifier
+    .fillMaxWidth()
+    .background(ColorConstant.BackgroundDark)
+    .statusBarsPadding()
+
+private val ContentPaddingModifier = Modifier.padding(bottom = 12.dp)
 
 @Composable
 fun GuestStickyHeader(
     state: GuestScreenState,
     modifier: Modifier = Modifier
 ) {
+    val onProfileClick = remember(state) {
+        { state.toggleSidebar() }
+    }
+
     Box(modifier = modifier.fillMaxWidth()) {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(ColorConstant.BackgroundDark)
-                .statusBarsPadding()
-        )
+        Box(modifier = HeaderBackgroundModifier)
 
         Box(
             modifier = Modifier
-                .offset { IntOffset(x = 0, y = state.topBarOffsetHeightPx.roundToInt()) }
-                .graphicsLayer { alpha = state.headerAlpha }
+                .graphicsLayer {
+                    translationY = state.topBarOffsetHeightPx
+                    alpha = state.headerAlpha
+                }
                 .background(ColorConstant.BackgroundDark)
                 .fillMaxWidth()
                 .statusBarsPadding()
         ) {
-            Column(modifier = Modifier.padding(bottom = 12.dp)) {
-                GuestHeaderSection(state.dimen) { state.toggleSidebar() }
-                GuestCategorySection(state.dimen)
+            Column(modifier = ContentPaddingModifier) {
+                GuestHeaderSection(
+                    dimen = state.dimen,
+                    onProfileClick = onProfileClick
+                )
+                GuestCategorySection(dimen = state.dimen)
             }
         }
     }
