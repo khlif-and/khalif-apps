@@ -23,12 +23,19 @@ fun LazyListScope.guestHeaderPart(
     navController: NavController
 ) {
     item(key = "header") {
-        GuestHeaderSection(dimen) { navController.navigate("profile_screen") }
+        // PERBAIKAN: Gunakan named argument 'dimen =' karena parameter pertama fungsi adalah 'modifier'
+        GuestHeaderSection(
+            dimen = dimen,
+            onProfileClick = { navController.navigate("profile_screen") }
+        )
     }
 }
 
 fun LazyListScope.guestCategoryPart(dimen: WindowDimensions) {
-    item(key = "categories") { GuestCategorySection(dimen) }
+    item(key = "categories") {
+        // Gunakan named argument juga disini untuk keamanan
+        GuestCategorySection(dimen = dimen)
+    }
 }
 
 fun LazyListScope.guestMainContentPart(

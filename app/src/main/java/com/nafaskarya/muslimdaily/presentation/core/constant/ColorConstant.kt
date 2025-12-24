@@ -40,4 +40,21 @@ object ColorConstant {
     val ProfileBackground = Color(0xFF121212)
     val ProfileSurface = Color(0xFF1F1F1F)
     val ProfileRedDanger = Color(0xFFEF5350)
+
+    // --- TAMBAHAN WARNA CATEGORY ---
+    val CatOrange = Color(0xFFFF6F00)
+    val CatPurple = Color(0xFF7B1FA2)
+    val CatBlue = Color(0xFF1976D2)
+    val CatTeal = Color(0xFF00796B)
+    val CatPink = Color(0xFFC2185B)
+
+    // List warna yang akan di-cycle
+    val CategoryColors = listOf(
+        CatOrange,
+        CatPurple,
+        CatBlue,
+        CatTeal,
+        CatPink,
+        GreenPrimary
+    )
 }
