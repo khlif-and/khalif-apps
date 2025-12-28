@@ -19,6 +19,7 @@ import com.nafaskarya.muslimdaily.presentation.core.shared.playlist.PlaylistScre
 import com.nafaskarya.muslimdaily.presentation.core.shared.profile.ProfileAccountScreen
 import com.nafaskarya.muslimdaily.presentation.guestUser.GuestScreen
 import com.nafaskarya.muslimdaily.presentation.onboarding.OnboardingScreen
+import com.nafaskarya.muslimdaily.presentation.search.SearchScreen
 import com.nafaskarya.muslimdaily.presentation.splash.SplashScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -48,6 +49,10 @@ fun AppRoutes() {
 
             composable(AppDestination.Guest.route) {
                 GuestScreen(navController)
+            }
+
+            composable(AppDestination.Search.route) {
+                SearchScreen()
             }
 
             composable(AppDestination.Profile.route) {
