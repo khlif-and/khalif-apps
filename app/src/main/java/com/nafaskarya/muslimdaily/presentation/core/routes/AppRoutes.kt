@@ -52,7 +52,7 @@ fun AppRoutes() {
             }
 
             composable(AppDestination.Search.route) {
-                SearchScreen()
+                SearchScreen(navController = navController)
             }
 
             composable(AppDestination.Profile.route) {
@@ -66,10 +66,10 @@ fun AppRoutes() {
                 )
             }
 
+            // ... (Kode lain tetap sama)
+
             composable(AppDestination.Playlist.route) {
-                PlaylistScreen(
-                    onBackClick = { navController.popBackStack() }
-                )
+                PlaylistScreen(onBackClick = { navController.popBackStack() })
             }
 
             composable(AppDestination.Login.route) {
@@ -86,8 +86,7 @@ fun AppRoutes() {
                 )
             }
 
-            composable(AppDestination.Signup.route) {
-            }
+            composable(AppDestination.Signup.route) { }
 
             composable(AppDestination.Share.route) {
                 ShareScreen(

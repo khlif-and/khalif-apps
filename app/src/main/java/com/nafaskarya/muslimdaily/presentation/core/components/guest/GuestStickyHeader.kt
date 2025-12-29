@@ -7,13 +7,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.nafaskarya.muslimdaily.presentation.core.constant.ColorConstant
 import com.nafaskarya.muslimdaily.presentation.core.state.GuestScreenState
 
-// Modifier static untuk background
 private val HeaderBackgroundModifier = Modifier
     .fillMaxWidth()
     .background(ColorConstant.BackgroundDark)
@@ -26,23 +24,12 @@ fun GuestStickyHeader(
     state: GuestScreenState,
     modifier: Modifier = Modifier
 ) {
-    val onProfileClick = remember(state) {
-        { state.toggleSidebar() }
-    }
-
-    // Kita hapus logika graphicsLayer/translationY yang rumit
-    // karena LazyColumn stickyHeader sudah menangani posisi sticky-nya.
-
     Box(modifier = modifier.fillMaxWidth()) {
         Box(modifier = HeaderBackgroundModifier) {
             Column(modifier = ContentPaddingModifier) {
                 GuestHeaderSection(
-                    dimen = state.dimen,
-                    onProfileClick = onProfileClick
+                    dimen = state.dimen
                 )
-
-                // Jika kamu ingin mengaktifkan kembali kategori, uncomment baris di bawah:
-                // GuestCategorySection(dimen = state.dimen)
             }
         }
     }
