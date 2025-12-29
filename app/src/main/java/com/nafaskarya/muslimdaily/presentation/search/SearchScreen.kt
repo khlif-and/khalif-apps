@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -14,10 +15,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -31,6 +35,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.nafaskarya.muslimdaily.R
@@ -43,33 +48,140 @@ fun SearchScreen(
     navController: NavController
 ) {
     val dimen = rememberWindowDimensions()
+    val scrollState = rememberScrollState()
 
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(top = 64.dp, bottom = Dimens.PaddingLarge)
+            .padding(top = 64.dp)
     ) {
-        Box(modifier = Modifier.padding(horizontal = Dimens.PaddingLarge)) {
+        Box(
+            modifier = Modifier
+                .padding(horizontal = Dimens.PaddingLarge)
+                .padding(bottom = 24.dp)
+        ) {
             TopSearchBar()
         }
 
-        Spacer(modifier = Modifier.height(dimen.getResponsiveHeight(0.03f)))
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .weight(1f)
+                .verticalScroll(scrollState)
+                .padding(bottom = Dimens.PaddingLarge)
+        ) {
 
-        Box(modifier = Modifier.padding(horizontal = Dimens.PaddingLarge)) {
-            SectionTitle(stringResource(id = R.string.search_history_title))
+            Box(modifier = Modifier.padding(horizontal = Dimens.PaddingLarge)) {
+                SectionTitle(stringResource(id = R.string.search_history_title))
+            }
+
+            Spacer(modifier = Modifier.height(dimen.getResponsiveHeight(0.02f)))
+            ContentRow()
+
+            Spacer(modifier = Modifier.height(dimen.getResponsiveHeight(0.03f)))
+
+            Box(modifier = Modifier.padding(horizontal = Dimens.PaddingLarge)) {
+                SectionTitle(stringResource(id = R.string.search_dakwah_title))
+            }
+
+            Spacer(modifier = Modifier.height(dimen.getResponsiveHeight(0.02f)))
+            ContentRow()
+
+            Spacer(modifier = Modifier.height(dimen.getResponsiveHeight(0.03f)))
+
+            Box(modifier = Modifier.padding(horizontal = Dimens.PaddingLarge)) {
+                SectionTitle("Browser Fav Ustd")
+            }
+
+            Spacer(modifier = Modifier.height(dimen.getResponsiveHeight(0.02f)))
+
+            Box(modifier = Modifier.padding(horizontal = Dimens.PaddingLarge)) {
+                FavUstadzGrid()
+            }
         }
+    }
+}
 
-        Spacer(modifier = Modifier.height(dimen.getResponsiveHeight(0.02f)))
-        ContentRow()
-
-        Spacer(modifier = Modifier.height(dimen.getResponsiveHeight(0.03f)))
-
-        Box(modifier = Modifier.padding(horizontal = Dimens.PaddingLarge)) {
-            SectionTitle(stringResource(id = R.string.search_dakwah_title))
+@Composable
+fun FavUstadzGrid() {
+    Column(
+        verticalArrangement = Arrangement.spacedBy(Dimens.PaddingMedium)
+    ) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(Dimens.PaddingMedium)
+        ) {
+            UstadzCard(
+                name = "Ust. Hanan\nAttaki",
+                backgroundColor = Color(0xFF1ABC9C),
+                modifier = Modifier.weight(1f)
+            )
+            UstadzCard(
+                name = "Ust. Khalid\nBasalamah",
+                backgroundColor = Color(0xFF5DADE2),
+                modifier = Modifier.weight(1f)
+            )
         }
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(Dimens.PaddingMedium)
+        ) {
+            UstadzCard(
+                name = "Ust. Hanan\nAttaki",
+                backgroundColor = Color(0xFF1565C0),
+                modifier = Modifier.weight(1f)
+            )
+            UstadzCard(
+                name = "Ust. Hanan\nAttaki",
+                backgroundColor = Color(0xFF1565C0),
+                modifier = Modifier.weight(1f)
+            )
+        }
+    }
+}
 
-        Spacer(modifier = Modifier.height(dimen.getResponsiveHeight(0.02f)))
-        ContentRow()
+@Composable
+fun UstadzCard(
+    name: String,
+    backgroundColor: Color,
+    modifier: Modifier = Modifier
+) {
+    Box(
+        modifier = modifier
+            .aspectRatio(1.6f)
+            .clip(RoundedCornerShape(Dimens.RadiusMedium))
+            .background(backgroundColor)
+    ) {
+        Icon(
+            imageVector = Icons.Default.Person,
+            contentDescription = null,
+            tint = Color.White.copy(alpha = 0.2f),
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(20.dp)
+        )
+
+        Icon(
+            imageVector = Icons.Default.Person,
+            contentDescription = null,
+            tint = Color.White,
+            modifier = Modifier
+                .align(Alignment.BottomEnd)
+                .size(64.dp)
+                .padding(end = 8.dp)
+        )
+
+        Text(
+            text = name,
+            style = TextStyle(
+                color = Color.White,
+                fontSize = 14.sp,
+                fontWeight = FontWeight.Bold
+            ),
+            modifier = Modifier
+                .align(Alignment.BottomStart)
+                .padding(start = 12.dp, bottom = 12.dp)
+        )
     }
 }
 
