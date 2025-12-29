@@ -41,15 +41,10 @@ fun GuestBodyContent(
         { state.showPlayer = true }
     }
 
-    val onProfileClick = remember(state) {
-        { state.toggleSidebar() }
-    }
-
     LazyColumn(
         modifier = FillMaxSizeModifier,
         contentPadding = listContentPadding
     ) {
-        // Sticky Header agar tetap menempel di atas saat scroll
         stickyHeader(key = "header_profile") {
             Column(
                 modifier = Modifier
@@ -59,8 +54,7 @@ fun GuestBodyContent(
                 Spacer(modifier = Modifier.height(topPadding))
 
                 GuestHeaderSection(
-                    dimen = state.dimen,
-                    onProfileClick = onProfileClick
+                    dimen = state.dimen
                 )
             }
         }

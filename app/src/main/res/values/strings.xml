@@ -15,6 +15,10 @@
     <string name="cd_profile_button">Tombol Profil</string>
     <string name="cd_notifications">Notifikasi</string>
 
+    <string name="search_placeholder">Search Your Iman</string>
+    <string name="search_history_title">Browser Your History</string>
+    <string name="search_dakwah_title">Browser Your Dakwah</string>
+
     <string name="category_all">All</string>
     <string name="category_dakwah">Dakwah</string>
     <string name="category_kajian">Kajian</string>

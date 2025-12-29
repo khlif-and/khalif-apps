@@ -12,14 +12,17 @@ import com.nafaskarya.muslimdaily.presentation.core.shared.player.PlayerFooter
 import com.nafaskarya.muslimdaily.presentation.core.state.GuestScreenState
 
 @Composable
-fun GuestBottomBar(state: GuestScreenState) {
-    // Kita buat interactionSource lokal di sini karena sudah dihapus dari State
+fun GuestBottomBar(
+    state: GuestScreenState,
+    currentRoute: String,
+    onNavigate: (String) -> Unit
+) {
     val interactionSource = remember { MutableInteractionSource() }
 
     val playerTriggerModifier = remember(state, interactionSource) {
         Modifier.clickable(
             interactionSource = interactionSource,
-            indication = null, // Menghilangkan efek ripple saat diklik
+            indication = null,
             onClick = { state.showPlayer = true }
         )
     }
@@ -28,6 +31,9 @@ fun GuestBottomBar(state: GuestScreenState) {
         Box(modifier = playerTriggerModifier) {
             PlayerFooter()
         }
-        BottomNav()
+        BottomNav(
+            currentRoute = currentRoute,
+            onNavigate = onNavigate
+        )
     }
 }

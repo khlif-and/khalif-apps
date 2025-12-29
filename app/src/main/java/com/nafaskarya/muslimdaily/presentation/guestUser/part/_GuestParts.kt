@@ -19,21 +19,17 @@ import com.nafaskarya.muslimdaily.presentation.core.components.sampleSection.Sam
 import com.nafaskarya.muslimdaily.presentation.core.utils.windows.WindowDimensions
 
 fun LazyListScope.guestHeaderPart(
-    dimen: WindowDimensions,
-    navController: NavController
+    dimen: WindowDimensions
 ) {
     item(key = "header") {
-        // PERBAIKAN: Gunakan named argument 'dimen =' karena parameter pertama fungsi adalah 'modifier'
         GuestHeaderSection(
-            dimen = dimen,
-            onProfileClick = { navController.navigate("profile_screen") }
+            dimen = dimen
         )
     }
 }
 
 fun LazyListScope.guestCategoryPart(dimen: WindowDimensions) {
     item(key = "categories") {
-        // Gunakan named argument juga disini untuk keamanan
         GuestCategorySection(dimen = dimen)
     }
 }
