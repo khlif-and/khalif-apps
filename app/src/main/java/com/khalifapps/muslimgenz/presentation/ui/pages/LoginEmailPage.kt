@@ -29,13 +29,16 @@ import com.khalifapps.muslimgenz.presentation.ui.atoms.PrimaryButton
 import com.khalifapps.muslimgenz.presentation.ui.molecules.AuthHeader
 import com.khalifapps.muslimgenz.presentation.ui.templates.AuthPageTemplate
 
+import com.khalifapps.muslimgenz.presentation.ui.molecules.PasswordTextField
+import com.khalifapps.muslimgenz.presentation.ui.molecules.EmailTextField
+
 @Composable
 fun LoginEmailPage(
     onLoginSuccess: () -> Unit
 ) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-    var passwordVisible by remember { mutableStateOf(false) }
+    // passwordVisible removed since it is internal to PasswordTextField
 
     AuthPageTemplate(
         headerContent = {
@@ -49,31 +52,17 @@ fun LoginEmailPage(
         },
         content = {
             // Inputs
-            InputTextField(
+            EmailTextField(
                 value = email,
                 onValueChange = { email = it },
-                label = "Email",
-                shape = RectangleShape
+                label = "Email"
             )
             
             Spacer(modifier = Modifier.height(8.dp))
             
-            InputTextField(
+            PasswordTextField(
                 value = password,
-                onValueChange = { password = it },
-                label = "Password",
-                visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
-                trailingIcon = {
-                    val image = if (passwordVisible)
-                        androidx.compose.material.icons.Icons.Filled.Visibility
-                    else
-                        androidx.compose.material.icons.Icons.Filled.VisibilityOff
-
-                    IconButton(onClick = { passwordVisible = !passwordVisible }) {
-                        Icon(imageVector = image, contentDescription = null, tint = Color.Gray)
-                    }
-                },
-                shape = RectangleShape
+                onValueChange = { password = it }
             )
             
             Spacer(modifier = Modifier.height(AppTheme.dimens.paddingLarge))
@@ -82,8 +71,6 @@ fun LoginEmailPage(
                 text = "Login",
                 onClick = onLoginSuccess,
                 modifier = Modifier
-                    .fillMaxWidth(0.6f)
-                    .height(AppTheme.dimens.buttonHeightPill)
             )
         }
     )

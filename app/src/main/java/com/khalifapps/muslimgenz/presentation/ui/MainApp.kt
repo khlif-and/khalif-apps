@@ -12,6 +12,9 @@ import com.khalifapps.muslimgenz.presentation.ui.pages.WelcomePage
 import com.khalifapps.muslimgenz.presentation.ui.pages.RegisterPage
 import com.khalifapps.muslimgenz.presentation.ui.pages.SplashPage
 import com.khalifapps.muslimgenz.presentation.ui.pages.LoginEmailPage
+import com.khalifapps.muslimgenz.presentation.ui.pages.RegisterEmailPage
+import com.khalifapps.muslimgenz.presentation.ui.pages.RegisterPhonePage
+import com.khalifapps.muslimgenz.presentation.ui.pages.VerifyOtpPage
 import com.khalifapps.muslimgenz.presentation.ui.pages.LoginPhonePage
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
@@ -23,7 +26,7 @@ fun MainApp() {
         
         NavHost(
             navController = navController,
-            startDestination = Routes.Welcome, // Updated start destination to Skip Splash for dev if needed, or back to Splash
+            startDestination = Routes.Splash,
             // Actually let's keep Splash as start if that was the flow. 
             // In MainActivity it was Onboarding but with a Splash route available.
             // Wait, previous MainActivity had startDestination = Routes.Onboarding ?
@@ -37,7 +40,13 @@ fun MainApp() {
             popExitTransition = { ExitTransition.None }
         ) {
             composable(Routes.Splash) {
-                SplashPage()
+                SplashPage(
+                    onSplashFinished = {
+                        navController.navigate(Routes.Welcome) {
+                            popUpTo(Routes.Splash) { inclusive = true }
+                        }
+                    }
+                )
             }
             composable(Routes.Welcome) {
                 WelcomePage(
@@ -56,6 +65,12 @@ fun MainApp() {
                 RegisterPage(
                     onLoginClick = {
                         navController.popBackStack()
+                    },
+                    onRegisterEmailClick = {
+                        navController.navigate(Routes.RegisterEmail)
+                    },
+                    onRegisterPhoneClick = {
+                        navController.navigate(Routes.RegisterPhone)
                     }
                 )
             }
@@ -80,6 +95,26 @@ fun MainApp() {
                     onLoginSuccess = {
                         // TODO: Home
                     }
+                )
+            }
+            composable(Routes.RegisterEmail) {
+                RegisterEmailPage(
+                    onRegisterSuccess = {
+                         // TODO: Home or Login
+                    }
+                )
+            }
+            composable(Routes.RegisterPhone) {
+                RegisterPhonePage(
+                    onRegisterSuccess = { 
+                        navController.navigate(Routes.VerifyOtp)
+                    }
+                )
+            }
+            composable(Routes.VerifyOtp) {
+                VerifyOtpPage(
+                    onVerifyClick = { /* TODO: Navigate to Home/Setup */ },
+                    onResendClick = { /* TODO: Resend logic */ }
                 )
             }
         }

@@ -6,5 +6,8 @@ object Routes {
     const val Login = "login"
     const val Register = "register"
     const val LoginEmail = "login_email"
+    const val RegisterEmail = "register_email"
     const val LoginPhone = "login_phone"
+    const val RegisterPhone = "register_phone"
+    const val VerifyOtp = "verify_otp"
 }

@@ -22,7 +22,9 @@ fun PrimaryButton(
 ) {
     Button(
         onClick = onClick,
-        modifier = modifier,
+        modifier = modifier
+            .fillMaxWidth(0.6f)
+            .height(AppTheme.dimens.buttonHeightPill),
         shape = RoundedCornerShape(AppTheme.dimens.cornerRadiusPill),
         colors = ButtonDefaults.buttonColors(
             containerColor = OrangePrimary,

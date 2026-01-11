@@ -21,7 +21,9 @@ import com.khalifapps.muslimgenz.presentation.ui.templates.WelcomePageTemplate
 
 @Composable
 fun RegisterPage(
-    onLoginClick: () -> Unit
+    onLoginClick: () -> Unit,
+    onRegisterEmailClick: () -> Unit,
+    onRegisterPhoneClick: () -> Unit
 ) {
     WelcomePageTemplate(
         headerContent = {
@@ -43,7 +45,7 @@ fun RegisterPage(
             AuthOptionButton(
                 text = "Register With Email",
                 icon = Icons.Default.Email,
-                onClick = { /* TODO: Go to email register form */ }
+                onClick = onRegisterEmailClick
             )
             
             Spacer(modifier = Modifier.height(AppTheme.dimens.paddingMedium))
@@ -51,7 +53,7 @@ fun RegisterPage(
             AuthOptionButton(
                 text = "Register With Phone",
                 icon = Icons.Default.Call,
-                onClick = { /* TODO: Go to phone register form */ }
+                onClick = onRegisterPhoneClick
             )
             
             Spacer(modifier = Modifier.height(AppTheme.dimens.paddingMedium))

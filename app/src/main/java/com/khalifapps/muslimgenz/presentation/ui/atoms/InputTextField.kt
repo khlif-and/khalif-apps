@@ -30,6 +30,7 @@ fun InputTextField(
     shape: Shape = RoundedCornerShape(8.dp),
     visualTransformation: VisualTransformation = VisualTransformation.None,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null
 ) {
     OutlinedTextField(
@@ -51,6 +52,7 @@ fun InputTextField(
         visualTransformation = visualTransformation,
         keyboardOptions = keyboardOptions,
         singleLine = true,
+        leadingIcon = leadingIcon,
         trailingIcon = trailingIcon
     )
 }

@@ -18,6 +18,11 @@ data class Dimens(
     
     val iconSize: Dp = 24.dp,
     val iconSizeLarge: Dp = 28.dp,
+    val iconLarge: Dp = 48.dp,
+    
+    // OTP
+    val otpBoxSize: Dp = 60.dp,
+    val otpSpacer: Dp = 16.dp,
     
     val buttonHeight: Dp = 56.dp, // implied by padding vertical 20dp approx or fixed
     val buttonHeightPill: Dp = 60.dp,
