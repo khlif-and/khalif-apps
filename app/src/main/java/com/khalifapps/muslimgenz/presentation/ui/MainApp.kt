@@ -8,14 +8,17 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.khalifapps.muslimgenz.presentation.navigation.Routes
 import com.khalifapps.muslimgenz.presentation.theme.MuslimGenzTheme
-import com.khalifapps.muslimgenz.presentation.ui.pages.WelcomePage
-import com.khalifapps.muslimgenz.presentation.ui.pages.RegisterPage
-import com.khalifapps.muslimgenz.presentation.ui.pages.SplashPage
-import com.khalifapps.muslimgenz.presentation.ui.pages.LoginEmailPage
-import com.khalifapps.muslimgenz.presentation.ui.pages.RegisterEmailPage
-import com.khalifapps.muslimgenz.presentation.ui.pages.RegisterPhonePage
-import com.khalifapps.muslimgenz.presentation.ui.pages.VerifyOtpPage
-import com.khalifapps.muslimgenz.presentation.ui.pages.LoginPhonePage
+import com.khalifapps.muslimgenz.presentation.ui.pages.onboarding.WelcomePage
+import com.khalifapps.muslimgenz.presentation.ui.pages.auth.RegisterPage
+import com.khalifapps.muslimgenz.presentation.ui.pages.splash.SplashPage
+import com.khalifapps.muslimgenz.presentation.ui.pages.auth.LoginEmailPage
+import com.khalifapps.muslimgenz.presentation.ui.pages.auth.RegisterEmailPage
+import com.khalifapps.muslimgenz.presentation.ui.pages.auth.RegisterPhonePage
+import com.khalifapps.muslimgenz.presentation.ui.pages.auth.VerifyOtpPage
+import com.khalifapps.muslimgenz.presentation.ui.pages.auth.LoginPhonePage
+import com.khalifapps.muslimgenz.presentation.ui.pages.choice.ChoiceUstadzPage
+import com.khalifapps.muslimgenz.presentation.ui.pages.choice.ChoiceTopicPage
+import com.khalifapps.muslimgenz.presentation.ui.pages.result.ResultPage
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 
@@ -27,13 +30,6 @@ fun MainApp() {
         NavHost(
             navController = navController,
             startDestination = Routes.Splash,
-            // Actually let's keep Splash as start if that was the flow. 
-            // In MainActivity it was Onboarding but with a Splash route available.
-            // Wait, previous MainActivity had startDestination = Routes.Onboarding ?
-            // Let me check the previous viewed file content.
-            // Ah, line 27 in MainActivity said startDestination = Routes.Onboarding.
-            // Use that.
-            
             enterTransition = { EnterTransition.None },
             exitTransition = { ExitTransition.None },
             popEnterTransition = { EnterTransition.None },
@@ -54,7 +50,7 @@ fun MainApp() {
                         navController.navigate(Routes.Register)
                     },
                     onLoginClick = {
-                        navController.navigate(Routes.LoginEmail) // Directing generic login to email for now, or updating OnboardingPage to have specific callbacks?
+                        navController.navigate(Routes.LoginEmail)
                     },
                     onLoginPhoneClick = {
                         navController.navigate(Routes.LoginPhone)
@@ -75,32 +71,22 @@ fun MainApp() {
                 )
             }
             composable(Routes.Login) {
-                // Determine layout or flow for generalized login. 
-                // For now, redirecting to LoginEmail as per user request to "make this UI"
-                // But typically "LoginPage" might have options.
-                // Assuming user wants the "Login Email" specifically.
-                // Let's modify the OnboardingPage to nav to LoginEmail on "Login With Email" click?
-                // The prompt says "create UI named login email".
-                // I will add the route separately and link it.
             }
             composable(Routes.LoginEmail) {
                 LoginEmailPage(
                     onLoginSuccess = {
-                         // TODO: Home
                     }
                 )
             }
             composable(Routes.LoginPhone) {
                 LoginPhonePage(
                     onLoginSuccess = {
-                        // TODO: Home
                     }
                 )
             }
             composable(Routes.RegisterEmail) {
                 RegisterEmailPage(
                     onRegisterSuccess = {
-                         // TODO: Home or Login
                     }
                 )
             }
@@ -113,8 +99,47 @@ fun MainApp() {
             }
             composable(Routes.VerifyOtp) {
                 VerifyOtpPage(
-                    onVerifyClick = { /* TODO: Navigate to Home/Setup */ },
-                    onResendClick = { /* TODO: Resend logic */ }
+                    onVerifyClick = { 
+                        navController.navigate(Routes.ChoiceUstadz) {
+                            popUpTo(Routes.VerifyOtp) { inclusive = true }
+                        }
+                    },
+                    onResendClick = { }
+                )
+            }
+            composable(Routes.ChoiceUstadz) {
+                ChoiceUstadzPage(
+                    onContinueClick = {
+                        navController.navigate(Routes.ChoiceTopic) {
+                            popUpTo(Routes.ChoiceUstadz) { inclusive = true }
+                        }
+                    },
+                    onSkipClick = {
+                        navController.navigate(Routes.ChoiceTopic) {
+                            popUpTo(Routes.ChoiceUstadz) { inclusive = true }
+                        }
+                    }
+                )
+            }
+            composable(Routes.ChoiceTopic) {
+                ChoiceTopicPage(
+                    onContinueClick = {
+                        navController.navigate(Routes.Result) {
+                            popUpTo(Routes.ChoiceTopic) { inclusive = true }
+                        }
+                    },
+                    onSkipClick = {
+                        navController.navigate(Routes.Result) {
+                            popUpTo(Routes.ChoiceTopic) { inclusive = true }
+                        }
+                    }
+                )
+            }
+            composable(Routes.Result) {
+                ResultPage(
+                    onFinished = {
+                        // TODO: Navigate to Home Dashboard
+                    }
                 )
             }
         }
