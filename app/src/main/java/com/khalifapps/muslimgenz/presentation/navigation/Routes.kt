@@ -10,4 +10,8 @@ object Routes {
     const val LoginPhone = "login_phone"
     const val RegisterPhone = "register_phone"
     const val VerifyOtp = "verify_otp"
+    const val Choice = "choice"
+    const val ChoiceUstadz = "choice_ustadz"
+    const val ChoiceTopic = "choice_topic"
+    const val Result = "result"
 }

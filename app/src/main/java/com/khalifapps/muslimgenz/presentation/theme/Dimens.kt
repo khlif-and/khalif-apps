@@ -24,7 +24,11 @@ data class Dimens(
     val otpBoxSize: Dp = 60.dp,
     val otpSpacer: Dp = 16.dp,
     
-    val buttonHeight: Dp = 56.dp, // implied by padding vertical 20dp approx or fixed
+    val choiceAvatarSize: Dp = 100.dp,
+    val choiceGridVerticalSpacing: Dp = 24.dp,
+    val choiceGridHorizontalSpacing: Dp = 16.dp,
+    
+    val buttonHeight: Dp = 56.dp,
     val buttonHeightPill: Dp = 60.dp,
     val buttonPaddingVertical: Dp = 20.dp,
     
@@ -34,8 +38,10 @@ data class Dimens(
     val textSizeBody: TextUnit = 14.sp,
     val textSizeButton: TextUnit = 16.sp,
     val textSizeTitle: TextUnit = 42.sp,
+    val textSizeSubtitle: TextUnit = 28.sp,
     
-    val lineHeightTitle: TextUnit = 50.sp
+    val lineHeightTitle: TextUnit = 50.sp,
+    val lineHeightSubtitle: TextUnit = 36.sp
 )
 
 val CompactDimens = Dimens(
