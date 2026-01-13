@@ -2,6 +2,7 @@ package com.khalifapps.muslimgenz;
 
 import com.khalifapps.muslimgenz.data.di.AppModule;
 import com.khalifapps.muslimgenz.data.di.NetworkModule;
+import com.khalifapps.muslimgenz.data.di.RepositoryModule;
 import com.khalifapps.muslimgenz.presentation.ui.pages.MainActivity_GeneratedInjector;
 import dagger.Binds;
 import dagger.Component;
@@ -123,7 +124,8 @@ public final class MuslimGenzApp_HiltComponents {
           HiltWrapper_FragmentGetContextFix_FragmentGetContextFixModule.class,
           ActivityRetainedCBuilderModule.class,
           ServiceCBuilderModule.class,
-          NetworkModule.class
+          NetworkModule.class,
+          RepositoryModule.class
       }
   )
   @Singleton
