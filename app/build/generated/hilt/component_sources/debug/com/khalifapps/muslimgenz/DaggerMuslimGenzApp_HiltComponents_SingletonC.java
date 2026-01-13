@@ -486,7 +486,7 @@ public final class DaggerMuslimGenzApp_HiltComponents_SingletonC {
     }
 
     @Override
-    public void injectMuslimGenzApp(MuslimGenzApp arg0) {
+    public void injectMuslimGenzApp(MuslimGenzApp muslimGenzApp) {
     }
 
     @Override
