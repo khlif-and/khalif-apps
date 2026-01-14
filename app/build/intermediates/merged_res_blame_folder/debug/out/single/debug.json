@@ -4,12 +4,20 @@
         "source": "com.khalifapps.muslimgenz.app-main-6:/layout/activity_main.xml"
     },
     {
+        "merged": "com.khalifapps.muslimgenz.app-merged_res-4:/layout_widget_simple_placeholder.xml.flat",
+        "source": "com.khalifapps.muslimgenz.app-main-6:/layout/widget_simple_placeholder.xml"
+    },
+    {
         "merged": "com.khalifapps.muslimgenz.app-merged_res-4:/xml_backup_rules.xml.flat",
         "source": "com.khalifapps.muslimgenz.app-main-6:/xml/backup_rules.xml"
     },
     {
         "merged": "com.khalifapps.muslimgenz.app-merged_res-4:/xml_data_extraction_rules.xml.flat",
         "source": "com.khalifapps.muslimgenz.app-main-6:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.khalifapps.muslimgenz.app-merged_res-4:/xml_widget_info.xml.flat",
+        "source": "com.khalifapps.muslimgenz.app-main-6:/xml/widget_info.xml"
     },
     {
         "merged": "com.khalifapps.muslimgenz.app-merged_res-4:/drawable_ic_launcher.xml.flat",

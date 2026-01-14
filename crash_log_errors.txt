@@ -1,0 +1,4 @@
+﻿--------- beginning of system
+01-13 16:25:07.277   752  1722 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+--------- beginning of main
+01-13 16:25:27.658 20920 20920 E ashmem  : Pinning is deprecated since Android Q. Please use trim or other methods.

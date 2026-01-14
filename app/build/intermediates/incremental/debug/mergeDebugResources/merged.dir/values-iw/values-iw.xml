@@ -54,6 +54,9 @@
     <string msgid="1890207353314751437" name="dropdown_menu">"תפריט נפתח"</string>
     <string name="error_icon_content_description">שגיאה</string>
     <string name="exposed_dropdown_menu_content_description">הצגת התפריט הנפתח</string>
+    <string msgid="2863935784364843033" name="glance_error_layout_text">"‏יש לבדוק את השגיאה המדויקת באמצעות "<b><tt>"adb Logcat‏"</tt></b>", ולחפש את "<b><tt>"GlanceAppWidget"</tt></b></string>
+    <string msgid="5191168365305634625" name="glance_error_layout_text_v2">"לא ניתן להציג את התוכן"</string>
+    <string msgid="3631961919234443531" name="glance_error_layout_title"><b>"שגיאה בווידג\'ט של האפליקציה \'בקצרה\'"</b></string>
     <string name="icon_content_description">סמל לתיבת דו-שיח</string>
     <string msgid="6827826412747255547" name="in_progress">"בתהליך"</string>
     <string msgid="7933458017204019916" name="indeterminate">"מסומנת חלקית"</string>

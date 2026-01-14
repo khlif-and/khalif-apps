@@ -7,7 +7,20 @@ import android.view.View;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.ViewModel;
+import com.khalifapps.muslimgenz.data.di.NetworkModule_ProvideAuthApiHelperFactory;
+import com.khalifapps.muslimgenz.data.di.NetworkModule_ProvideAuthApiServiceFactory;
+import com.khalifapps.muslimgenz.data.di.NetworkModule_ProvideBaseUrlFactory;
+import com.khalifapps.muslimgenz.data.di.NetworkModule_ProvideOkHttpClientFactory;
+import com.khalifapps.muslimgenz.data.di.NetworkModule_ProvideRetrofitFactory;
+import com.khalifapps.muslimgenz.data.remote.auth.AuthApiHelper;
+import com.khalifapps.muslimgenz.data.remote.auth.AuthApiHelperImpl;
+import com.khalifapps.muslimgenz.data.remote.auth.AuthApiService;
+import com.khalifapps.muslimgenz.data.repository.AuthRepositoryImpl;
+import com.khalifapps.muslimgenz.domain.repository.AuthRepository;
+import com.khalifapps.muslimgenz.domain.usecase.LoginUseCase;
 import com.khalifapps.muslimgenz.presentation.ui.pages.MainActivity;
+import com.khalifapps.muslimgenz.presentation.viewmodel.auth.LoginViewModel;
+import com.khalifapps.muslimgenz.presentation.viewmodel.auth.LoginViewModel_HiltModules_KeyModule_ProvideFactory;
 import dagger.hilt.android.ActivityRetainedLifecycle;
 import dagger.hilt.android.ViewModelLifecycle;
 import dagger.hilt.android.internal.builders.ActivityComponentBuilder;
@@ -25,10 +38,12 @@ import dagger.hilt.android.internal.modules.ApplicationContextModule;
 import dagger.internal.DaggerGenerated;
 import dagger.internal.DoubleCheck;
 import dagger.internal.Preconditions;
+import dagger.internal.Provider;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
-import javax.inject.Provider;
+import okhttp3.OkHttpClient;
+import retrofit2.Retrofit;
 
 @DaggerGenerated
 @SuppressWarnings({
@@ -357,12 +372,12 @@ public final class DaggerMuslimGenzApp_HiltComponents_SingletonC {
 
     @Override
     public DefaultViewModelFactories.InternalFactoryFactory getHiltInternalFactoryFactory() {
-      return DefaultViewModelFactories_InternalFactoryFactory_Factory.newInstance(Collections.<String>emptySet(), new ViewModelCBuilder(singletonCImpl, activityRetainedCImpl));
+      return DefaultViewModelFactories_InternalFactoryFactory_Factory.newInstance(getViewModelKeys(), new ViewModelCBuilder(singletonCImpl, activityRetainedCImpl));
     }
 
     @Override
     public Set<String> getViewModelKeys() {
-      return Collections.<String>emptySet();
+      return Collections.<String>singleton(LoginViewModel_HiltModules_KeyModule_ProvideFactory.provide());
     }
 
     @Override
@@ -388,23 +403,65 @@ public final class DaggerMuslimGenzApp_HiltComponents_SingletonC {
 
     private final ViewModelCImpl viewModelCImpl = this;
 
+    private Provider<LoginViewModel> loginViewModelProvider;
+
     private ViewModelCImpl(SingletonCImpl singletonCImpl,
         ActivityRetainedCImpl activityRetainedCImpl, SavedStateHandle savedStateHandleParam,
         ViewModelLifecycle viewModelLifecycleParam) {
       this.singletonCImpl = singletonCImpl;
       this.activityRetainedCImpl = activityRetainedCImpl;
 
+      initialize(savedStateHandleParam, viewModelLifecycleParam);
 
     }
 
+    private LoginUseCase loginUseCase() {
+      return new LoginUseCase(singletonCImpl.bindAuthRepositoryProvider.get());
+    }
+
+    @SuppressWarnings("unchecked")
+    private void initialize(final SavedStateHandle savedStateHandleParam,
+        final ViewModelLifecycle viewModelLifecycleParam) {
+      this.loginViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 0);
+    }
+
     @Override
-    public Map<String, Provider<ViewModel>> getHiltViewModelMap() {
-      return Collections.<String, Provider<ViewModel>>emptyMap();
+    public Map<String, javax.inject.Provider<ViewModel>> getHiltViewModelMap() {
+      return Collections.<String, javax.inject.Provider<ViewModel>>singletonMap("com.khalifapps.muslimgenz.presentation.viewmodel.auth.LoginViewModel", ((Provider) loginViewModelProvider));
     }
 
     @Override
     public Map<String, Object> getHiltViewModelAssistedMap() {
       return Collections.<String, Object>emptyMap();
+    }
+
+    private static final class SwitchingProvider<T> implements Provider<T> {
+      private final SingletonCImpl singletonCImpl;
+
+      private final ActivityRetainedCImpl activityRetainedCImpl;
+
+      private final ViewModelCImpl viewModelCImpl;
+
+      private final int id;
+
+      SwitchingProvider(SingletonCImpl singletonCImpl, ActivityRetainedCImpl activityRetainedCImpl,
+          ViewModelCImpl viewModelCImpl, int id) {
+        this.singletonCImpl = singletonCImpl;
+        this.activityRetainedCImpl = activityRetainedCImpl;
+        this.viewModelCImpl = viewModelCImpl;
+        this.id = id;
+      }
+
+      @SuppressWarnings("unchecked")
+      @Override
+      public T get() {
+        switch (id) {
+          case 0: // com.khalifapps.muslimgenz.presentation.viewmodel.auth.LoginViewModel 
+          return (T) new LoginViewModel(viewModelCImpl.loginUseCase());
+
+          default: throw new AssertionError(id);
+        }
+      }
     }
   }
 
@@ -413,7 +470,7 @@ public final class DaggerMuslimGenzApp_HiltComponents_SingletonC {
 
     private final ActivityRetainedCImpl activityRetainedCImpl = this;
 
-    private dagger.internal.Provider<ActivityRetainedLifecycle> provideActivityRetainedLifecycleProvider;
+    private Provider<ActivityRetainedLifecycle> provideActivityRetainedLifecycleProvider;
 
     private ActivityRetainedCImpl(SingletonCImpl singletonCImpl,
         SavedStateHandleHolder savedStateHandleHolderParam) {
@@ -438,7 +495,7 @@ public final class DaggerMuslimGenzApp_HiltComponents_SingletonC {
       return provideActivityRetainedLifecycleProvider.get();
     }
 
-    private static final class SwitchingProvider<T> implements dagger.internal.Provider<T> {
+    private static final class SwitchingProvider<T> implements Provider<T> {
       private final SingletonCImpl singletonCImpl;
 
       private final ActivityRetainedCImpl activityRetainedCImpl;
@@ -480,9 +537,39 @@ public final class DaggerMuslimGenzApp_HiltComponents_SingletonC {
   private static final class SingletonCImpl extends MuslimGenzApp_HiltComponents.SingletonC {
     private final SingletonCImpl singletonCImpl = this;
 
+    private Provider<OkHttpClient> provideOkHttpClientProvider;
+
+    private Provider<String> provideBaseUrlProvider;
+
+    private Provider<Retrofit> provideRetrofitProvider;
+
+    private Provider<AuthApiService> provideAuthApiServiceProvider;
+
+    private Provider<AuthApiHelper> provideAuthApiHelperProvider;
+
+    private Provider<AuthRepositoryImpl> authRepositoryImplProvider;
+
+    private Provider<AuthRepository> bindAuthRepositoryProvider;
+
     private SingletonCImpl() {
 
+      initialize();
 
+    }
+
+    private AuthApiHelperImpl authApiHelperImpl() {
+      return new AuthApiHelperImpl(provideAuthApiServiceProvider.get());
+    }
+
+    @SuppressWarnings("unchecked")
+    private void initialize() {
+      this.provideOkHttpClientProvider = DoubleCheck.provider(new SwitchingProvider<OkHttpClient>(singletonCImpl, 4));
+      this.provideBaseUrlProvider = DoubleCheck.provider(new SwitchingProvider<String>(singletonCImpl, 5));
+      this.provideRetrofitProvider = DoubleCheck.provider(new SwitchingProvider<Retrofit>(singletonCImpl, 3));
+      this.provideAuthApiServiceProvider = DoubleCheck.provider(new SwitchingProvider<AuthApiService>(singletonCImpl, 2));
+      this.provideAuthApiHelperProvider = DoubleCheck.provider(new SwitchingProvider<AuthApiHelper>(singletonCImpl, 1));
+      this.authRepositoryImplProvider = new SwitchingProvider<>(singletonCImpl, 0);
+      this.bindAuthRepositoryProvider = DoubleCheck.provider((Provider) authRepositoryImplProvider);
     }
 
     @Override
@@ -502,6 +589,43 @@ public final class DaggerMuslimGenzApp_HiltComponents_SingletonC {
     @Override
     public ServiceComponentBuilder serviceComponentBuilder() {
       return new ServiceCBuilder(singletonCImpl);
+    }
+
+    private static final class SwitchingProvider<T> implements Provider<T> {
+      private final SingletonCImpl singletonCImpl;
+
+      private final int id;
+
+      SwitchingProvider(SingletonCImpl singletonCImpl, int id) {
+        this.singletonCImpl = singletonCImpl;
+        this.id = id;
+      }
+
+      @SuppressWarnings("unchecked")
+      @Override
+      public T get() {
+        switch (id) {
+          case 0: // com.khalifapps.muslimgenz.data.repository.AuthRepositoryImpl 
+          return (T) new AuthRepositoryImpl(singletonCImpl.provideAuthApiHelperProvider.get());
+
+          case 1: // com.khalifapps.muslimgenz.data.remote.auth.AuthApiHelper 
+          return (T) NetworkModule_ProvideAuthApiHelperFactory.provideAuthApiHelper(singletonCImpl.authApiHelperImpl());
+
+          case 2: // com.khalifapps.muslimgenz.data.remote.auth.AuthApiService 
+          return (T) NetworkModule_ProvideAuthApiServiceFactory.provideAuthApiService(singletonCImpl.provideRetrofitProvider.get());
+
+          case 3: // retrofit2.Retrofit 
+          return (T) NetworkModule_ProvideRetrofitFactory.provideRetrofit(singletonCImpl.provideOkHttpClientProvider.get(), singletonCImpl.provideBaseUrlProvider.get());
+
+          case 4: // okhttp3.OkHttpClient 
+          return (T) NetworkModule_ProvideOkHttpClientFactory.provideOkHttpClient();
+
+          case 5: // java.lang.String 
+          return (T) NetworkModule_ProvideBaseUrlFactory.provideBaseUrl();
+
+          default: throw new AssertionError(id);
+        }
+      }
     }
   }
 }

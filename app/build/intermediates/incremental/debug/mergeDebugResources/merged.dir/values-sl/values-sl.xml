@@ -55,6 +55,9 @@
     <string msgid="1890207353314751437" name="dropdown_menu">"Spustni meni"</string>
     <string name="error_icon_content_description">Napaka</string>
     <string name="exposed_dropdown_menu_content_description">Prikaz spustnega menija</string>
+    <string msgid="2863935784364843033" name="glance_error_layout_text">"Preverite točno napako tako, da z mehanizmom "<b><tt>"adb logcat"</tt></b>" poiščete "<b><tt>"GlanceAppWidget"</tt></b>"."</string>
+    <string msgid="5191168365305634625" name="glance_error_layout_text_v2">"Ni mogoče prikazati vsebine"</string>
+    <string msgid="3631961919234443531" name="glance_error_layout_title"><b>"Napaka pripomočka za aplikacijo Hitri pregled"</b></string>
     <string name="icon_content_description">Ikona pogovornega okna</string>
     <string msgid="6827826412747255547" name="in_progress">"Poteka"</string>
     <string msgid="7933458017204019916" name="indeterminate">"Delno potrjeno"</string>

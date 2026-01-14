@@ -13,7 +13,9 @@ color teal_700
 color white
 drawable ic_launcher
 layout activity_main
+layout widget_simple_placeholder
 string app_name
 style Theme.KhalifApps
 xml backup_rules
 xml data_extraction_rules
+xml widget_info

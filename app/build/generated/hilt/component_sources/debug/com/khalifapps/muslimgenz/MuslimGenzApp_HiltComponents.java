@@ -4,6 +4,7 @@ import com.khalifapps.muslimgenz.data.di.AppModule;
 import com.khalifapps.muslimgenz.data.di.NetworkModule;
 import com.khalifapps.muslimgenz.data.di.RepositoryModule;
 import com.khalifapps.muslimgenz.presentation.ui.pages.MainActivity_GeneratedInjector;
+import com.khalifapps.muslimgenz.presentation.viewmodel.auth.LoginViewModel_HiltModules;
 import dagger.Binds;
 import dagger.Component;
 import dagger.Module;
@@ -150,6 +151,7 @@ public final class MuslimGenzApp_HiltComponents {
       modules = {
           HiltWrapper_ActivityRetainedComponentManager_LifecycleModule.class,
           HiltWrapper_SavedStateHandleModule.class,
+          LoginViewModel_HiltModules.KeyModule.class,
           ActivityCBuilderModule.class,
           ViewModelCBuilderModule.class
       }
@@ -186,7 +188,10 @@ public final class MuslimGenzApp_HiltComponents {
   }
 
   @Subcomponent(
-      modules = HiltWrapper_HiltViewModelFactory_ViewModelModule.class
+      modules = {
+          HiltWrapper_HiltViewModelFactory_ViewModelModule.class,
+          LoginViewModel_HiltModules.BindsModule.class
+      }
   )
   @ViewModelScoped
   public abstract static class ViewModelC implements ViewModelComponent,
