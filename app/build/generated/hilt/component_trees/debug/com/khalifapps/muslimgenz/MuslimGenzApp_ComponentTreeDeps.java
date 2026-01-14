@@ -17,10 +17,12 @@ import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_andro
 import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_android_internal_builders_ViewModelComponentBuilder;
 import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_android_internal_builders_ViewWithFragmentComponentBuilder;
 import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_components_SingletonComponent;
+import hilt_aggregated_deps._androidx_hilt_work_HiltWrapper_WorkerFactoryModule;
 import hilt_aggregated_deps._com_khalifapps_muslimgenz_MuslimGenzApp_GeneratedInjector;
 import hilt_aggregated_deps._com_khalifapps_muslimgenz_data_di_AppModule;
 import hilt_aggregated_deps._com_khalifapps_muslimgenz_data_di_NetworkModule;
 import hilt_aggregated_deps._com_khalifapps_muslimgenz_data_di_RepositoryModule;
+import hilt_aggregated_deps._com_khalifapps_muslimgenz_data_worker_DailyReminderWorker_HiltModule;
 import hilt_aggregated_deps._com_khalifapps_muslimgenz_presentation_ui_pages_MainActivity_GeneratedInjector;
 import hilt_aggregated_deps._com_khalifapps_muslimgenz_presentation_viewmodel_auth_LoginViewModel_HiltModules_BindsModule;
 import hilt_aggregated_deps._com_khalifapps_muslimgenz_presentation_viewmodel_auth_LoginViewModel_HiltModules_KeyModule;
@@ -64,10 +66,12 @@ import hilt_aggregated_deps._dagger_hilt_android_internal_modules_HiltWrapper_Ac
         _dagger_hilt_components_SingletonComponent.class
     },
     aggregatedDeps = {
+        _androidx_hilt_work_HiltWrapper_WorkerFactoryModule.class,
         _com_khalifapps_muslimgenz_MuslimGenzApp_GeneratedInjector.class,
         _com_khalifapps_muslimgenz_data_di_AppModule.class,
         _com_khalifapps_muslimgenz_data_di_NetworkModule.class,
         _com_khalifapps_muslimgenz_data_di_RepositoryModule.class,
+        _com_khalifapps_muslimgenz_data_worker_DailyReminderWorker_HiltModule.class,
         _com_khalifapps_muslimgenz_presentation_ui_pages_MainActivity_GeneratedInjector.class,
         _com_khalifapps_muslimgenz_presentation_viewmodel_auth_LoginViewModel_HiltModules_BindsModule.class,
         _com_khalifapps_muslimgenz_presentation_viewmodel_auth_LoginViewModel_HiltModules_KeyModule.class,

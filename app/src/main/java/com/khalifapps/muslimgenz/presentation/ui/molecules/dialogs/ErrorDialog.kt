@@ -15,10 +15,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.khalifapps.muslimgenz.presentation.theme.AppBackground
+import com.khalifapps.muslimgenz.presentation.theme.LocalAppDimens
 import com.khalifapps.muslimgenz.presentation.theme.OrangePrimary
 import com.khalifapps.muslimgenz.presentation.theme.White
 
@@ -29,20 +28,22 @@ fun ErrorDialog(
     buttonText: String = "OK",
     onDismiss: () -> Unit
 ) {
+    val dimens = LocalAppDimens.current
+
     Dialog(onDismissRequest = onDismiss) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .clip(RoundedCornerShape(16.dp))
+                .clip(RoundedCornerShape(dimens.paddingMedium))
                 .background(AppBackground)
-                .padding(24.dp),
+                .padding(dimens.paddingLarge),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(16.dp)
+            verticalArrangement = Arrangement.spacedBy(dimens.paddingMedium)
         ) {
             Text(
                 text = title,
                 color = White,
-                fontSize = 18.sp,
+                fontSize = dimens.textSizeButton,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center
             )
@@ -50,7 +51,7 @@ fun ErrorDialog(
             Text(
                 text = message,
                 color = White.copy(alpha = 0.8f),
-                fontSize = 14.sp,
+                fontSize = dimens.textSizeBody,
                 textAlign = TextAlign.Center
             )
             
@@ -58,7 +59,7 @@ fun ErrorDialog(
                 onClick = onDismiss,
                 modifier = Modifier.fillMaxWidth(),
                 colors = ButtonDefaults.buttonColors(containerColor = OrangePrimary),
-                shape = RoundedCornerShape(12.dp)
+                shape = RoundedCornerShape(dimens.spacingSmall)
             ) {
                 Text(
                     text = buttonText,
@@ -69,3 +70,4 @@ fun ErrorDialog(
         }
     }
 }
+

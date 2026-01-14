@@ -1,8 +1,10 @@
 package com.khalifapps.muslimgenz;
 
+import androidx.hilt.work.HiltWrapper_WorkerFactoryModule;
 import com.khalifapps.muslimgenz.data.di.AppModule;
 import com.khalifapps.muslimgenz.data.di.NetworkModule;
 import com.khalifapps.muslimgenz.data.di.RepositoryModule;
+import com.khalifapps.muslimgenz.data.worker.DailyReminderWorker_HiltModule;
 import com.khalifapps.muslimgenz.presentation.ui.pages.MainActivity_GeneratedInjector;
 import com.khalifapps.muslimgenz.presentation.viewmodel.auth.LoginViewModel_HiltModules;
 import dagger.Binds;
@@ -122,7 +124,9 @@ public final class MuslimGenzApp_HiltComponents {
       modules = {
           AppModule.class,
           ApplicationContextModule.class,
+          DailyReminderWorker_HiltModule.class,
           HiltWrapper_FragmentGetContextFix_FragmentGetContextFixModule.class,
+          HiltWrapper_WorkerFactoryModule.class,
           ActivityRetainedCBuilderModule.class,
           ServiceCBuilderModule.class,
           NetworkModule.class,
