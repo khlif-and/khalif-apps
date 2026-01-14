@@ -3,19 +3,29 @@ package com.khalifapps.muslimgenz;
 
 import android.app.Activity;
 import android.app.Service;
+import android.content.Context;
 import android.view.View;
 import androidx.fragment.app.Fragment;
+import androidx.hilt.work.HiltWorkerFactory;
+import androidx.hilt.work.WorkerAssistedFactory;
+import androidx.hilt.work.WorkerFactoryModule_ProvideFactoryFactory;
 import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.ViewModel;
+import androidx.work.ListenableWorker;
+import androidx.work.WorkerParameters;
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import com.khalifapps.muslimgenz.data.di.NetworkModule_ProvideAuthApiHelperFactory;
 import com.khalifapps.muslimgenz.data.di.NetworkModule_ProvideAuthApiServiceFactory;
 import com.khalifapps.muslimgenz.data.di.NetworkModule_ProvideBaseUrlFactory;
 import com.khalifapps.muslimgenz.data.di.NetworkModule_ProvideOkHttpClientFactory;
 import com.khalifapps.muslimgenz.data.di.NetworkModule_ProvideRetrofitFactory;
+import com.khalifapps.muslimgenz.data.local.notification.NotificationHelper;
 import com.khalifapps.muslimgenz.data.remote.auth.AuthApiHelper;
 import com.khalifapps.muslimgenz.data.remote.auth.AuthApiHelperImpl;
 import com.khalifapps.muslimgenz.data.remote.auth.AuthApiService;
 import com.khalifapps.muslimgenz.data.repository.AuthRepositoryImpl;
+import com.khalifapps.muslimgenz.data.worker.DailyReminderWorker;
+import com.khalifapps.muslimgenz.data.worker.DailyReminderWorker_AssistedFactory;
 import com.khalifapps.muslimgenz.domain.repository.AuthRepository;
 import com.khalifapps.muslimgenz.domain.usecase.LoginUseCase;
 import com.khalifapps.muslimgenz.presentation.ui.pages.MainActivity;
@@ -35,10 +45,12 @@ import dagger.hilt.android.internal.lifecycle.DefaultViewModelFactories_Internal
 import dagger.hilt.android.internal.managers.ActivityRetainedComponentManager_LifecycleModule_ProvideActivityRetainedLifecycleFactory;
 import dagger.hilt.android.internal.managers.SavedStateHandleHolder;
 import dagger.hilt.android.internal.modules.ApplicationContextModule;
+import dagger.hilt.android.internal.modules.ApplicationContextModule_ProvideContextFactory;
 import dagger.internal.DaggerGenerated;
 import dagger.internal.DoubleCheck;
 import dagger.internal.Preconditions;
 import dagger.internal.Provider;
+import dagger.internal.SingleCheck;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
@@ -60,25 +72,20 @@ public final class DaggerMuslimGenzApp_HiltComponents_SingletonC {
     return new Builder();
   }
 
-  public static MuslimGenzApp_HiltComponents.SingletonC create() {
-    return new Builder().build();
-  }
-
   public static final class Builder {
+    private ApplicationContextModule applicationContextModule;
+
     private Builder() {
     }
 
-    /**
-     * @deprecated This module is declared, but an instance is not used in the component. This method is a no-op. For more, see https://dagger.dev/unused-modules.
-     */
-    @Deprecated
     public Builder applicationContextModule(ApplicationContextModule applicationContextModule) {
-      Preconditions.checkNotNull(applicationContextModule);
+      this.applicationContextModule = Preconditions.checkNotNull(applicationContextModule);
       return this;
     }
 
     public MuslimGenzApp_HiltComponents.SingletonC build() {
-      return new SingletonCImpl();
+      Preconditions.checkBuilderRequirement(applicationContextModule, ApplicationContextModule.class);
+      return new SingletonCImpl(applicationContextModule);
     }
   }
 
@@ -535,7 +542,13 @@ public final class DaggerMuslimGenzApp_HiltComponents_SingletonC {
   }
 
   private static final class SingletonCImpl extends MuslimGenzApp_HiltComponents.SingletonC {
+    private final ApplicationContextModule applicationContextModule;
+
     private final SingletonCImpl singletonCImpl = this;
+
+    private Provider<NotificationHelper> notificationHelperProvider;
+
+    private Provider<DailyReminderWorker_AssistedFactory> dailyReminderWorker_AssistedFactoryProvider;
 
     private Provider<OkHttpClient> provideOkHttpClientProvider;
 
@@ -551,10 +564,19 @@ public final class DaggerMuslimGenzApp_HiltComponents_SingletonC {
 
     private Provider<AuthRepository> bindAuthRepositoryProvider;
 
-    private SingletonCImpl() {
+    private SingletonCImpl(ApplicationContextModule applicationContextModuleParam) {
+      this.applicationContextModule = applicationContextModuleParam;
+      initialize(applicationContextModuleParam);
 
-      initialize();
+    }
 
+    private Map<String, javax.inject.Provider<WorkerAssistedFactory<? extends ListenableWorker>>> mapOfStringAndProviderOfWorkerAssistedFactoryOf(
+        ) {
+      return Collections.<String, javax.inject.Provider<WorkerAssistedFactory<? extends ListenableWorker>>>singletonMap("com.khalifapps.muslimgenz.data.worker.DailyReminderWorker", ((Provider) dailyReminderWorker_AssistedFactoryProvider));
+    }
+
+    private HiltWorkerFactory hiltWorkerFactory() {
+      return WorkerFactoryModule_ProvideFactoryFactory.provideFactory(mapOfStringAndProviderOfWorkerAssistedFactoryOf());
     }
 
     private AuthApiHelperImpl authApiHelperImpl() {
@@ -562,18 +584,21 @@ public final class DaggerMuslimGenzApp_HiltComponents_SingletonC {
     }
 
     @SuppressWarnings("unchecked")
-    private void initialize() {
-      this.provideOkHttpClientProvider = DoubleCheck.provider(new SwitchingProvider<OkHttpClient>(singletonCImpl, 4));
-      this.provideBaseUrlProvider = DoubleCheck.provider(new SwitchingProvider<String>(singletonCImpl, 5));
-      this.provideRetrofitProvider = DoubleCheck.provider(new SwitchingProvider<Retrofit>(singletonCImpl, 3));
-      this.provideAuthApiServiceProvider = DoubleCheck.provider(new SwitchingProvider<AuthApiService>(singletonCImpl, 2));
-      this.provideAuthApiHelperProvider = DoubleCheck.provider(new SwitchingProvider<AuthApiHelper>(singletonCImpl, 1));
-      this.authRepositoryImplProvider = new SwitchingProvider<>(singletonCImpl, 0);
+    private void initialize(final ApplicationContextModule applicationContextModuleParam) {
+      this.notificationHelperProvider = DoubleCheck.provider(new SwitchingProvider<NotificationHelper>(singletonCImpl, 1));
+      this.dailyReminderWorker_AssistedFactoryProvider = SingleCheck.provider(new SwitchingProvider<DailyReminderWorker_AssistedFactory>(singletonCImpl, 0));
+      this.provideOkHttpClientProvider = DoubleCheck.provider(new SwitchingProvider<OkHttpClient>(singletonCImpl, 6));
+      this.provideBaseUrlProvider = DoubleCheck.provider(new SwitchingProvider<String>(singletonCImpl, 7));
+      this.provideRetrofitProvider = DoubleCheck.provider(new SwitchingProvider<Retrofit>(singletonCImpl, 5));
+      this.provideAuthApiServiceProvider = DoubleCheck.provider(new SwitchingProvider<AuthApiService>(singletonCImpl, 4));
+      this.provideAuthApiHelperProvider = DoubleCheck.provider(new SwitchingProvider<AuthApiHelper>(singletonCImpl, 3));
+      this.authRepositoryImplProvider = new SwitchingProvider<>(singletonCImpl, 2);
       this.bindAuthRepositoryProvider = DoubleCheck.provider((Provider) authRepositoryImplProvider);
     }
 
     @Override
     public void injectMuslimGenzApp(MuslimGenzApp muslimGenzApp) {
+      injectMuslimGenzApp2(muslimGenzApp);
     }
 
     @Override
@@ -591,6 +616,13 @@ public final class DaggerMuslimGenzApp_HiltComponents_SingletonC {
       return new ServiceCBuilder(singletonCImpl);
     }
 
+    @CanIgnoreReturnValue
+    private MuslimGenzApp injectMuslimGenzApp2(MuslimGenzApp instance) {
+      MuslimGenzApp_MembersInjector.injectWorkerFactory(instance, hiltWorkerFactory());
+      MuslimGenzApp_MembersInjector.injectNotificationHelper(instance, notificationHelperProvider.get());
+      return instance;
+    }
+
     private static final class SwitchingProvider<T> implements Provider<T> {
       private final SingletonCImpl singletonCImpl;
 
@@ -605,22 +637,33 @@ public final class DaggerMuslimGenzApp_HiltComponents_SingletonC {
       @Override
       public T get() {
         switch (id) {
-          case 0: // com.khalifapps.muslimgenz.data.repository.AuthRepositoryImpl 
+          case 0: // com.khalifapps.muslimgenz.data.worker.DailyReminderWorker_AssistedFactory 
+          return (T) new DailyReminderWorker_AssistedFactory() {
+            @Override
+            public DailyReminderWorker create(Context context, WorkerParameters workerParams) {
+              return new DailyReminderWorker(context, workerParams, singletonCImpl.notificationHelperProvider.get());
+            }
+          };
+
+          case 1: // com.khalifapps.muslimgenz.data.local.notification.NotificationHelper 
+          return (T) new NotificationHelper(ApplicationContextModule_ProvideContextFactory.provideContext(singletonCImpl.applicationContextModule));
+
+          case 2: // com.khalifapps.muslimgenz.data.repository.AuthRepositoryImpl 
           return (T) new AuthRepositoryImpl(singletonCImpl.provideAuthApiHelperProvider.get());
 
-          case 1: // com.khalifapps.muslimgenz.data.remote.auth.AuthApiHelper 
+          case 3: // com.khalifapps.muslimgenz.data.remote.auth.AuthApiHelper 
           return (T) NetworkModule_ProvideAuthApiHelperFactory.provideAuthApiHelper(singletonCImpl.authApiHelperImpl());
 
-          case 2: // com.khalifapps.muslimgenz.data.remote.auth.AuthApiService 
+          case 4: // com.khalifapps.muslimgenz.data.remote.auth.AuthApiService 
           return (T) NetworkModule_ProvideAuthApiServiceFactory.provideAuthApiService(singletonCImpl.provideRetrofitProvider.get());
 
-          case 3: // retrofit2.Retrofit 
+          case 5: // retrofit2.Retrofit 
           return (T) NetworkModule_ProvideRetrofitFactory.provideRetrofit(singletonCImpl.provideOkHttpClientProvider.get(), singletonCImpl.provideBaseUrlProvider.get());
 
-          case 4: // okhttp3.OkHttpClient 
+          case 6: // okhttp3.OkHttpClient 
           return (T) NetworkModule_ProvideOkHttpClientFactory.provideOkHttpClient();
 
-          case 5: // java.lang.String 
+          case 7: // java.lang.String 
           return (T) NetworkModule_ProvideBaseUrlFactory.provideBaseUrl();
 
           default: throw new AssertionError(id);

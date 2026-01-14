@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Khalif Muslim Gen Z</string>
+    <string name="shortcut_login_short">Login</string>
+    <string name="shortcut_login_long">Login Email</string>
+    <string name="shortcut_choice_short">Pilih Ustadz</string>
+    <string name="shortcut_choice_long">Pilih Ustadz Favorit</string>
 </resources>

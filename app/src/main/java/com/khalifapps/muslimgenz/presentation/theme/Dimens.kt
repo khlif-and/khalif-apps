@@ -16,6 +16,7 @@ data class Dimens(
     val spacingTopSafe: Dp = 20.dp,
     val spacingBottomSafe: Dp = 50.dp,
     
+    val iconSizeSmall: Dp = 16.dp,
     val iconSize: Dp = 24.dp,
     val iconSizeLarge: Dp = 28.dp,
     val iconLarge: Dp = 48.dp,
@@ -33,6 +34,9 @@ data class Dimens(
     val buttonPaddingVertical: Dp = 20.dp,
     
     val cornerRadiusPill: Int = 50,
+    val radiusSmall: Dp = 8.dp,
+
+    val spacingSmall: Dp = 12.dp,
     
     val textSizeSmall: TextUnit = 12.sp,
     val textSizeBody: TextUnit = 14.sp,

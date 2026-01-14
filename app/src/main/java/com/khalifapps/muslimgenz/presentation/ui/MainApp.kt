@@ -23,13 +23,15 @@ import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 
 @Composable
-fun MainApp() {
+fun MainApp(
+    startDestination: String? = null
+) {
     MuslimGenzTheme {
         val navController = rememberNavController()
         
         NavHost(
             navController = navController,
-            startDestination = Routes.Splash,
+            startDestination = startDestination ?: Routes.Splash,
             enterTransition = { EnterTransition.None },
             exitTransition = { ExitTransition.None },
             popEnterTransition = { EnterTransition.None },
