@@ -1,22 +1,18 @@
 package com.khalifapps.muslimgenz.data.repository
 
 import com.khalifapps.muslimgenz.data.remote.auth.AuthApiHelper
-import com.khalifapps.muslimgenz.data.remote.auth.dto.LoginRequest
 import com.khalifapps.muslimgenz.domain.model.AuthResult
 import com.khalifapps.muslimgenz.domain.model.User
 import com.khalifapps.muslimgenz.domain.repository.AuthRepository
 import javax.inject.Inject
 
-/**
- * Implementation of AuthRepository
- */
 class AuthRepositoryImpl @Inject constructor(
     private val authApiHelper: AuthApiHelper
 ) : AuthRepository {
 
     override suspend fun login(email: String, password: String): Result<AuthResult> {
         return try {
-            val response = authApiHelper.login(LoginRequest(email, password))
+            val response = authApiHelper.login(email, password)
             if (response.isSuccessful) {
                 response.body()?.let { loginResponse ->
                     val user = User(
@@ -45,3 +41,4 @@ class AuthRepositoryImpl @Inject constructor(
         }
     }
 }
+

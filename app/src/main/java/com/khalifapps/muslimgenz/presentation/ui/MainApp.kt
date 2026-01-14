@@ -75,6 +75,9 @@ fun MainApp() {
             composable(Routes.LoginEmail) {
                 LoginEmailPage(
                     onLoginSuccess = {
+                        navController.navigate(Routes.ChoiceUstadz) {
+                            popUpTo(Routes.Welcome) { inclusive = true }
+                        }
                     }
                 )
             }

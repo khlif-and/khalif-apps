@@ -1,0 +1,527 @@
+﻿--------- beginning of main
+01-13 16:19:59.876   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:19:59.886   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:19:59.897   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:19:59.913   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:19:59.929   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:19:59.974   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:19:59.987   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:20:00.026  1235  1285 D QuickstepModelDelegate: notifyAppTargetEvent action=1 launchLocation=workspace/0/[-1,-1]/[1,1]
+01-13 16:20:00.038   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:20:00.057   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:20:00.060   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:20:00.061   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:20:00.065   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:20:00.067   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:20:00.071   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:20:00.074   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:20:00.075   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:20:00.090   520   520 I RanchuHwc: logCompositionFallbackIfChanged: layer 857 CompositionType fallback from 2 to 1
+01-13 16:20:00.103   520   520 I RanchuHwc: logCompositionFallbackIfChanged: layer 863 CompositionType fallback from 2 to 1
+01-13 16:20:00.104   520   520 I RanchuHwc: logCompositionFallbackIfChanged: layer 864 CompositionType fallback from 2 to 1
+01-13 16:20:00.109   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:20:00.122   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:20:00.134   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:20:00.142   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:20:00.158   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:20:00.163  1235  1235 I NotificationListener: Handling notification state refresh for com.android.systemui#0
+01-13 16:20:00.166  1235  1235 I NotificationListener: Handling notification state refresh for com.android.systemui#0
+01-13 16:20:00.166  1235  1235 I NotificationListener: Handling notification state refresh for android#0
+01-13 16:20:00.202  1235  1235 D WorkspaceRevealAnim: onAnimationEnd: workspace alpha = 1.0
+01-13 16:20:00.227   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+--------- beginning of system
+01-13 16:20:00.255  1073  1138 V WindowManagerShell: Transition animation finished (aborted=false), notifying core (#380) android.os.BinderProxy@3361468@0
+01-13 16:20:00.404   752   787 W Looper  : Slow dispatch took 1211ms android.fg app=system_server main=false group=FOREGROUND h=android.os.Handler c=com.android.server.wm.ActivityMetricsLogger$$ExternalSyntheticLambda0@32235a m=0
+01-13 16:20:00.410 20756 20756 D VRI[MainActivity]: visibilityChanged oldVisibility=true newVisibility=false
+01-13 16:20:00.434   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:20:00.463  1073  1138 V WindowManagerShell: Track 0 became idle
+01-13 16:20:00.463  1073  1138 V WindowManagerShell: All active transition animations finished
+01-13 16:20:00.483   752   787 V WindowManager: Sent Transition (#380) createdAt=01-13 16:19:57.057 via request=TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=2 effectiveUid=10182 displayId=0 isRunning=true baseIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10000100 cmp=com.google.android.apps.nexuslauncher/.NexusLauncherActivity } baseActivity=ComponentInfo{com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity} topActivity=ComponentInfo{com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity} origActivity=null realActivity=ComponentInfo{com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity} numActivities=1 lastActiveTime=188323855 supportsMultiWindow=true resizeMode=2 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{RemoteToken{dbaa98b Task{3b031c5 #2 type=home I=com.google.android.apps.nexuslauncher/.NexusLauncherActivity}}} topActivityType=2 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=Rect(0, 0 - 0, 0) topActivityInfo=ActivityInfo{4a4ba68 com.google.android.apps.nexuslauncher.NexusLauncherActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=true isVisible=false isVisibleRequested=true isTopActivityNoDisplay=false isSleeping=false locusId=LocusId[17_chars] displayAreaFeatureId=1 isTopActivityTransparent=false isActivityStackTransparent=false lastNonFullscreenBounds=Rect(345, 867 - 999, 2211) capturedLink=null capturedLinkTimestamp=0 requestedVisibleTypes=-9 topActivityRequestOpenInBrowserEducationTimestamp=0 appCompatTaskInfo=AppCompatTaskInfo { topActivityInSizeCompat=false eligibleForLetterboxEducation= false isLetterboxEducationEnabled= true isLetterboxDoubleTapEnabled= false eligibleForUserAspectRatioButton= false topActivityBoundsLetterboxed= false isFromLetterboxDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 topActivityAppBounds=Rect(0, 0 - 1344, 2992) isUserFullscreenOverrideEnabled=false isSystemFullscreenOverrideEnabled=false hasMinAspectRatioOverride=false topActivityLetterboxBounds=null cameraCompatTaskInfo=CameraCompatTaskInfo { freeformCameraCompatMode=inactive}} topActivityMainWindowFrame=null}, pipChange = null, remoteTransition = null, displayChange = null, flags = 0, debugId = 380 }
+01-13 16:20:00.630   752   787 V WindowManager:     startWCT=WindowContainerTransaction { changes= {} hops= [] errorCallbackToken=null taskFragmentOrganizer=null }
+01-13 16:20:00.631   752   787 V WindowManager:     info={id=380 t=OPEN f=0x0 trk=0 r=[0@Point(0, 0)] c=[
+01-13 16:20:00.631   752   787 V WindowManager:         {WCT{RemoteToken{9acd6a7 Task{b1e9025 #1 type=home}}} m=TO_FRONT f=SHOW_WALLPAPER|MOVE_TO_TOP leash=Surface(name=Task=1)/@0xc21108e sb=Rect(0, 0 - 1344, 2992) eb=Rect(0, 0 - 1344, 2992) epz=Point(1344, 2992) d=0 taskParent=-1},
+01-13 16:20:00.631   752   787 V WindowManager:         {WCT{RemoteToken{9f5c418 Task{8f15301 #300 type=standard A=10225:com.khalifapps.muslimgenz}}} m=TO_BACK f=NONE leash=Surface(name=Task=300)/@0x572f37e sb=Rect(0, 0 - 1344, 2992) eb=Rect(0, 0 - 1344, 2992) epz=Point(1344, 2992) d=0 taskParent=-1},
+01-13 16:20:00.631   752   787 V WindowManager:         {m=TO_FRONT f=IS_WALLPAPER leash=Surface(name=WallpaperWindowToken{1a7dd5b showWhenLocked=false})/@0xa538889 sb=Rect(0, 0 - 1344, 2992) eb=Rect(0, 0 - 1344, 2992) epz=Point(1344, 2992) d=0}
+01-13 16:20:00.631   752   787 V WindowManager:     ]}
+01-13 16:20:00.731   752   787 W Looper  : Slow delivery took 1211ms android.fg app=system_server main=false group=FOREGROUND h=android.os.Handler c=com.android.server.wm.TransitionController$Logger@f5f3e81 m=0
+01-13 16:20:00.731   752   787 W Looper  : Slow dispatch took 325ms android.fg app=system_server main=false group=FOREGROUND h=android.os.Handler c=com.android.server.wm.TransitionController$Logger@f5f3e81 m=0
+01-13 16:20:00.761   752   787 V WindowManager: Finish Transition (#380): created at 01-13 16:19:57.057 collect-started=0.693ms request-sent=184.596ms started=257.188ms ready=819.318ms sent=1910.403ms commit=514.46ms finished=3232.614ms
+01-13 16:20:00.762  1073  2254 I HWUI    : Davey! duration=928ms; Flags=0, FrameTimelineVsyncId=12136971, IntendedVsync=188326215063942, Vsync=188326431730600, InputEventId=0, HandleInputStart=188326455475400, AnimationStart=188326455813100, PerformTraversalsStart=188326575311800, DrawStart=188326597061000, FrameDeadline=188326231730608, FrameStartTime=188326439626300, FrameInterval=16666666, WorkloadTarget=16666666, SyncQueued=188326599343500, SyncStart=188326619683000, IssueDrawCommandsStart=188326631369500, SwapBuffers=188327050312600, FrameCompleted=188327164053100, DequeueBufferDuration=977300, QueueBufferDuration=20050800, GpuCompleted=188327098494700, SwapBuffersCompleted=188327164053100, DisplayPresentTime=0, CommandSubmissionCompleted=188327050312600, 
+01-13 16:20:00.762   752   788 W Looper  : Drained
+01-13 16:20:00.768   752   788 W Looper  : Slow dispatch took 130ms android.ui app=system_server main=false group=TOP_APP h=com.android.server.wm.DisplayPolicy$PolicyHandler c=com.android.server.wm.DisplayPolicy$2$$ExternalSyntheticLambda3@c9f614d m=0
+01-13 16:20:00.926   752   788 W Looper  : Slow delivery took 469ms android.ui app=system_server main=false group=TOP_APP h=com.android.server.wm.DisplayPolicy$PolicyHandler c=com.android.server.wm.DisplayPolicy$2$$ExternalSyntheticLambda3@c9f614d m=0
+01-13 16:20:01.038   752   752 W Looper  : Slow delivery took 211ms main app=system_server main=true group=FOREGROUND h=com.android.server.alarm.AlarmManagerService$AlarmHandler c=null m=4
+01-13 16:20:01.064   752   909 I ImeTracker: com.google.android.apps.nexuslauncher:6e849033: onRequestHide at ORIGIN_SERVER reason HIDE_UNSPECIFIED_WINDOW fromUser false
+01-13 16:20:01.438 17911 17911 I GoogleInputMethodService: GoogleInputMethodService.onFinishInput():2092 
+01-13 16:20:01.506  1231  1477 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+01-13 16:20:01.514   752   752 W Looper  : Slow dispatch took 388ms main app=system_server main=true group=FOREGROUND h=com.android.server.alarm.AlarmManagerService$AlarmHandler c=com.android.server.alarm.AlarmManagerService$2$$ExternalSyntheticLambda0@c041bd m=0
+01-13 16:20:01.523 17911 17911 I Module  : DeviceLockedStatusModuleProvider$Module.updateDeviceLockedStatus():103 repeatCheckTimes = 0, locked = false
+01-13 16:20:01.533  1235  1235 D InsetsController: hide(ime(), fromIme=false)
+01-13 16:20:01.533  1235  1235 I ImeTracker: com.google.android.apps.nexuslauncher:6e849033: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+01-13 16:20:01.598   752  2209 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:20:01.635   752   788 W Looper  : Slow dispatch took 660ms android.ui app=system_server main=false group=TOP_APP h=com.android.server.am.ActivityManagerService$UiHandler c=com.android.server.am.UidObserverController$$ExternalSyntheticLambda0@f277aca m=0
+01-13 16:20:01.667 17911 17911 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1349 onStartInput(EditorInfo{EditorInfo{packageName=com.google.android.apps.nexuslauncher, inputType=0, inputTypeString=NULL, enableLearning=false, autoCorrection=false, autoComplete=false, imeOptions=0, privateImeOptions=null, actionName=UNSPECIFIED, actionLabel=null, initialSelStart=-1, initialSelEnd=-1, initialCapsMode=0, label=null, fieldId=0, fieldName=null, extras=null, hintText=null, hintLocales=[]}}, false)
+01-13 16:20:01.691 17911 17911 I Module  : DeviceLockedStatusModuleProvider$Module.updateDeviceLockedStatus():103 repeatCheckTimes = 1, locked = false
+01-13 16:20:01.714   752  1450 I ImeTracker: system_server:40dcf5a: onRequestHide at ORIGIN_SERVER reason IME_REQUESTED_CHANGED_LISTENER fromUser false
+01-13 16:20:01.935  1073  1998 I HWUI    : Davey! duration=1816ms; Flags=0, FrameTimelineVsyncId=12137022, IntendedVsync=188326565063928, Vsync=188326881730582, InputEventId=0, HandleInputStart=188326911539000, AnimationStart=188326928302000, PerformTraversalsStart=188327423387900, DrawStart=188327424307300, FrameDeadline=188327131730572, FrameStartTime=188326887062600, FrameInterval=16666666, WorkloadTarget=16666666, SyncQueued=188327822874600, SyncStart=188327889094300, IssueDrawCommandsStart=188327954351700, SwapBuffers=188328309915100, FrameCompleted=188328448082800, DequeueBufferDuration=989600, QueueBufferDuration=21509200, GpuCompleted=188328445918500, SwapBuffersCompleted=188328448082800, DisplayPresentTime=0, CommandSubmissionCompleted=188328309915100, 
+01-13 16:20:01.958   752   752 W Looper  : Drained
+01-13 16:20:02.098  1073  1073 I Choreographer: Skipped 32 frames!  The application may be doing too much work on its main thread.
+01-13 16:20:02.126   752  2494 W PackageConfigPersister: App-specific configuration not found for packageName: com.google.android.apps.nexuslauncher and userId: 0
+01-13 16:20:02.210  1625  2069 I AiAiEcho: Predicting[0]:  [CONTEXT sampling_count=5 ]
+01-13 16:20:02.225  1625  2069 I AiAiEcho: EchoTargets: 
+01-13 16:20:02.225  1625  2069 I AiAiEcho: Filtered by AiAi flag check: 
+01-13 16:20:02.225  1625  2069 I AiAiEcho: [CONTEXT ratelimit_period="10 SECONDS" ]
+01-13 16:20:02.278  1625  2069 I AiAiEcho: #remoteViewsTwiddler: feature disabled.
+01-13 16:20:02.372  1625  2069 I AiAiEcho: #postPredictionTargets: Sending updates to UISurface home with targets# 0 (types=[])
+01-13 16:20:02.499   752   791 I ImeTracker: system_server:40dcf5a: onCancelled at PHASE_SERVER_SHOULD_HIDE
+01-13 16:20:02.507  1235  1235 D SsBaseTemplateCard: No text view can be set up
+01-13 16:20:02.510  1235  1235 D SsBaseTemplateCard: Passed-in item info is null
+01-13 16:20:02.534  1235  1235 D SsBaseTemplateCard: Passed-in item info is null
+01-13 16:20:02.547  1235  1235 D SsBaseTemplateCard: Passed-in item info is null
+01-13 16:20:02.548  1235  1235 I SsBaseTemplateCard: Secondary card pane is null
+01-13 16:20:02.772   752   788 W Looper  : Slow dispatch took 161ms android.ui app=system_server main=false group=TOP_APP h=com.android.server.am.ActivityManagerService$UiHandler c=com.android.server.am.UidObserverController$$ExternalSyntheticLambda0@f277aca m=0
+01-13 16:20:02.958   752  1018 D BackgroundInstallControlService: Package event received: 0
+01-13 16:20:03.259   752   752 W Looper  : Slow dispatch took 111ms main app=system_server main=true group=FOREGROUND h=com.android.server.power.Notifier$NotifierHandler c=null m=1
+01-13 16:20:03.278 20756 20761 W apps.muslimgenz: Suspending all threads took: 139.748ms
+01-13 16:20:03.438  1073  1199 W Looper  : Slow dispatch took 1093ms SysUiBg app=com.android.systemui main=false group=FOREGROUND h=android.os.Handler c=android.telephony.TelephonyCallback$IPhoneStateListenerStub$$ExternalSyntheticLambda52@fe19d75 m=0
+01-13 16:20:03.469   752   752 W Looper  : Slow delivery took 283ms main app=system_server main=true group=FOREGROUND h=com.android.server.power.Notifier$NotifierHandler c=null m=7
+01-13 16:20:03.589  1235  1235 I KeyboardInsetsHandler: shouldKeyboardTransition, status=false toState:AllApps StateManager(mLastStableState:Normal, mCurrentStableState:Normal, mState:Normal, mRestState:null, isInTransition:false) isImeShown:false isImeShowRequested:false enableKeyboardAlwaysUp:false isUserControlled:true isFromIntentOrA11y:false
+01-13 16:20:03.595   752   752 W Looper  : Slow dispatch took 109ms main app=system_server main=true group=FOREGROUND h=android.os.Handler c=CheckerHandler for main thread m=0
+01-13 16:20:03.678  1235  1235 D StatsLog: LAUNCHER_GOOGLE_ALL_APPS_ENTRY_WITH_KEYBOARD_DISABLED
+01-13 16:20:03.681  1235  1235 D StateManager: onStateTransitionStart - state: AllApps
+01-13 16:20:03.749  1073  1138 D WindowManagerShell: setLauncherKeepClearAreaHeight: visible=false, height=603
+01-13 16:20:03.782  1235  1235 D StateManager: onStateTransitionStart - state: AllApps
+01-13 16:20:03.907  1235  1235 D StateManager: onStateTransitionEnd - state: AllApps
+01-13 16:20:03.987   752  1018 D BackgroundInstallControlService: Package event received: 0
+01-13 16:20:03.997   752   788 W Looper  : Drained
+01-13 16:20:03.997   752   788 W Looper  : Slow dispatch took 180ms android.ui app=system_server main=false group=TOP_APP h=com.android.server.am.ActivityManagerService$UiHandler c=com.android.server.am.UidObserverController$$ExternalSyntheticLambda0@f277aca m=0
+01-13 16:20:04.037  1235  1235 D RecentsView: reset - mEnableDrawingLiveTile: false, mRecentsAnimationController: null
+01-13 16:20:04.042   752  1018 D BackgroundInstallControlService: Package event received: 0
+01-13 16:20:04.113  1235  1235 D StatsLog: LAUNCHER_ALLAPPS_OPEN_UP
+01-13 16:20:04.260  1235  3106 D StatsLog: LAUNCHER_GOOGLE_SEARCH_GMS_PLAY_INIT_CHANNEL
+01-13 16:20:04.455   752   787 W Looper  : Drained
+01-13 16:20:04.711  1235  1235 D BaseAllAppsAdapter: onBindViewHolder: isPrivateSpaceItem: false isStateTransitioning: false isScrolling: false readyToAnimate: false currentState: 0 currentAlpha: 1.0
+01-13 16:20:04.738  1235  1235 D BaseAllAppsAdapter: onBindViewHolder: isPrivateSpaceItem: false isStateTransitioning: false isScrolling: false readyToAnimate: false currentState: 0 currentAlpha: 1.0
+01-13 16:20:04.755  1235  1235 D BaseAllAppsAdapter: onBindViewHolder: isPrivateSpaceItem: false isStateTransitioning: false isScrolling: false readyToAnimate: false currentState: 0 currentAlpha: 1.0
+01-13 16:20:04.887  1235  1235 D BaseAllAppsAdapter: onBindViewHolder: isPrivateSpaceItem: false isStateTransitioning: false isScrolling: false readyToAnimate: false currentState: 0 currentAlpha: 1.0
+01-13 16:20:04.923   752   752 W Looper  : Slow dispatch took 270ms main app=system_server main=true group=FOREGROUND h=com.android.server.power.Notifier$NotifierHandler c=com.android.server.power.Notifier$$ExternalSyntheticLambda2@8af8d98 m=0
+01-13 16:20:04.983  1235  1235 D BaseAllAppsAdapter: onBindViewHolder: isPrivateSpaceItem: false isStateTransitioning: false isScrolling: false readyToAnimate: false currentState: 0 currentAlpha: 1.0
+01-13 16:20:04.994  1235  1235 D BaseAllAppsAdapter: onBindViewHolder: isPrivateSpaceItem: false isStateTransitioning: false isScrolling: false readyToAnimate: false currentState: 0 currentAlpha: 1.0
+01-13 16:20:04.998  1235  1235 D BaseAllAppsAdapter: onBindViewHolder: isPrivateSpaceItem: false isStateTransitioning: false isScrolling: false readyToAnimate: false currentState: 0 currentAlpha: 1.0
+01-13 16:20:05.010  1235  1235 D BaseAllAppsAdapter: onBindViewHolder: isPrivateSpaceItem: false isStateTransitioning: false isScrolling: false readyToAnimate: false currentState: 0 currentAlpha: 1.0
+01-13 16:20:05.073  1235  1235 D BaseAllAppsAdapter: onBindViewHolder: isPrivateSpaceItem: false isStateTransitioning: false isScrolling: false readyToAnimate: false currentState: 0 currentAlpha: 1.0
+01-13 16:20:05.089  1235  1235 D BaseAllAppsAdapter: onBindViewHolder: isPrivateSpaceItem: false isStateTransitioning: false isScrolling: false readyToAnimate: false currentState: 0 currentAlpha: 1.0
+01-13 16:20:05.098  1235  1235 D BaseAllAppsAdapter: onBindViewHolder: isPrivateSpaceItem: false isStateTransitioning: false isScrolling: false readyToAnimate: false currentState: 0 currentAlpha: 1.0
+01-13 16:20:05.118  1235  1235 D BaseAllAppsAdapter: onBindViewHolder: isPrivateSpaceItem: false isStateTransitioning: false isScrolling: false readyToAnimate: false currentState: 0 currentAlpha: 1.0
+01-13 16:20:05.133   752   752 W Looper  : Drained
+01-13 16:20:05.142  1235  1235 D BaseAllAppsAdapter: onBindViewHolder: isPrivateSpaceItem: false isStateTransitioning: false isScrolling: false readyToAnimate: false currentState: 0 currentAlpha: 1.0
+01-13 16:20:05.151  1235  1235 D BaseAllAppsAdapter: onBindViewHolder: isPrivateSpaceItem: false isStateTransitioning: false isScrolling: false readyToAnimate: false currentState: 0 currentAlpha: 1.0
+01-13 16:20:05.155  1235  1235 D BaseAllAppsAdapter: onBindViewHolder: isPrivateSpaceItem: false isStateTransitioning: false isScrolling: false readyToAnimate: false currentState: 0 currentAlpha: 1.0
+01-13 16:20:05.162  1235  1235 D BaseAllAppsAdapter: onBindViewHolder: isPrivateSpaceItem: false isStateTransitioning: false isScrolling: false readyToAnimate: false currentState: 0 currentAlpha: 1.0
+01-13 16:20:05.175  1235  1235 D BaseAllAppsAdapter: onBindViewHolder: isPrivateSpaceItem: false isStateTransitioning: false isScrolling: false readyToAnimate: false currentState: 0 currentAlpha: 1.0
+01-13 16:20:05.184  1235  1235 D BaseAllAppsAdapter: onBindViewHolder: isPrivateSpaceItem: false isStateTransitioning: false isScrolling: false readyToAnimate: false currentState: 0 currentAlpha: 1.0
+01-13 16:20:05.191  1235  1235 D BaseAllAppsAdapter: onBindViewHolder: isPrivateSpaceItem: false isStateTransitioning: false isScrolling: false readyToAnimate: false currentState: 0 currentAlpha: 1.0
+01-13 16:20:05.199  1235  1235 D BaseAllAppsAdapter: onBindViewHolder: isPrivateSpaceItem: false isStateTransitioning: false isScrolling: false readyToAnimate: false currentState: 0 currentAlpha: 1.0
+01-13 16:20:05.210  1235  1235 D BaseAllAppsAdapter: onBindViewHolder: isPrivateSpaceItem: false isStateTransitioning: false isScrolling: false readyToAnimate: false currentState: 0 currentAlpha: 1.0
+01-13 16:20:05.250  1235  1235 D BaseAllAppsAdapter: onBindViewHolder: isPrivateSpaceItem: false isStateTransitioning: false isScrolling: false readyToAnimate: false currentState: 0 currentAlpha: 1.0
+01-13 16:20:05.268  1235  1235 D BaseAllAppsAdapter: onBindViewHolder: isPrivateSpaceItem: false isStateTransitioning: false isScrolling: false readyToAnimate: false currentState: 0 currentAlpha: 1.0
+01-13 16:20:05.298  1235  1235 D BaseAllAppsAdapter: onBindViewHolder: isPrivateSpaceItem: false isStateTransitioning: false isScrolling: false readyToAnimate: false currentState: 0 currentAlpha: 1.0
+01-13 16:20:05.650  1073  1242 W Looper  : Slow dispatch took 1323ms BroadcastRunning app=com.android.systemui main=false group=FOREGROUND h=android.os.Handler c=android.app.LoadedApk$ReceiverDispatcher$Args$$ExternalSyntheticLambda0@83b9bf1 m=0
+01-13 16:20:05.719   752   788 W Looper  : Slow dispatch took 231ms android.ui app=system_server main=false group=TOP_APP h=com.android.server.am.ActivityManagerService$UiHandler c=com.android.server.am.UidObserverController$$ExternalSyntheticLambda0@f277aca m=0
+01-13 16:20:05.829  1073  1998 I HWUI    : Davey! duration=879ms; Flags=0, FrameTimelineVsyncId=12137301, IntendedVsync=188331298397072, Vsync=188331498397064, InputEventId=0, HandleInputStart=188331626142100, AnimationStart=188331626315600, PerformTraversalsStart=188331631164100, DrawStart=188331631878200, FrameDeadline=188331315063738, FrameStartTime=188331510973100, FrameInterval=16666666, WorkloadTarget=16666666, SyncQueued=188331785865300, SyncStart=188331819011800, IssueDrawCommandsStart=188331828188800, SwapBuffers=188332132143600, FrameCompleted=188332211192500, DequeueBufferDuration=234200, QueueBufferDuration=31735700, GpuCompleted=188332195492300, SwapBuffersCompleted=188332211192500, DisplayPresentTime=0, CommandSubmissionCompleted=188332132143600, 
+01-13 16:20:06.078  1073  1242 W Looper  : Slow delivery took 1941ms BroadcastRunning app=com.android.systemui main=false group=FOREGROUND h=android.os.Handler c=android.app.LoadedApk$ReceiverDispatcher$Args$$ExternalSyntheticLambda0@a00657 m=0
+01-13 16:20:06.873   555   555 I BpBinder: onLastStrongRef automatically unlinking death recipients: 
+01-13 16:20:06.956  1235  1235 I Choreographer: Skipped 168 frames!  The application may be doing too much work on its main thread.
+01-13 16:20:06.982  1235 28776 I HWUI    : Davey! duration=3429ms; Flags=0, FrameTimelineVsyncId=12137242, IntendedVsync=188330081730454, Vsync=188330515063770, InputEventId=643268816, HandleInputStart=188330539659500, AnimationStart=188330540340500, PerformTraversalsStart=188330802981300, DrawStart=188331999041800, FrameDeadline=188330098397120, FrameStartTime=188330527148200, FrameInterval=16666666, WorkloadTarget=16666666, SyncQueued=188332226827000, SyncStart=188332227728600, IssueDrawCommandsStart=188332239363700, SwapBuffers=188333453756400, FrameCompleted=188333511977800, DequeueBufferDuration=546900, QueueBufferDuration=11049300, GpuCompleted=188333511977800, SwapBuffersCompleted=188333479263800, DisplayPresentTime=0, CommandSubmissionCompleted=188333453756400, 
+01-13 16:20:07.118  1235  3358 I HWUI    : Davey! duration=2240ms; Flags=0, FrameTimelineVsyncId=12137242, IntendedVsync=188330081730454, Vsync=188330515063770, InputEventId=0, HandleInputStart=188330539659500, AnimationStart=188330540340500, PerformTraversalsStart=188330802981300, DrawStart=188332234953800, FrameDeadline=188330098397120, FrameStartTime=188330527148200, FrameInterval=16666666, WorkloadTarget=16666666, SyncQueued=188332235169000, SyncStart=188333494686700, IssueDrawCommandsStart=188333494803400, SwapBuffers=188333510172500, FrameCompleted=188333582107700, DequeueBufferDuration=307700, QueueBufferDuration=34727900, GpuCompleted=188333555573900, SwapBuffersCompleted=188333582107700, DisplayPresentTime=0, CommandSubmissionCompleted=188333510172500, 
+01-13 16:20:07.223  1235  1258 I HWUI    : Davey! duration=2987ms; Flags=0, FrameTimelineVsyncId=12137278, IntendedVsync=188330798397092, Vsync=188333598396980, InputEventId=0, HandleInputStart=188333676237100, AnimationStart=188333676502900, PerformTraversalsStart=188333685898800, DrawStart=188333686437600, FrameDeadline=188333531730316, FrameStartTime=188333601605600, FrameInterval=16666666, WorkloadTarget=16666666, SyncQueued=188333686939700, SyncStart=188333700179500, IssueDrawCommandsStart=188333706650500, SwapBuffers=188333750111800, FrameCompleted=188333799366900, DequeueBufferDuration=1514100, QueueBufferDuration=6496400, GpuCompleted=188333799366900, SwapBuffersCompleted=188333775553200, DisplayPresentTime=0, CommandSubmissionCompleted=188333750111800, 
+01-13 16:20:07.870  1235  1235 D SearchTargetUtil: queryLength=0 size=4
+01-13 16:20:07.874  1235  1235 D SearchTargetUtil: layoutType=educard resultType=524288 packageName=
+01-13 16:20:07.877  1235  1235 D SearchTargetUtil: layoutType=empty_divider resultType=262144 packageName=
+01-13 16:20:07.878  1235  1235 D SearchTargetUtil: layoutType=placeholder resultType=131072 packageName=com.google.android.googlequicksearchbox
+01-13 16:20:07.878  1235  1235 D SearchTargetUtil: layoutType=empty_divider resultType=262144 packageName=
+01-13 16:20:08.153   752  1018 D BackgroundInstallControlService: Package event received: 0
+01-13 16:20:08.323  1235  3106 D GmsPlayProvider: Created the binder channel successfully for end point component =ComponentInfo{com.google.android.gms/com.google.android.gms.play.cloud.search.PlayCloudSearchEndpointService} , mChannel=k1{delegate=e{logId=5, target=directaddress:///AndroidComponentAddress%5BIntent%20%7B%20act=com.google.android.gms.play.cloud.search.grpc.io.action.BIND%20cmp=com.google.android.gms/.play.cloud.search.PlayCloudSearchEndpointService%20%7D%5D}} , mConnection=N2.v@aa9c10
+01-13 16:20:08.566 14787 14787 W ProviderHelper: Unknown dynamite feature providerinstaller.dynamite
+01-13 16:20:08.566 14787 14787 I DynamiteModule: Considering local module com.google.android.gms.providerinstaller.dynamite:1 and remote module com.google.android.gms.providerinstaller.dynamite:0
+01-13 16:20:08.567 14787 14787 I DynamiteModule: Selected local version of com.google.android.gms.providerinstaller.dynamite
+01-13 16:20:08.921   752   878 W Looper  : Slow dispatch took 10959ms appscheduling.default app=system_server main=false group=FOREGROUND h=com.android.server.job.JobSchedulerService$JobHandler c=null m=3
+01-13 16:20:10.257 14787 14787 I .gms.persistent: AssetManager2(0x75140fe06978) locale list changing from [] to [en-US]
+01-13 16:20:10.866 14787 14787 I .gms.persistent: AssetManager2(0x75140fe0ecb8) locale list changing from [] to [en-US]
+01-13 16:20:11.124  1235  1235 D StatsLog: LAUNCHER_ALLAPPS_ITEM_LONG_PRESSED
+01-13 16:20:11.402  1231  1477 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+01-13 16:20:11.493   752  1450 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:20:12.114  1235  1235 I Choreographer: Skipped 62 frames!  The application may be doing too much work on its main thread.
+01-13 16:20:12.493  1235  1258 I HWUI    : Davey! duration=1317ms; Flags=0, FrameTimelineVsyncId=12137467, IntendedVsync=188337715063482, Vsync=188338748396774, InputEventId=0, HandleInputStart=188338776291400, AnimationStart=188338779483900, PerformTraversalsStart=188338791223400, DrawStart=188338799368800, FrameDeadline=188337848396810, FrameStartTime=188338758766000, FrameInterval=16666666, WorkloadTarget=16666666, SyncQueued=188338814099200, SyncStart=188338841773800, IssueDrawCommandsStart=188338842170000, SwapBuffers=188339011561600, FrameCompleted=188339059750200, DequeueBufferDuration=7556200, QueueBufferDuration=11390000, GpuCompleted=188339059750200, SwapBuffersCompleted=188339042087800, DisplayPresentTime=0, CommandSubmissionCompleted=188339011561600, 
+01-13 16:20:12.922  1235  1285 I s.nexuslauncher: AssetManager2(0x75140fe34e18) locale list changing from [] to [en-US]
+01-13 16:20:13.021 14787 14787 W .gms.persistent: Verification of void com.google.android.gms.chimera.GmsModuleInitializer.initializeModuleV0(android.content.Context, com.google.android.gms.common.app.BaseApplicationContext) took 1.777s (554.28 bytecodes/s) (0B arena alloc)
+01-13 16:20:13.238 14787 14787 W .gms.persistent: Verification of void m55.jka.f(android.content.Context) took 165.413ms (731.50 bytecodes/s) (0B arena alloc)
+01-13 16:20:13.373 14787 14787 W .gms.persistent: Verification of java.lang.Object m55.jka.b() took 118.640ms (5124.73 bytecodes/s) (0B arena alloc)
+01-13 16:20:13.762  1235  1235 D b/387844520: getOutlineOffsetX: measured width = 198, mNormalizedIconSize = 182, last updated width = 198
+01-13 16:20:14.684  1235 20842 I s.nexuslauncher: AssetManager2(0x75140fe4f3f8) locale list changing from [] to [en-US]
+01-13 16:20:14.713  1235  1285 D AlphabeticIndexCompat: computeSectionName: cs: Settings sectionName: S
+01-13 16:20:14.721  1235  1285 D AlphabeticIndexCompat: computeSectionName: cs: Photos sectionName: P
+01-13 16:20:14.726  1235  1285 D AlphabeticIndexCompat: computeSectionName: cs: Battery sectionName: B
+01-13 16:20:14.749  1235  1285 D AlphabeticIndexCompat: computeSectionName: cs: Chrome sectionName: C
+01-13 16:20:14.754  1235  1285 D AlphabeticIndexCompat: computeSectionName: cs: Gmail sectionName: G
+01-13 16:20:14.784  1235  1285 D AlphabeticIndexCompat: computeSectionName: cs: Drive sectionName: D
+01-13 16:20:14.873  1235  1285 D AlphabeticIndexCompat: computeSectionName: cs: Clock sectionName: C
+01-13 16:20:14.874  1235  1285 D AlphabeticIndexCompat: computeSectionName: cs: Contacts sectionName: C
+01-13 16:20:14.918  1235  1285 D AlphabeticIndexCompat: computeSectionName: cs: Calendar sectionName: C
+01-13 16:20:14.958  1235  1285 D AlphabeticIndexCompat: computeSectionName: cs: Maps sectionName: M
+01-13 16:20:14.978  1235  1285 D AlphabeticIndexCompat: computeSectionName: cs: YouTube Music sectionName: Y
+01-13 16:20:14.986  1235  1285 D AlphabeticIndexCompat: computeSectionName: cs: YouTube sectionName: Y
+01-13 16:20:14.991  1235  1285 D AlphabeticIndexCompat: computeSectionName: cs: Google sectionName: G
+01-13 16:20:15.006  1235  1285 D AlphabeticIndexCompat: computeSectionName: cs: Android System Intelligence sectionName: A
+01-13 16:20:15.019  1235  1285 D AlphabeticIndexCompat: computeSectionName: cs: Digital Wellbeing sectionName: D
+01-13 16:20:15.025  1235  1285 D AlphabeticIndexCompat: computeSectionName: cs: Conversations sectionName: C
+01-13 16:20:19.357 14787 14787 I GmsModuleInitializer: Using ContainerGservicesDelegate
+01-13 16:20:19.601 14787 14802 W .gms.persistent: Verification of m55.rjf m55.nst.C(int) took 111.515ms (116.58 bytecodes/s) (0B arena alloc)
+01-13 16:20:20.398 14787 14787 W .gms.persistent: Verification of void m55.azw.f(java.lang.String, m55.bac, int) took 100.660ms (13709.49 bytecodes/s) (0B arena alloc)
+01-13 16:20:20.598 14787 14802 W .gms.persistent: Verification of m55.lyp m55.jko.c(m55.jom) took 184.980ms (502.75 bytecodes/s) (0B arena alloc)
+01-13 16:20:20.807 14787 14787 W .gms.persistent: Verification of void m55.ago.a(com.google.android.gms.common.app.BaseApplicationContext) took 245.491ms (5698.77 bytecodes/s) (0B arena alloc)
+01-13 16:20:21.002 14787 14802 W .gms.persistent: Verification of void m55.yv.<init>(android.content.Context, m55.yf, m55.yc, m55.yu) took 306.778ms (400.94 bytecodes/s) (0B arena alloc)
+01-13 16:20:21.138 14787 14802 W .gms.persistent: Verification of m55.ihv m55.yv.h(int, m55.abq) took 117.394ms (349.25 bytecodes/s) (0B arena alloc)
+01-13 16:20:21.258  1231  1477 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+01-13 16:20:21.281   752  1450 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:20:21.460 14787 14802 W .gms.persistent: Verification of m55.adk m55.yv.a() took 321.095ms (311.43 bytecodes/s) (0B arena alloc)
+01-13 16:20:21.749  1073  1081 W System  : A resource failed to call release. 
+01-13 16:20:21.750  1073  1081 W System  : A resource failed to call release. 
+01-13 16:20:21.795  1073  1081 W System  : A resource failed to call release. 
+01-13 16:20:21.809  1073  1081 W System  : A resource failed to call release. 
+01-13 16:20:21.843 14787 14802 W .gms.persistent: Verification of java.lang.Object m55.iii.b(m55.ihv, long, java.util.concurrent.TimeUnit) took 230.573ms (385.99 bytecodes/s) (0B arena alloc)
+01-13 16:20:21.858 14787 14787 W .gms.persistent: Verification of void m55.tg.<init>(byte[]) took 183.647ms (871.24 bytecodes/s) (0B arena alloc)
+01-13 16:20:21.986  1073  1081 W System  : A resource failed to call release. 
+01-13 16:20:21.987  1073  1081 W System  : A resource failed to call release. 
+01-13 16:20:22.014  1073  1081 W System  : A resource failed to call release. 
+01-13 16:20:22.015  1073  1081 W System  : A resource failed to call release. 
+01-13 16:20:22.015  1073  1081 W System  : A resource failed to call release. 
+01-13 16:20:22.015  1073  1081 W System  : A resource failed to call release. 
+01-13 16:20:22.022  1073  1081 W System  : A resource failed to call release. 
+01-13 16:20:22.022  1073  1081 W System  : A resource failed to call release. 
+01-13 16:20:22.022  1073  1081 W System  : A resource failed to call release. 
+01-13 16:20:22.023  1073  1081 W System  : A resource failed to call release. 
+01-13 16:20:22.023  1073  1081 W System  : A resource failed to call release. 
+01-13 16:20:22.029  1073  1081 W System  : A resource failed to call release. 
+01-13 16:20:22.029  1073  1081 W System  : A resource failed to call release. 
+01-13 16:20:22.099 14787 14802 W .gms.persistent: Verification of m55.ihv m55.iid.a(java.util.concurrent.Executor, m55.iha) took 103.910ms (221.34 bytecodes/s) (0B arena alloc)
+01-13 16:20:22.382 14787 14787 W .gms.persistent: Verification of void m55.hyp.onCreate() took 199.700ms (3099.64 bytecodes/s) (0B arena alloc)
+01-13 16:20:22.594 26526 26526 W TimedProcessReaper: Current importance is: 100
+01-13 16:20:23.958 14787 20850 W .gms.persistent: Verification of void m55.aas.d() took 175.960ms (1494.66 bytecodes/s) (0B arena alloc)
+01-13 16:20:24.208 14787 14802 W .gms.persistent: Verification of void m55.ihz.<init>(m55.igx) took 120.344ms (232.67 bytecodes/s) (0B arena alloc)
+01-13 16:20:25.329 14787 14787 I GmsCoreXrpcWrapper: (REDACTED) Creating a custom channel provider with trafficStatsTag=%d trafficStatsUid=%d
+01-13 16:20:25.473 14787 14787 W .gms.persistent: Verification of m55.ptg m55.mke.a(m55.mhu) took 103.351ms (1925.47 bytecodes/s) (0B arena alloc)
+01-13 16:20:26.847   752  2496 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:20:26.988 14787 14792 W .gms.persistent: Suspending all threads took: 20.579ms
+01-13 16:20:27.179 14787 14787 W .gms.persistent: Verification of java.util.Set m55.kja.g() took 217.512ms (55.17 bytecodes/s) (0B arena alloc)
+01-13 16:20:27.209 14787 14871 W .gms.persistent: Verification of void m55.lyh.m(m55.lyp, m55.lya, java.util.concurrent.Executor) took 125.721ms (71.59 bytecodes/s) (0B arena alloc)
+01-13 16:20:28.062 14787 20850 W .gms.persistent: Verification of void m55.ijr.H(m55.ijl, m55.ijl, m55.zy) took 113.035ms (468.88 bytecodes/s) (0B arena alloc)
+01-13 16:20:28.822   752   788 W system_server: Weak pointer dereference blocked for 12 milliseconds.
+01-13 16:20:29.151 14787 14787 I PlayCloudSearchChimeraS: Starting the server
+01-13 16:20:29.494 14787 20846 W NetworkScheduler.TED: Enforcing binder timeout for ComponentInfo{com.google.android.gms/com.google.android.gms.tapandpay.gcmtask.TapAndPayGcmTaskService}
+01-13 16:20:29.494 14787 20846 E NetworkScheduler.TED: Dropping task as app's play services SDK version does not support Android O. Either update the SDK or lower your app's target SDK version. Canceling all tasks for the service: ComponentInfo{com.google.android.gms/com.google.android.gms.tapandpay.gcmtask.TapAndPayGcmTaskService}
+01-13 16:20:30.162 14787 14787 I PlayCloudSearchLifeCycl: Starting the GRPC server
+01-13 16:20:30.182 14787 14787 I PlayCloudSearchChimeraS: onBind called
+01-13 16:20:30.486 14787 14879 W .gms.persistent: Verification of m55.pyu m55.pzy.a(m55.qop, java.lang.String, m55.pwv) took 107.990ms (3148.43 bytecodes/s) (0B arena alloc)
+01-13 16:20:30.778   752   775 I system_server: NativeAlloc concurrent mark compact GC freed 10MB AllocSpace bytes, 14(548KB) LOS objects, 39% free, 36MB/60MB, paused 81.016ms,101.509ms total 26.075s
+01-13 16:20:31.018 14787 20829 I TapAndPay: deviceSupportsHce has detected emulator [CONTEXT service_id=79 ]
+01-13 16:20:31.082 14787 20829 I .gms.persistent: AssetManager2(0x75140fdfb758) locale list changing from [] to [en-US]
+01-13 16:20:31.134   752   777 W System  : A resource failed to call release. 
+01-13 16:20:31.138   752   777 W System  : A resource failed to call release. 
+01-13 16:20:31.156 14787 20829 I TapAndPay: NfcAdapter is null while obtaining CardEmulation instance. [CONTEXT service_id=79 ]
+01-13 16:20:31.306   752  2490 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:20:31.325  1231  1477 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+01-13 16:20:31.941 14787 20846 I DynamiteModule: Considering local module com.google.android.gms.googlecertificates:7 and remote module com.google.android.gms.googlecertificates:7
+01-13 16:20:31.943 14787 20846 I DynamiteModule: Selected local version of com.google.android.gms.googlecertificates
+01-13 16:20:32.147 14787 20851 W NetworkScheduler.ATC: Called cancelTask for already completed task com.google.android.gms/.tapandpay.gcmtask.TapAndPayGcmTaskService{u=0 tag="hce.dynamic_aid_registration.oneoff" trigger=window{start=0s,end=1s,earliest=-46s,latest=-45s} requirements=[NET_ANY,PREFERRED_CHARGING] attributes=[] scheduled=-46s last_run=-23s exec_window_multiplier=1.0000 jid=N/A status=ACTIVE retries=10 client_lib=GMS_TASK_SCHEDULER-254730000} :1 [CONTEXT service_id=218 ]
+01-13 16:20:32.158 14787 20851 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+01-13 16:20:32.182 14787 20851 I NetworkScheduler.Stats: (REDACTED) Task %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+01-13 16:20:32.322 14787 20846 W .gms.persistent: Verification of void m55.rdk.A() took 119.778ms (3147.48 bytecodes/s) (0B arena alloc)
+01-13 16:20:33.498 14787 20851 I GmsNetworkEngineImageFe: warmup called
+01-13 16:20:33.499 14787 20851 I GmsNetworkEngineImageFe: fetchImage called
+01-13 16:20:33.530 14787 20851 I GmsNetworkEngineImageFe: (REDACTED) image url: %s
+01-13 16:20:34.297 14787 15589 W .gms.persistent: Verification of java.lang.Object m55.dnm.as() took 132.086ms (2604.35 bytecodes/s) (0B arena alloc)
+01-13 16:20:34.497 14787 20851 I PlayCloudSearchServiceI: (REDACTED) getCompletions called on thread %s
+01-13 16:20:34.725 14787 15589 W .gms.persistent: Verification of java.lang.Object m55.lpd.a(int, java.lang.Object) took 129.788ms (7766.46 bytecodes/s) (0B arena alloc)
+01-13 16:20:35.918 14787 20851 I PlayCloudSearchServiceI: Empty account name
+01-13 16:20:35.923 14787 15589 W .gms.persistent: Verification of m55.hmb m55.hod.c(m55.nsy, m55.hoc) took 668.161ms (2776.28 bytecodes/s) (0B arena alloc)
+01-13 16:20:36.365 14787 15589 W .gms.persistent: Verification of java.lang.Object m55.duq.as() took 166.269ms (3181.58 bytecodes/s) (0B arena alloc)
+01-13 16:20:41.291  1231  1477 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+01-13 16:20:41.311   752  2209 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:20:51.289  1231  1477 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+01-13 16:20:51.323   752  2209 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:00.046  1073  1242 W Looper  : Drained
+01-13 16:21:01.255  1231  1477 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+01-13 16:21:01.265   752  2490 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:11.274  1231  1477 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+01-13 16:21:11.281   752  2490 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:12.498   752   887 D ActivityManager: freezing 20756 com.khalifapps.muslimgenz
+01-13 16:21:12.554   752   954 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET, states=14
+01-13 16:21:12.570   752   954 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET6, states=14
+01-13 16:21:12.571   752   954 D InetDiagMessage: Destroyed live tcp sockets for uids={10225} in 26ms
+01-13 16:21:19.095 13748 13792 I bluetooth: system/gd/hci/le_address_manager.cc:576 GetNextPrivateAddressIntervalRange: client=LeAddressManager, nonwake=7m46s, wake=13m59s
+01-13 16:21:19.540 13748 13792 I bluetooth: system/gd/hci/le_address_manager.cc:777 OnCommandComplete: Received command complete with op_code LE_SET_RANDOM_ADDRESS(0x2005)
+01-13 16:21:19.543 13748 13792 I bluetooth: system/gd/hci/le_address_manager.cc:797 OnCommandComplete: update random address : xx:xx:xx:xx:e8:3e
+01-13 16:21:19.550 13748 13792 I bluetooth: system/gd/hci/le_address_manager.cc:392 resume_registered_clients: Resuming registered clients
+01-13 16:21:19.550 13748 13792 I bluetooth: system/gd/hci/le_scanning_manager.cc:601 stop_scan: Scanning already stopped, return!
+01-13 16:21:21.298  1231  1477 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+01-13 16:21:21.346   752  2490 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:31.282  1231  1477 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+01-13 16:21:31.301   752  2490 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:34.809   752  2490 I system_server: AssetManager2(0x75140fe33b58) locale list changing from [] to [en-US]
+01-13 16:21:41.133  1235  1258 I IPCThreadState: oneway function results for code 2 on binder at 0x75158fe3e120 will be dropped but finished with status UNKNOWN_TRANSACTION
+01-13 16:21:41.189 14787 14787 I PlayCloudSearchChimeraS: Stopping the server
+01-13 16:21:41.190 14787 14787 I PlayCloudSearchLifeCycl: Stopping the GRPC server
+01-13 16:21:41.319  1231  1477 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+01-13 16:21:41.326   752  2496 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:51.382   752  2496 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:51.400  1231  1477 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+01-13 16:21:53.308   752   788 W ActivityTaskManager: callingPackage for (uid=-1, pid=0) has no WPC
+01-13 16:21:53.310   752   788 W ActivityStartInterceptor: Starting home with component specified, uid=0
+01-13 16:21:53.315   752   788 W OptProp : Cannot read opt property android.window.PROPERTY_COMPAT_ALLOW_USER_ASPECT_RATIO_OVERRIDE
+01-13 16:21:53.315   752   788 W OptProp : Cannot read opt property android.window.PROPERTY_COMPAT_ALLOW_USER_ASPECT_RATIO_FULLSCREEN_OVERRIDE
+01-13 16:21:53.315   752   788 W OptProp : Cannot read opt property android.window.PROPERTY_COMPAT_ALLOW_RESIZEABLE_ACTIVITY_OVERRIDES
+01-13 16:21:53.318   752   788 W OptProp : Cannot read opt property android.window.PROPERTY_COMPAT_ALLOW_MIN_ASPECT_RATIO_OVERRIDE
+01-13 16:21:53.321   752   788 V GrammaticalInflectionUtils: AttributionSource: android.content.AttributionSource@6fb37409 does not have READ_SYSTEM_GRAMMATICAL_GENDER permission.
+01-13 16:21:53.394   752   788 I ActivityTaskManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10000100 cmp=com.google.android.apps.nexuslauncher/.NexusLauncherActivity (has extras)} with LAUNCH_SINGLE_TASK from uid 0 (BAL_ALLOW_ALLOWLISTED_UID) result code=3
+01-13 16:21:53.397   752   788 W Looper  : Slow dispatch took 210ms android.ui app=system_server main=false group=TOP_APP h=com.android.server.policy.PhoneWindowManager$PolicyHandler c=com.android.server.policy.PhoneWindowManager$DisplayHomeButtonHandler$$ExternalSyntheticLambda0@92aba7d m=0
+01-13 16:21:53.410  1073 23952 D KeyguardService: setOccluded(false)
+01-13 16:21:53.423  1073 23952 D KeyguardViewMediator: setOccluded(false)
+01-13 16:21:53.431  1235  1235 W SplitSelectStateCtor: Missing session instanceIds
+01-13 16:21:53.431  1235  1235 D StatsLog: LAUNCHER_SPLIT_SELECTION_EXIT_INTERRUPTED
+01-13 16:21:53.431  1073  1073 I vol.VolumeDialogImpl: mDialog.dismiss() reason: volume_controller from: com.android.systemui.volume.VolumeDialogImpl$7.onDismissRequested:3
+01-13 16:21:53.433  1073  1138 D WindowManagerShell: onActivityRestartAttempt: topActivity=ComponentInfo{com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity}, wasVisible=true
+01-13 16:21:53.471  1073  1073 D KeyguardViewMediator: handleSetOccluded(false)
+01-13 16:21:53.479  1235  1235 D StateManager: goToState - fromState: AllApps, toState: Normal, partial trace:
+01-13 16:21:53.479  1235  1235 D StateManager: 	at com.android.launcher3.Launcher.onNewIntent(go/retraceme 72a59688580715d19f0e415c69e80376c2f062d1648c80db6730905005a27c20:116)
+01-13 16:21:53.479  1235  1235 D StateManager: 	at com.android.launcher3.uioverrides.QuickstepLauncher.onNewIntent(go/retraceme 72a59688580715d19f0e415c69e80376c2f062d1648c80db6730905005a27c20:1)
+01-13 16:21:53.479  1235  1235 D StateManager: 	at com.google.android.apps.nexuslauncher.NexusLauncherActivity.onNewIntent(go/retraceme 72a59688580715d19f0e415c69e80376c2f062d1648c80db6730905005a27c20:1)
+01-13 16:21:53.485  1073  1073 D KeyguardViewMediator: KeyguardViewMediator queue processing message: SET_OCCLUDED
+01-13 16:21:53.502  1235  1235 I KeyboardInsetsHandler: shouldKeyboardTransition, status=true toState:Normal StateManager(mLastStableState:Normal, mCurrentStableState:AllApps, mState:AllApps, mRestState:null, isInTransition:false) isImeShown:false isImeShowRequested:false enableKeyboardAlwaysUp:false isUserControlled:false isFromIntentOrA11y:false
+01-13 16:21:53.522  1235  1235 I KeyboardInsetAnimation: KeyboardInsetAnimation, toAllApps=false
+01-13 16:21:53.530  1235  1235 I KeyboardInsetsHandler: onControllableInsetsChanged
+01-13 16:21:53.530  1235  1235 I KeyboardInsetsController: update(target=HIDDEN) state=IDLE
+01-13 16:21:53.551  1235  1235 D TFOManager: playPanelCloseAnimation() duration=200 traceTag=LauncherOverlay-hide isHomeButtonTap=true
+01-13 16:21:53.553  1235  1235 D TFOManager: Skipped creating panel close animation because -1 is invisible.
+01-13 16:21:53.554  1235  1235 D OverviewCommandHelper: clearing pending commands: []
+01-13 16:21:53.762  1235  1235 D StateManager: onStateTransitionStart - state: Normal
+01-13 16:21:53.766  1235  1235 D StatsLog: LAUNCHER_ONRESUME
+01-13 16:21:53.779   555   572 I BpBinder: onLastStrongRef automatically unlinking death recipients: 
+01-13 16:21:53.942   752  1018 D BackgroundInstallControlService: Package event received: 0
+01-13 16:21:54.018  1073  1138 D WindowManagerShell: setLauncherKeepClearAreaHeight: visible=true, height=603
+01-13 16:21:54.725  1235  1285 D QuickstepModelDelegate: notifyAppTargetEvent action=1 launchLocation=workspace/0/[-1,-1]/[1,1]
+01-13 16:21:54.865  1235  1235 I Choreographer: Skipped 51 frames!  The application may be doing too much work on its main thread.
+01-13 16:21:55.054  1235  1235 D StatsLog: LAUNCHER_ALLAPPS_EXIT
+01-13 16:21:55.078  1235  1235 D StateManager: onStateTransitionEnd - state: Normal
+01-13 16:21:55.102  1235  1235 D RecentsView: reset - mEnableDrawingLiveTile: false, mRecentsAnimationController: null
+01-13 16:21:55.103  1235  1235 D ActivityAllAppsContainerView: rebindAdapters: force: false
+01-13 16:21:55.103  1235  1235 D ActivityAllAppsContainerView: rebindAdapters: Not needed.
+01-13 16:21:55.602  1073  2254 I HWUI    : Davey! duration=767ms; Flags=0, FrameTimelineVsyncId=12137814, IntendedVsync=188441231726008, Vsync=188441365059336, InputEventId=0, HandleInputStart=188441410209300, AnimationStart=188441410881700, PerformTraversalsStart=188441446773800, DrawStart=188441447634800, FrameDeadline=188441548392662, FrameStartTime=188441375833100, FrameInterval=16666666, WorkloadTarget=16666666, SyncQueued=188441459808100, SyncStart=188441622823400, IssueDrawCommandsStart=188441675081100, SwapBuffers=188441755043600, FrameCompleted=188442161911100, DequeueBufferDuration=240104500, QueueBufferDuration=15126100, GpuCompleted=188441795025400, SwapBuffersCompleted=188442161911100, DisplayPresentTime=0, CommandSubmissionCompleted=188441755043600, 
+01-13 16:21:55.623  1625  2069 I AiAiEcho: Predicting[0]:  [CONTEXT sampling_count=5 ]
+01-13 16:21:55.627  1625  2069 I AiAiEcho: EchoTargets: 
+01-13 16:21:55.627  1625  2069 I AiAiEcho: Filtered by AiAi flag check: 
+01-13 16:21:55.627  1625  2069 I AiAiEcho: [CONTEXT ratelimit_period="10 SECONDS" ]
+01-13 16:21:55.634  1235  1235 I NotificationListener: Handling notification state refresh for com.android.systemui#0
+01-13 16:21:55.637   752  1018 D BackgroundInstallControlService: Package event received: 0
+01-13 16:21:55.659  1235  1235 I NotificationListener: Handling notification state refresh for com.android.systemui#0
+01-13 16:21:55.661  1235  1235 I NotificationListener: Handling notification state refresh for android#0
+01-13 16:21:55.661  1625  2069 I AiAiEcho: #remoteViewsTwiddler: feature disabled.
+01-13 16:21:55.694  1235  1258 I HWUI    : Davey! duration=1332ms; Flags=0, FrameTimelineVsyncId=12137762, IntendedVsync=188440631726032, Vsync=188441481725998, InputEventId=0, HandleInputStart=188441607615000, AnimationStart=188441622823400, PerformTraversalsStart=188441767905800, DrawStart=188441811697900, FrameDeadline=188441531725996, FrameStartTime=188441495835800, FrameInterval=16666666, WorkloadTarget=16666666, SyncQueued=188441830721600, SyncStart=188441846334100, IssueDrawCommandsStart=188441862120800, SwapBuffers=188441904555900, FrameCompleted=188441980084100, DequeueBufferDuration=596800, QueueBufferDuration=2883500, GpuCompleted=188441980084100, SwapBuffersCompleted=188441931931100, DisplayPresentTime=0, CommandSubmissionCompleted=188441904555900, 
+01-13 16:21:55.721  1235  1258 I HWUI    : Davey! duration=1450ms; Flags=0, FrameTimelineVsyncId=12137762, IntendedVsync=188440631726032, Vsync=188441481725998, InputEventId=0, HandleInputStart=188441607615000, AnimationStart=188441622823400, PerformTraversalsStart=188441767905800, DrawStart=188441894321600, FrameDeadline=188440648392698, FrameStartTime=188441495835800, FrameInterval=16666666, WorkloadTarget=16666666, SyncQueued=188441894628200, SyncStart=188442104435600, IssueDrawCommandsStart=188442126490200, SwapBuffers=188442147607600, FrameCompleted=188442292092400, DequeueBufferDuration=12016700, QueueBufferDuration=40484500, GpuCompleted=188442267822100, SwapBuffersCompleted=188442292092400, DisplayPresentTime=0, CommandSubmissionCompleted=188442147607600, 
+01-13 16:21:55.743  1235  1235 I Choreographer: Skipped 44 frames!  The application may be doing too much work on its main thread.
+01-13 16:21:55.767  1625  2069 I AiAiEcho: #postPredictionTargets: Sending updates to UISurface home with targets# 0 (types=[])
+01-13 16:21:55.786  1235  1235 D ActivityAllAppsContainerView: rebindAdapters: force: false
+01-13 16:21:55.787  1235  1235 D ActivityAllAppsContainerView: rebindAdapters: Not needed.
+01-13 16:21:55.891  1235  1235 D SsBaseTemplateCard: No text view can be set up
+01-13 16:21:55.891  1235  1235 D SsBaseTemplateCard: Passed-in item info is null
+01-13 16:21:55.891  1235  1235 D SsBaseTemplateCard: Passed-in item info is null
+01-13 16:21:55.929 14787 14787 I .gms.persistent: AssetManager2(0x75140fe06978) locale list changing from [] to [en-US]
+01-13 16:21:55.970  1235  1235 D SsBaseTemplateCard: Passed-in item info is null
+01-13 16:21:55.970  1235  1235 I SsBaseTemplateCard: Secondary card pane is null
+01-13 16:21:56.046 14787 14787 I GmsCoreXrpcWrapper: (REDACTED) Creating a custom channel provider with trafficStatsTag=%d trafficStatsUid=%d
+01-13 16:21:56.066 14787 14787 I PlayCloudSearchChimeraS: Starting the server
+01-13 16:21:56.134 14787 14787 I PlayCloudSearchLifeCycl: Starting the GRPC server
+01-13 16:21:56.184   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.197   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.202 14787 14787 I PlayCloudSearchChimeraS: onBind called
+01-13 16:21:56.206   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.214   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.223   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.230   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.239   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.282   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.297   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.298   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.303   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.306   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.350   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.394   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.431   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.439   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.451   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.474   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.493   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.497   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.500   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.502   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.513   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.517   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.526   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.531   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.543   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.549   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.551   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.559   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.563   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.573   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.584   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.609   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.619   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.634   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.639   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.649   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.654   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.658   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.663   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.666   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.668   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.670   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.678   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.682   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.683   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.694   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.698   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.718   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.734   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.739   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.743   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.751   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:56.969 14787 20871 I GmsNetworkEngineImageFe: clearMemory called
+01-13 16:21:57.066  1235  3358 D OverviewCommandHelper: command added: CommandInfo(type=TOGGLE, status=IDLE, createTime=188443710, animationCallbacks=null, displayId=0, isLastOfBatch=true)
+01-13 16:21:57.067  1235  3358 D OverviewCommandHelper: execute: CommandInfo(type=TOGGLE, status=IDLE, createTime=188443710, animationCallbacks=null, displayId=0, isLastOfBatch=true) - queue size: 1
+01-13 16:21:57.102  1235  1235 D OverviewCommandHelper: executing command: CommandInfo(type=TOGGLE, status=PROCESSING, createTime=188443710, animationCallbacks=null, displayId=0, isLastOfBatch=true)
+01-13 16:21:57.115  1235  1235 D OverviewCommandHelper: executeCommand: CommandInfo(type=TOGGLE, status=PROCESSING, createTime=188443710, animationCallbacks=null, displayId=0, isLastOfBatch=true) - visibleRecentsView: null
+01-13 16:21:57.118  1235  1235 D OverviewCommandHelper: Querying TaskbarManager for TaskbarUIController for display: 0
+01-13 16:21:57.123  1235  1235 D OverviewCommandHelper: TaskbarUIController for display 0 was found
+01-13 16:21:57.146  1235  1235 D TFOManager: playPanelCloseAnimation() duration=150 traceTag=LauncherOverlay-hide isHomeButtonTap=true
+01-13 16:21:57.146  1235  1235 D TFOManager: Skipped creating panel close animation because -1 is invisible.
+01-13 16:21:57.157  1235  1235 D StateManager: goToState - fromState: Normal, toState: Overview, partial trace:
+01-13 16:21:57.157  1235  1235 D StateManager: 	at com.android.quickstep.LauncherActivityInterface.switchToRecentsIfVisible(go/retraceme 72a59688580715d19f0e415c69e80376c2f062d1648c80db6730905005a27c20:39)
+01-13 16:21:57.157  1235  1235 D StateManager: 	at com.android.quickstep.OverviewCommandHelper.executeWhenRecentsIsNotVisible(go/retraceme 72a59688580715d19f0e415c69e80376c2f062d1648c80db6730905005a27c20:292)
+01-13 16:21:57.157  1235  1235 D StateManager: 	at com.android.quickstep.OverviewCommandHelper.executeCommand(go/retraceme 72a59688580715d19f0e415c69e80376c2f062d1648c80db6730905005a27c20:49)
+01-13 16:21:57.201  1235  1235 D OverviewCommandHelper: switching to Overview state - waiting: CommandInfo(type=TOGGLE, status=PROCESSING, createTime=188443710, animationCallbacks=null, displayId=0, isLastOfBatch=true)
+01-13 16:21:57.201  1235  1235 D OverviewCommandHelper: command executed: CommandInfo(type=TOGGLE, status=PROCESSING, createTime=188443710, animationCallbacks=null, displayId=0, isLastOfBatch=true) with result: false
+01-13 16:21:57.202  1235  1235 D OverviewCommandHelper: waiting for command callback: CommandInfo(type=TOGGLE, status=PROCESSING, createTime=188443710, animationCallbacks=null, displayId=0, isLastOfBatch=true)
+01-13 16:21:57.262  1235  1235 D StateManager: onStateTransitionStart - state: Overview
+01-13 16:21:57.263  1235  1235 D RecentsView: updateTaskStackListenerState: true
+01-13 16:21:57.271  1235  1235 D RecentsView: reloadIfNeeded - getTasks: 961
+01-13 16:21:57.286  1235  1235 D OverviewCommandHelper: switching to Overview state - onAnimationStart: CommandInfo(type=TOGGLE, status=PROCESSING, createTime=188443710, animationCallbacks=null, displayId=0, isLastOfBatch=true)
+01-13 16:21:57.297  1235  1235 D StatsLog: LAUNCHER_OVERVIEW_SHOW_OVERVIEW_FROM_3_BUTTON
+01-13 16:21:57.369  1073  1073 I vol.VolumeDialogImpl: mDialog.dismiss() reason: volume_controller from: com.android.systemui.volume.VolumeDialogImpl$7.onDismissRequested:3
+01-13 16:21:57.543  1235  1235 D RecentsView: applyLoadPlan - taskGroups: [type=SINGLE task=[id=300 windowingMode=1 user=0 lastActiveTime=188323795] null]
+01-13 16:21:57.592   752  1018 D BackgroundInstallControlService: Package event received: 0
+01-13 16:21:57.782  1235  1235 D StateManager: onStateTransitionEnd - state: Overview
+01-13 16:21:57.794  1235  1235 D OverviewCommandHelper: switching to Overview state - onAnimationEnd: CommandInfo(type=TOGGLE, status=PROCESSING, createTime=188443710, animationCallbacks=null, displayId=0, isLastOfBatch=true)
+01-13 16:21:57.794  1235  1235 D OverviewCommandHelper: command executed: CommandInfo(type=TOGGLE, status=PROCESSING, createTime=188443710, animationCallbacks=null, displayId=0, isLastOfBatch=true) with result: true
+01-13 16:21:57.794  1235  1235 D OverviewCommandHelper: command executed successfully! CommandInfo(type=TOGGLE, status=COMPLETED, createTime=188443710, animationCallbacks=null, displayId=0, isLastOfBatch=true)
+01-13 16:21:57.795  1235  1235 D OverviewCommandHelper: no pending commands to be executed.
+01-13 16:21:58.070 14787 20871 I GmsNetworkEngineImageFe: clearMemory called
+01-13 16:21:58.185   555   555 I BpBinder: onLastStrongRef automatically unlinking death recipients: 
+01-13 16:21:58.319  1235  3358 I HWUI    : Davey! duration=820ms; Flags=0, FrameTimelineVsyncId=12137955, IntendedVsync=188443998392564, Vsync=188444031725896, InputEventId=0, HandleInputStart=188444043626900, AnimationStart=188444062250300, PerformTraversalsStart=188444090805700, DrawStart=188444091263200, FrameDeadline=188444115059226, FrameStartTime=188444043357300, FrameInterval=16666666, WorkloadTarget=16666666, SyncQueued=188444118197200, SyncStart=188444119981700, IssueDrawCommandsStart=188444146736100, SwapBuffers=188444778843100, FrameCompleted=188444820811900, DequeueBufferDuration=714400, QueueBufferDuration=11934600, GpuCompleted=188444820811900, SwapBuffersCompleted=188444800167200, DisplayPresentTime=0, CommandSubmissionCompleted=188444778843100, 
+01-13 16:21:58.397  1235  1235 I Choreographer: Skipped 30 frames!  The application may be doing too much work on its main thread.
+01-13 16:21:58.546  1235  1235 I AiAiSuggestUi: Clearing suggestions.
+01-13 16:21:58.547  1235  1235 I AiAiSuggestUi: Requesting to show indicators
+01-13 16:21:58.554  1235  1235 I AiAiSuggestUi: Fetching contents, isPrimaryTask = false
+01-13 16:21:58.762   752  2496 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:21:59.203  1235 32274 I AiAiSuggestUi: Request suggestContentSelections complete, took: 608
+01-13 16:21:59.223  1235 32274 E AiAiSuggestUi: Timeout while retrieving suggestContentSelections
+01-13 16:21:59.223  1235 32274 E AiAiSuggestUi: java.util.concurrent.TimeoutException
+01-13 16:21:59.223  1235 32274 E AiAiSuggestUi: 	at java.util.concurrent.CompletableFuture$Timeout.run(CompletableFuture.java:2908)
+01-13 16:21:59.223  1235 32274 E AiAiSuggestUi: 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:524)
+01-13 16:21:59.223  1235 32274 E AiAiSuggestUi: 	at java.util.concurrent.FutureTask.run(FutureTask.java:317)
+01-13 16:21:59.223  1235 32274 E AiAiSuggestUi: 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:348)
+01-13 16:21:59.223  1235 32274 E AiAiSuggestUi: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1156)
+01-13 16:21:59.223  1235 32274 E AiAiSuggestUi: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:651)
+01-13 16:21:59.223  1235 32274 E AiAiSuggestUi: 	at java.lang.Thread.run(Thread.java:1119)
+01-13 16:21:59.224  1235 32274 I AiAiSuggestUi: Fetched content back in callback
+01-13 16:21:59.546  1235  1235 D b/318590728: onInterceptTouchEvent: MotionEvent { action=ACTION_DOWN, actionButton=0, id[0]=0, x[0]=865.9629, y[0]=2290.8418, toolType[0]=TOOL_TYPE_FINGER, buttonState=0, classification=NONE, metaState=0, flags=0x0, edgeFlags=0x0, pointerCount=1, historySize=0, eventTime=188446110, downTime=188446110, deviceId=12, source=0x5002, displayId=0, eventId=70438802 }
+01-13 16:22:00.014  1235  1235 D StatsLog: LAUNCHER_TASK_DISMISS_SWIPE_UP
+01-13 16:22:00.020  1235  1235 I AiAiSuggestUi: Clearing suggestions.
+01-13 16:22:00.033  1235  1235 I AiAiSuggestUi: Clearing suggestions.
+01-13 16:22:00.055   752  1450 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:22:00.094  1235  1235 D StateManager: goToState - fromState: Overview, toState: Normal, partial trace:
+01-13 16:22:00.094  1235  1235 D StateManager: 	at com.android.quickstep.views.LauncherRecentsView.handleStartHome(go/retraceme 72a59688580715d19f0e415c69e80376c2f062d1648c80db6730905005a27c20:36)
+01-13 16:22:00.094  1235  1235 D StateManager: 	at com.android.quickstep.views.RecentsView.startHome(go/retraceme 72a59688580715d19f0e415c69e80376c2f062d1648c80db6730905005a27c20:3)
+01-13 16:22:00.094  1235  1235 D StateManager: 	at com.android.quickstep.views.RecentsView.startHome(go/retraceme 72a59688580715d19f0e415c69e80376c2f062d1648c80db6730905005a27c20:1)
+01-13 16:22:00.094  1235  1235 D RecentsView: finishRecentsAnimation - mRecentsAnimationController: null
+01-13 16:22:00.095  1235  1235 D RecentsView: cleanupRemoteTargets - mRemoteTargetHandles: null
+01-13 16:22:00.105  1235  1235 D OverviewActionsView: updateForGroupedTask() called with: isGroupedTask = [false], canSaveAppPair = [false]
+01-13 16:22:00.105  1235  1235 D OverviewActionsView: updateActionButtonsVisibility() called: showSingleTaskActions = [true], showGroupActions = [false]
+01-13 16:22:00.122   752   791 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:22:00.185  1235  1235 D StateManager: onStateTransitionStart - state: Normal
+01-13 16:22:00.185  1235  1235 D RecentsView: updateTaskStackListenerState: false
+01-13 16:22:00.567   752  1018 D BackgroundInstallControlService: Package event received: 0
+01-13 16:22:00.698   752   752 W Looper  : Slow dispatch took 652ms main app=system_server main=true group=FOREGROUND h=com.android.server.alarm.AlarmManagerService$AlarmHandler c=com.android.server.alarm.AlarmManagerService$2$$ExternalSyntheticLambda0@eea5796 m=0
+01-13 16:22:00.742   752   788 W Looper  : Slow dispatch took 320ms android.ui app=system_server main=false group=TOP_APP h=com.android.server.am.ActivityManagerService$UiHandler c=com.android.server.am.UidObserverController$$ExternalSyntheticLambda0@f277aca m=0
+01-13 16:22:00.746   752   752 W Looper  : Slow delivery took 640ms main app=system_server main=true group=FOREGROUND h=android.os.Handler c=com.android.server.vibrator.VibratorFrameworkStatsLogger$$ExternalSyntheticLambda2@3963f04 m=0
+01-13 16:22:00.775   752   788 W ActivityTaskManager: getAssistContextExtras failed: timeout retrieving from ActivityRecord{77091048 u0 com.khalifapps.muslimgenz/.presentation.ui.pages.MainActivity t300 f}}
+01-13 16:22:00.806  1235  1258 E AssistContentRequester: Received AssistData, but no AssistContent found
+01-13 16:22:01.027  1235  1235 D StateManager: onStateTransitionEnd - state: Normal
+01-13 16:22:01.030  1235  1235 D RecentsView: reset - mEnableDrawingLiveTile: false, mRecentsAnimationController: null
+01-13 16:22:01.051   752   752 W Looper  : Slow dispatch took 175ms main app=system_server main=true group=FOREGROUND h=com.android.server.alarm.AlarmManagerService$AlarmHandler c=null m=4
+01-13 16:22:01.070  1235  1235 D ActivityAllAppsContainerView: rebindAdapters: force: false
+01-13 16:22:01.070  1235  1235 D ActivityAllAppsContainerView: rebindAdapters: Not needed.
+01-13 16:22:01.235  1073 23952 I HWUI    : Davey! duration=772ms; Flags=0, FrameTimelineVsyncId=12138159, IntendedVsync=188446981725778, Vsync=188446998392444, InputEventId=0, HandleInputStart=188447012368300, AnimationStart=188447023237300, PerformTraversalsStart=188447031997000, DrawStart=188447038382800, FrameDeadline=188446998392444, FrameStartTime=188447012173900, FrameInterval=16666666, WorkloadTarget=16666666, SyncQueued=188447038624100, SyncStart=188447056055600, IssueDrawCommandsStart=188447059660000, SwapBuffers=188447538435000, FrameCompleted=188447771648900, DequeueBufferDuration=15327600, QueueBufferDuration=180605700, GpuCompleted=188447676158900, SwapBuffersCompleted=188447771648900, DisplayPresentTime=0, CommandSubmissionCompleted=188447538435000, 
+01-13 16:22:01.287  1235  1258 I HWUI    : Davey! duration=812ms; Flags=0, FrameTimelineVsyncId=12138152, IntendedVsync=188446848392450, Vsync=188446998392444, InputEventId=0, HandleInputStart=188447063610300, AnimationStart=188447064145900, PerformTraversalsStart=188447095280300, DrawStart=188447455442700, FrameDeadline=188447115059106, FrameStartTime=188447003716500, FrameInterval=16666666, WorkloadTarget=16666666, SyncQueued=188447455720900, SyncStart=188447462878700, IssueDrawCommandsStart=188447467283300, SwapBuffers=188447592311700, FrameCompleted=188447668135600, DequeueBufferDuration=680300, QueueBufferDuration=7836500, GpuCompleted=188447647665500, SwapBuffersCompleted=188447668135600, DisplayPresentTime=0, CommandSubmissionCompleted=188447592311700, 
+01-13 16:22:01.433   752   752 W Looper  : Slow dispatch took 239ms main app=system_server main=true group=FOREGROUND h=com.android.server.power.Notifier$NotifierHandler c=com.android.server.power.Notifier$$ExternalSyntheticLambda2@f443ced m=0
+01-13 16:22:01.437   752   791 I ActivityManager: Killing 20756:com.khalifapps.muslimgenz/u0a225 (adj 905): remove task
+01-13 16:22:01.521   752  1722 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+01-13 16:22:01.543  1235  1258 I HWUI    : Davey! duration=953ms; Flags=0, FrameTimelineVsyncId=12138181, IntendedVsync=188447081725774, Vsync=188447531725756, InputEventId=0, HandleInputStart=188447535177400, AnimationStart=188447535523800, PerformTraversalsStart=188447745468500, DrawStart=188447759054500, FrameDeadline=188447665059084, FrameStartTime=188447533446600, FrameInterval=16666666, WorkloadTarget=16666666, SyncQueued=188447759239100, SyncStart=188447791406600, IssueDrawCommandsStart=188447836141400, SwapBuffers=188447959848400, FrameCompleted=188448066984400, DequeueBufferDuration=76800, QueueBufferDuration=34986400, GpuCompleted=188448066984400, SwapBuffersCompleted=188448027818100, DisplayPresentTime=0, CommandSubmissionCompleted=188447959848400, 
+01-13 16:22:01.649  1231  1477 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+01-13 16:22:01.814   752  2209 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:22:01.968  1073  1073 I Choreographer: Skipped 62 frames!  The application may be doing too much work on its main thread.
+01-13 16:22:02.102  1073  2254 I HWUI    : Davey! duration=1558ms; Flags=0, FrameTimelineVsyncId=12138166, IntendedVsync=188447015059110, Vsync=188447248392434, InputEventId=0, HandleInputStart=188447408098200, AnimationStart=188447408383800, PerformTraversalsStart=188447746915600, DrawStart=188447827681100, FrameDeadline=188447698392416, FrameStartTime=188447263758700, FrameInterval=16666666, WorkloadTarget=16666666, SyncQueued=188447939260700, SyncStart=188447997820500, IssueDrawCommandsStart=188448118113900, SwapBuffers=188448589871100, FrameCompleted=188448631827400, DequeueBufferDuration=51600, QueueBufferDuration=557200, GpuCompleted=188448631479200, SwapBuffersCompleted=188448631827400, DisplayPresentTime=0, CommandSubmissionCompleted=188448589871100, 
+01-13 16:22:02.788   752   752 W Looper  : Drained
+01-13 16:22:02.849  1235  2077 D SharedPreferencesImpl: Time required to fsync /data/user/0/com.google.android.apps.nexuslauncher/shared_prefs/com.android.launcher3.prefs.xml: [<1: 0, <2: 0, <4: 0, <8: 3, <16: 127, <32: 159, <64: 51, <128: 17, <256: 12, <512: 5, <1024: 3, <2048: 0, <4096: 0, <8192: 0, <16384: 0, >=16384: 0]
+01-13 16:22:03.050  1625 32282 W AiAiScreenProcessor: tryGetAllInputSources timed out.
+01-13 16:22:03.054 14787 20872 I GmsNetworkEngineImageFe: clearMemory called
+01-13 16:22:03.488  1073  1199 W Looper  : Slow dispatch took 1312ms SysUiBg app=com.android.systemui main=false group=FOREGROUND h=android.os.Handler c=android.telephony.TelephonyCallback$IPhoneStateListenerStub$$ExternalSyntheticLambda52@f9fcc9 m=0
+01-13 16:22:03.516  1073  1242 W Looper  : Slow delivery took 2028ms BroadcastRunning app=com.android.systemui main=false group=FOREGROUND h=android.os.Handler c=android.app.LoadedApk$ReceiverDispatcher$Args$$ExternalSyntheticLambda0@1ec0fce m=0
+01-13 16:22:03.659  1073  1073 I Choreographer: Skipped 32 frames!  The application may be doing too much work on its main thread.
+01-13 16:22:04.092  1073  1998 I HWUI    : Davey! duration=712ms; Flags=0, FrameTimelineVsyncId=12138348, IntendedVsync=188449765059000, Vsync=188450298392312, InputEventId=0, HandleInputStart=188450322021200, AnimationStart=188450322355900, PerformTraversalsStart=188450347271800, DrawStart=188450361928500, FrameDeadline=188449931725660, FrameStartTime=188450303680200, FrameInterval=16666666, WorkloadTarget=16666666, SyncQueued=188450363218300, SyncStart=188450380366500, IssueDrawCommandsStart=188450382338100, SwapBuffers=188450436611900, FrameCompleted=188450494330100, DequeueBufferDuration=462100, QueueBufferDuration=44655300, GpuCompleted=188450492752600, SwapBuffersCompleted=188450494330100, DisplayPresentTime=0, CommandSubmissionCompleted=188450436611900, 
+01-13 16:22:04.093   563   563 I adbd    : Remote process closed the socket (on MSG_PEEK)
+01-13 16:22:04.230   482   482 I Zygote  : Process 20756 exited due to signal 9 (Killed)
+01-13 16:22:04.298   752  1901 I WindowManager: WIN DEATH: Window{cb41742 u0 com.khalifapps.muslimgenz/com.khalifapps.muslimgenz.presentation.ui.pages.MainActivity}
+01-13 16:22:04.878   752   791 W ActivityManager: setHasOverlayUi called on unknown pid: 20756
+01-13 16:22:05.075   752   877 W UsageStatsService: Unexpected activity event reported! (com.khalifapps.muslimgenz/com.khalifapps.muslimgenz.presentation.ui.pages.MainActivity event : 23 instanceId : 164681126)
+01-13 16:22:05.088  1235  1235 D RecentsView: onTaskRemoved: 300, not handling task stack changes
+01-13 16:22:05.113   752   804 I libprocessgroup: Removed cgroup /sys/fs/cgroup/apps/uid_10225/pid_20756
+01-13 16:22:05.141  1235  1235 D RecentsView: onTaskRemoved: 300, not handling task stack changes
+01-13 16:22:05.371   752   788 W Looper  : Slow dispatch took 300ms android.ui app=system_server main=false group=TOP_APP h=com.android.server.am.ActivityManagerService$UiHandler c=com.android.server.am.UidObserverController$$ExternalSyntheticLambda0@f277aca m=0
+01-13 16:22:05.714  1235  1250 I s.nexuslauncher: NativeAlloc concurrent mark compact GC freed 2256KB AllocSpace bytes, 24(1692KB) LOS objects, 49% free, 8489KB/16MB, paused 227.360ms,50.637ms total 7.743s
+01-13 16:22:05.919  1235  1252 W System  : A resource failed to call release. 
+01-13 16:22:05.930  1235  1252 W System  : A resource failed to call release. 
+01-13 16:22:05.930  1235  1252 W System  : A resource failed to call release. 
+01-13 16:22:05.930  1235  1252 W System  : A resource failed to call release. 
+01-13 16:22:05.930  1235  1252 W System  : A resource failed to call release. 
+01-13 16:22:05.930  1235  1252 W System  : A resource failed to call release. 
+01-13 16:22:07.769   752  1722 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+01-13 16:22:10.968  1625  1630 W ogle.android.as: Suspending all threads took: 5.152ms
+01-13 16:22:11.314  1231  1477 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+01-13 16:22:11.337   752  2209 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:22:21.326  1231  1477 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+01-13 16:22:21.345   752  2209 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:22:26.999 14787 20872 I .gms.persistent: Explicit concurrent mark compact GC freed 2417KB AllocSpace bytes, 0(0B) LOS objects, 24% free, 13MB/17MB, paused 66.139ms,50.998ms total 2.166s
+01-13 16:22:28.165   752   877 I UsageStatsService: User[0] Flushing usage stats to disk
+01-13 16:22:29.034   752  1018 D BackgroundInstallControlService: Package event received: 0
+01-13 16:22:31.337   752  1901 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:22:31.348  1231  1477 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+01-13 16:22:34.423   752  1901 D WifiNl80211Manager: Scan result ready event
+01-13 16:22:34.430   752  1901 D WifiNative: Scan result ready event
+01-13 16:22:34.486 14787 14796 I WifiScanner: onFullResults
+01-13 16:22:34.486 14787 14879 I WifiScanner: onFullResults
+01-13 16:22:34.710   752   942 I HalDevMgr: bestIfaceCreationProposal is null, requestIface=STA, existingIface=[name=wlan0 type=STA]
+01-13 16:22:41.342  1231  1477 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+01-13 16:22:41.379   752  2208 W IPCThreadState: Sending oneway calls to frozen process.
+01-13 16:22:51.339  1231  1477 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+01-13 16:22:51.350   752  2208 W IPCThreadState: Sending oneway calls to frozen process.
