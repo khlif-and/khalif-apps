@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.khalifapps.muslimgenz.app-mergeDebugResources-2:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
+            "outputFile": "com.khalifapps.muslimgenz.app-mergeDebugResources-3:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\khali\\scoop\\apps\\gradle\\current\\.gradle\\caches\\8.13\\transforms\\5997afa2406d977c9b414f880ae24f2f\\transformed\\material-1.11.0\\res\\values-w600dp-land-v13\\values-w600dp-land-v13.xml",
+                    "source": "C:\\Users\\khali\\scoop\\apps\\gradle\\current\\.gradle\\caches\\8.13\\transforms\\8b33dc94e2bf74f92893fb8f37954263\\transformed\\material-1.11.0\\res\\values-w600dp-land-v13\\values-w600dp-land-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

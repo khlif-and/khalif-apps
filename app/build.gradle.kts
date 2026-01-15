@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -85,4 +86,10 @@ dependencies {
     implementation("androidx.glance:glance-material3:1.1.0")
     implementation("androidx.work:work-runtime-ktx:2.9.0")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    //firebase
+    implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
+    // Tambahkan ini untuk Notifikasi (Wajib buat kamu)
+    implementation("com.google.firebase:firebase-messaging") 
+    implementation("com.google.firebase:firebase-analytics")
 }

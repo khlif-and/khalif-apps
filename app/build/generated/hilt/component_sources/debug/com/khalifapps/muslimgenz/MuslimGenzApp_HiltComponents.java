@@ -4,6 +4,7 @@ import androidx.hilt.work.HiltWrapper_WorkerFactoryModule;
 import com.khalifapps.muslimgenz.data.di.AppModule;
 import com.khalifapps.muslimgenz.data.di.NetworkModule;
 import com.khalifapps.muslimgenz.data.di.RepositoryModule;
+import com.khalifapps.muslimgenz.data.service.MyFirebaseMessagingService_GeneratedInjector;
 import com.khalifapps.muslimgenz.data.worker.DailyReminderWorker_HiltModule;
 import com.khalifapps.muslimgenz.presentation.ui.pages.MainActivity_GeneratedInjector;
 import com.khalifapps.muslimgenz.presentation.viewmodel.auth.LoginViewModel_HiltModules;
@@ -144,7 +145,8 @@ public final class MuslimGenzApp_HiltComponents {
 
   @Subcomponent
   @ServiceScoped
-  public abstract static class ServiceC implements ServiceComponent,
+  public abstract static class ServiceC implements MyFirebaseMessagingService_GeneratedInjector,
+      ServiceComponent,
       GeneratedComponent {
     @Subcomponent.Builder
     abstract interface Builder extends ServiceComponentBuilder {
