@@ -51,7 +51,7 @@ class NotificationHelper @Inject constructor(
         )
 
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_logo_khalif) // Using valid Vector XML icon
+            .setSmallIcon(R.drawable.ic_notification) // Using user provided drawable icon
             .setLargeIcon(largeIcon) // Set large icon for full color logo
             .setColor(android.graphics.Color.BLACK) // Set accent color to Black
             .setContentTitle(title)

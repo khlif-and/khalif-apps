@@ -13,6 +13,8 @@ import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.ViewModel;
 import androidx.work.ListenableWorker;
 import androidx.work.WorkerParameters;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import com.khalifapps.muslimgenz.data.di.NetworkModule_ProvideAuthApiHelperFactory;
 import com.khalifapps.muslimgenz.data.di.NetworkModule_ProvideAuthApiServiceFactory;
@@ -24,6 +26,8 @@ import com.khalifapps.muslimgenz.data.remote.auth.AuthApiHelper;
 import com.khalifapps.muslimgenz.data.remote.auth.AuthApiHelperImpl;
 import com.khalifapps.muslimgenz.data.remote.auth.AuthApiService;
 import com.khalifapps.muslimgenz.data.repository.AuthRepositoryImpl;
+import com.khalifapps.muslimgenz.data.service.MyFirebaseMessagingService;
+import com.khalifapps.muslimgenz.data.service.MyFirebaseMessagingService_MembersInjector;
 import com.khalifapps.muslimgenz.data.worker.DailyReminderWorker;
 import com.khalifapps.muslimgenz.data.worker.DailyReminderWorker_AssistedFactory;
 import com.khalifapps.muslimgenz.domain.repository.AuthRepository;
@@ -51,7 +55,6 @@ import dagger.internal.DoubleCheck;
 import dagger.internal.Preconditions;
 import dagger.internal.Provider;
 import dagger.internal.SingleCheck;
-import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 import okhttp3.OkHttpClient;
@@ -384,7 +387,7 @@ public final class DaggerMuslimGenzApp_HiltComponents_SingletonC {
 
     @Override
     public Set<String> getViewModelKeys() {
-      return Collections.<String>singleton(LoginViewModel_HiltModules_KeyModule_ProvideFactory.provide());
+      return ImmutableSet.<String>of(LoginViewModel_HiltModules_KeyModule_ProvideFactory.provide());
     }
 
     @Override
@@ -434,12 +437,12 @@ public final class DaggerMuslimGenzApp_HiltComponents_SingletonC {
 
     @Override
     public Map<String, javax.inject.Provider<ViewModel>> getHiltViewModelMap() {
-      return Collections.<String, javax.inject.Provider<ViewModel>>singletonMap("com.khalifapps.muslimgenz.presentation.viewmodel.auth.LoginViewModel", ((Provider) loginViewModelProvider));
+      return ImmutableMap.<String, javax.inject.Provider<ViewModel>>of("com.khalifapps.muslimgenz.presentation.viewmodel.auth.LoginViewModel", ((Provider) loginViewModelProvider));
     }
 
     @Override
     public Map<String, Object> getHiltViewModelAssistedMap() {
-      return Collections.<String, Object>emptyMap();
+      return ImmutableMap.<String, Object>of();
     }
 
     private static final class SwitchingProvider<T> implements Provider<T> {
@@ -539,6 +542,18 @@ public final class DaggerMuslimGenzApp_HiltComponents_SingletonC {
 
 
     }
+
+    @Override
+    public void injectMyFirebaseMessagingService(MyFirebaseMessagingService arg0) {
+      injectMyFirebaseMessagingService2(arg0);
+    }
+
+    @CanIgnoreReturnValue
+    private MyFirebaseMessagingService injectMyFirebaseMessagingService2(
+        MyFirebaseMessagingService instance) {
+      MyFirebaseMessagingService_MembersInjector.injectNotificationHelper(instance, singletonCImpl.notificationHelperProvider.get());
+      return instance;
+    }
   }
 
   private static final class SingletonCImpl extends MuslimGenzApp_HiltComponents.SingletonC {
@@ -572,7 +587,7 @@ public final class DaggerMuslimGenzApp_HiltComponents_SingletonC {
 
     private Map<String, javax.inject.Provider<WorkerAssistedFactory<? extends ListenableWorker>>> mapOfStringAndProviderOfWorkerAssistedFactoryOf(
         ) {
-      return Collections.<String, javax.inject.Provider<WorkerAssistedFactory<? extends ListenableWorker>>>singletonMap("com.khalifapps.muslimgenz.data.worker.DailyReminderWorker", ((Provider) dailyReminderWorker_AssistedFactoryProvider));
+      return ImmutableMap.<String, javax.inject.Provider<WorkerAssistedFactory<? extends ListenableWorker>>>of("com.khalifapps.muslimgenz.data.worker.DailyReminderWorker", ((Provider) dailyReminderWorker_AssistedFactoryProvider));
     }
 
     private HiltWorkerFactory hiltWorkerFactory() {
@@ -597,13 +612,13 @@ public final class DaggerMuslimGenzApp_HiltComponents_SingletonC {
     }
 
     @Override
-    public void injectMuslimGenzApp(MuslimGenzApp muslimGenzApp) {
-      injectMuslimGenzApp2(muslimGenzApp);
+    public void injectMuslimGenzApp(MuslimGenzApp arg0) {
+      injectMuslimGenzApp2(arg0);
     }
 
     @Override
     public Set<Boolean> getDisableFragmentGetContextFix() {
-      return Collections.<Boolean>emptySet();
+      return ImmutableSet.<Boolean>of();
     }
 
     @Override

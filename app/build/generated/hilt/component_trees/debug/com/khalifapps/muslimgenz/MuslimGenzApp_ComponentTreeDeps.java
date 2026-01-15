@@ -22,6 +22,7 @@ import hilt_aggregated_deps._com_khalifapps_muslimgenz_MuslimGenzApp_GeneratedIn
 import hilt_aggregated_deps._com_khalifapps_muslimgenz_data_di_AppModule;
 import hilt_aggregated_deps._com_khalifapps_muslimgenz_data_di_NetworkModule;
 import hilt_aggregated_deps._com_khalifapps_muslimgenz_data_di_RepositoryModule;
+import hilt_aggregated_deps._com_khalifapps_muslimgenz_data_service_MyFirebaseMessagingService_GeneratedInjector;
 import hilt_aggregated_deps._com_khalifapps_muslimgenz_data_worker_DailyReminderWorker_HiltModule;
 import hilt_aggregated_deps._com_khalifapps_muslimgenz_presentation_ui_pages_MainActivity_GeneratedInjector;
 import hilt_aggregated_deps._com_khalifapps_muslimgenz_presentation_viewmodel_auth_LoginViewModel_HiltModules_BindsModule;
@@ -71,6 +72,7 @@ import hilt_aggregated_deps._dagger_hilt_android_internal_modules_HiltWrapper_Ac
         _com_khalifapps_muslimgenz_data_di_AppModule.class,
         _com_khalifapps_muslimgenz_data_di_NetworkModule.class,
         _com_khalifapps_muslimgenz_data_di_RepositoryModule.class,
+        _com_khalifapps_muslimgenz_data_service_MyFirebaseMessagingService_GeneratedInjector.class,
         _com_khalifapps_muslimgenz_data_worker_DailyReminderWorker_HiltModule.class,
         _com_khalifapps_muslimgenz_presentation_ui_pages_MainActivity_GeneratedInjector.class,
         _com_khalifapps_muslimgenz_presentation_viewmodel_auth_LoginViewModel_HiltModules_BindsModule.class,

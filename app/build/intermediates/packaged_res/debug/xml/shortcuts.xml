@@ -3,7 +3,7 @@
     <shortcut
         android:shortcutId="login_email"
         android:enabled="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@mipmap/ic_launcher"
         android:shortcutShortLabel="@string/shortcut_login_short"
         android:shortcutLongLabel="@string/shortcut_login_long">
         <intent
@@ -17,7 +17,7 @@
     <shortcut
         android:shortcutId="choice_ustadz"
         android:enabled="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@mipmap/ic_launcher"
         android:shortcutShortLabel="@string/shortcut_choice_short"
         android:shortcutLongLabel="@string/shortcut_choice_long">
         <intent

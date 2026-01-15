@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.khalifapps.muslimgenz.app-mergeDebugResources-2:/values-v22/values-v22.xml",
+            "outputFile": "com.khalifapps.muslimgenz.app-mergeDebugResources-3:/values-v22/values-v22.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\khali\\scoop\\apps\\gradle\\current\\.gradle\\caches\\8.13\\transforms\\3c683c17f7d2dd963192b407059329da\\transformed\\appcompat-1.6.1\\res\\values-v22\\values-v22.xml",
+                    "source": "C:\\Users\\khali\\scoop\\apps\\gradle\\current\\.gradle\\caches\\8.13\\transforms\\0bd09b1f4407037185aa7a0fbbb277de\\transformed\\appcompat-1.6.1\\res\\values-v22\\values-v22.xml",
                     "from": {
                         "startLines": "2,3,4,9",
                         "startColumns": "4,4,4,4",
