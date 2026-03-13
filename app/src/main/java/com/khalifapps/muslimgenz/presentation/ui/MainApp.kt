@@ -19,6 +19,7 @@ import com.khalifapps.muslimgenz.presentation.ui.pages.auth.LoginPhonePage
 import com.khalifapps.muslimgenz.presentation.ui.pages.choice.ChoiceUstadzPage
 import com.khalifapps.muslimgenz.presentation.ui.pages.choice.ChoiceTopicPage
 import com.khalifapps.muslimgenz.presentation.ui.pages.result.ResultPage
+import com.khalifapps.muslimgenz.presentation.ui.pages.home.HomePage
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 
@@ -86,6 +87,9 @@ fun MainApp(
             composable(Routes.LoginPhone) {
                 LoginPhonePage(
                     onLoginSuccess = {
+                        navController.navigate(Routes.ChoiceUstadz) {
+                            popUpTo(Routes.Welcome) { inclusive = true }
+                        }
                     }
                 )
             }
@@ -143,9 +147,14 @@ fun MainApp(
             composable(Routes.Result) {
                 ResultPage(
                     onFinished = {
-                        // TODO: Navigate to Home Dashboard
+                        navController.navigate(Routes.Home) {
+                            popUpTo(Routes.Result) { inclusive = true }
+                        }
                     }
                 )
+            }
+            composable(Routes.Home) {
+                HomePage()
             }
         }
     }
