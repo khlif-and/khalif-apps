@@ -11,6 +11,14 @@ color purple_700
 color teal_200
 color teal_700
 color white
+drawable avatar_ustadz
+drawable bg_kajian_ustadz
+drawable bg_mosque
+drawable bg_reel_calligraphy
+drawable bg_reel_morning
+drawable discover_kurma_water
+drawable discover_quran_tulips
+drawable discover_sajadah_tasbih
 drawable ic_launcher
 drawable ic_launcher_background
 drawable ic_launcher_combined
