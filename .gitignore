@@ -1,11 +1,29 @@
+# Local & IDE
 *.iml
 .gradle
-/local.properties
-/.idea/
+local.properties
 .DS_Store
-/build
-/captures
+/.idea/
 .externalNativeBuild
 .cxx
-local.properties
+
+# Build output
+/build
+/app/build
+/captures
+*.class
+
+# Sensitive files
 google-services.json
+
+# Kotlin generated
+*.kotlin_module
+/app/src/main/res/raw/
+
+# APK & AAB
+*.apk
+*.aab
+*.ap_
+
+# ProGuard
+*.map

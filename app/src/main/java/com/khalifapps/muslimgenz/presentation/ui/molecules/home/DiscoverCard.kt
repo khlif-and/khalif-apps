@@ -2,11 +2,9 @@ package com.khalifapps.muslimgenz.presentation.ui.molecules.home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -27,7 +25,6 @@ fun DiscoverCard(
             modifier = Modifier
                 .fillMaxWidth()
                 .aspectRatio(1f)
-                .clip(RoundedCornerShape(dimens.radiusLarge))
         ) {
             Image(
                 painter = painterResource(id = imageRes),
@@ -36,9 +33,9 @@ fun DiscoverCard(
                 modifier = Modifier.fillMaxSize()
             )
         }
-        
+
         Spacer(modifier = Modifier.height(dimens.paddingSmall))
-        
+
         Text(
             text = title,
             color = White,
@@ -47,9 +44,9 @@ fun DiscoverCard(
             maxLines = 1,
             overflow = TextOverflow.Ellipsis
         )
-        
+
         Spacer(modifier = Modifier.height(dimens.paddingSmall / 2))
-        
+
         Text(
             text = subtitle,
             color = IconMuted,

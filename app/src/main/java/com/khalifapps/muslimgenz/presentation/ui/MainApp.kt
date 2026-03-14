@@ -20,6 +20,9 @@ import com.khalifapps.muslimgenz.presentation.ui.pages.choice.ChoiceUstadzPage
 import com.khalifapps.muslimgenz.presentation.ui.pages.choice.ChoiceTopicPage
 import com.khalifapps.muslimgenz.presentation.ui.pages.result.ResultPage
 import com.khalifapps.muslimgenz.presentation.ui.pages.home.HomePage
+import com.khalifapps.muslimgenz.presentation.ui.pages.home.ReflectionPages.ReflectionPage
+import com.khalifapps.muslimgenz.presentation.ui.pages.PlaylistPages.PlaylistPage
+import com.khalifapps.muslimgenz.presentation.ui.pages.SharePages.SharePage // Import SharePage
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 
@@ -29,7 +32,7 @@ fun MainApp(
 ) {
     MuslimGenzTheme {
         val navController = rememberNavController()
-        
+
         NavHost(
             navController = navController,
             startDestination = startDestination ?: Routes.Splash,
@@ -101,14 +104,14 @@ fun MainApp(
             }
             composable(Routes.RegisterPhone) {
                 RegisterPhonePage(
-                    onRegisterSuccess = { 
+                    onRegisterSuccess = {
                         navController.navigate(Routes.VerifyOtp)
                     }
                 )
             }
             composable(Routes.VerifyOtp) {
                 VerifyOtpPage(
-                    onVerifyClick = { 
+                    onVerifyClick = {
                         navController.navigate(Routes.ChoiceUstadz) {
                             popUpTo(Routes.VerifyOtp) { inclusive = true }
                         }
@@ -154,7 +157,40 @@ fun MainApp(
                 )
             }
             composable(Routes.Home) {
-                HomePage()
+                HomePage(
+                    onNavigateToReflection = {
+                        navController.navigate(Routes.Reflection)
+                    },
+                    onNavigateToPlaylist = {
+                        navController.navigate(Routes.Playlist)
+                    }
+                )
+            }
+            composable(Routes.Reflection) {
+                ReflectionPage(
+                    onNavigateBack = {
+                        navController.popBackStack()
+                    }
+                )
+            }
+            composable(Routes.Playlist) {
+                PlaylistPage(
+                    onNavigateBack = {
+                        navController.popBackStack()
+                    },
+                    onNavigateToShare = { // SEKARANG SUDAH ADA NILAINYA
+                        navController.navigate("share")
+                    }
+                )
+            }
+
+            // Tambahkan Composable untuk rute Share
+            composable("share") {
+                SharePage(
+                    onNavigateBack = {
+                        navController.popBackStack()
+                    }
+                )
             }
         }
     }

@@ -12,16 +12,25 @@ import com.khalifapps.muslimgenz.presentation.ui.molecules.home.HomeTopBar
 import com.khalifapps.muslimgenz.presentation.ui.organisms.home.*
 
 @Composable
-fun HomePageTemplate() {
+fun HomePageTemplate(
+    onNavigateToReflection: () -> Unit,
+    onNavigateToPlaylist: () -> Unit
+) {
     val dimens = AppTheme.dimens
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
+            .statusBarsPadding()
+            .navigationBarsPadding()
             .verticalScroll(rememberScrollState())
             .padding(vertical = dimens.paddingLarge)
     ) {
         Box(modifier = Modifier.padding(horizontal = dimens.paddingLarge)) { HomeTopBar() }
+
+        Spacer(modifier = Modifier.height(dimens.paddingLarge))
+
+        Box(modifier = Modifier.padding(horizontal = dimens.paddingLarge)) { NewsUpdatedSection() }
 
         Spacer(modifier = Modifier.height(dimens.paddingLarge))
 
@@ -41,6 +50,12 @@ fun HomePageTemplate() {
 
         Spacer(modifier = Modifier.height(dimens.paddingExtraLarge))
 
+        VibesOfTheDaysSection(
+            onPlaylistClick = onNavigateToPlaylist
+        )
+
+        Spacer(modifier = Modifier.height(dimens.paddingExtraLarge))
+
         Box(modifier = Modifier.padding(horizontal = dimens.paddingLarge)) { InspirationReelsSection() }
 
         Spacer(modifier = Modifier.height(dimens.paddingExtraLarge))
@@ -50,6 +65,16 @@ fun HomePageTemplate() {
         Spacer(modifier = Modifier.height(dimens.paddingExtraLarge))
 
         Box(modifier = Modifier.padding(horizontal = dimens.paddingLarge)) { KajianRecommendationSection() }
+
+        Spacer(modifier = Modifier.height(dimens.paddingExtraLarge))
+
+        WisdomSection()
+
+        Spacer(modifier = Modifier.height(dimens.paddingExtraLarge))
+
+        ReflectionAyahSection(
+            onReflectClick = onNavigateToReflection
+        )
 
         Spacer(modifier = Modifier.height(dimens.paddingExtraLarge))
     }

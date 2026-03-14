@@ -69,7 +69,7 @@ data class Dimens(
     val reelCardHeight: Dp = 240.dp,
     val progressBarHeight: Dp = 8.dp,
     val kajianVideoHeight: Dp = 200.dp,
-    val discoverCardWidth: Dp = 140.dp,
+    val discoverCardWidth: Dp = 170.dp,
 
     val letterSpacingWide: TextUnit = 1.sp,
     val textSizeEmoji: TextUnit = 20.sp,
@@ -106,7 +106,7 @@ val CompactDimens = Dimens(
     playButtonSize = 48.dp,
     avatarSmall = 32.dp,
     kajianVideoHeight = 160.dp,
-    discoverCardWidth = 120.dp,
+    discoverCardWidth = 150.dp,
 )
 
 val MediumDimens = Dimens(
@@ -133,7 +133,7 @@ val ExpandedDimens = Dimens(
     playButtonSize = 64.dp,
     avatarSmall = 48.dp,
     kajianVideoHeight = 280.dp,
-    discoverCardWidth = 180.dp,
+    discoverCardWidth = 210.dp,
 )
 
 val LocalAppDimens = staticCompositionLocalOf { MediumDimens }

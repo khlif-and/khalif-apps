@@ -4,6 +4,12 @@ import androidx.compose.runtime.Composable
 import com.khalifapps.muslimgenz.presentation.ui.templates.HomePageTemplate
 
 @Composable
-fun HomePage() {
-    HomePageTemplate()
+fun HomePage(
+    onNavigateToReflection: () -> Unit,
+    onNavigateToPlaylist: () -> Unit // Tambahkan parameter ini
+) {
+    HomePageTemplate(
+        onNavigateToReflection = onNavigateToReflection,
+        onNavigateToPlaylist = onNavigateToPlaylist // Teruskan ke template
+    )
 }
