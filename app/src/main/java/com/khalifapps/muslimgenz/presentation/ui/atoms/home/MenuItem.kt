@@ -1,6 +1,7 @@
 package com.khalifapps.muslimgenz.presentation.ui.atoms.home
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
@@ -18,12 +19,15 @@ import com.khalifapps.muslimgenz.presentation.theme.White
 @Composable
 fun MenuItem(
     icon: ImageVector,
-    label: String
+    label: String,
+    onClick: () -> Unit = {}
 ) {
     val dimens = AppTheme.dimens
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.width(dimens.menuItemWidth)
+        modifier = Modifier
+            .width(dimens.menuItemWidth)
+            .clickable { onClick() }
     ) {
         Box(
             modifier = Modifier

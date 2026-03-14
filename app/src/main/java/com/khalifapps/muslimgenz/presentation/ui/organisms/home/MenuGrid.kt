@@ -17,7 +17,9 @@ import com.khalifapps.muslimgenz.presentation.theme.HomeStrings
 import com.khalifapps.muslimgenz.presentation.ui.atoms.home.MenuItem
 
 @Composable
-fun MenuGrid() {
+fun MenuGrid(
+    onNavigateToPrayer: () -> Unit
+) {
     val dimens = AppTheme.dimens
     Column(modifier = Modifier.fillMaxWidth()) {
         Row(
@@ -34,7 +36,11 @@ fun MenuGrid() {
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            MenuItem(icon = Icons.Default.Brightness3, label = HomeStrings.MENU_PRAYER)
+            MenuItem(
+                icon = Icons.Default.Brightness3,
+                label = HomeStrings.MENU_PRAYER,
+                onClick = onNavigateToPrayer
+            )
             MenuItem(icon = Icons.Default.DateRange, label = HomeStrings.MENU_CALENDAR)
             MenuItem(icon = Icons.Default.Explore, label = HomeStrings.MENU_QIBLA)
             MenuItem(icon = Icons.Default.GridView, label = HomeStrings.MENU_ALL)

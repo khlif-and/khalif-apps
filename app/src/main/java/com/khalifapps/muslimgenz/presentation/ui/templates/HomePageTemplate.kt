@@ -14,7 +14,8 @@ import com.khalifapps.muslimgenz.presentation.ui.organisms.home.*
 @Composable
 fun HomePageTemplate(
     onNavigateToReflection: () -> Unit,
-    onNavigateToPlaylist: () -> Unit
+    onNavigateToPlaylist: () -> Unit,
+    onNavigateToPrayer: () -> Unit
 ) {
     val dimens = AppTheme.dimens
     Column(
@@ -42,7 +43,11 @@ fun HomePageTemplate(
 
         Spacer(modifier = Modifier.height(dimens.paddingExtraLarge))
 
-        Box(modifier = Modifier.padding(horizontal = dimens.paddingLarge)) { MenuGrid() }
+        Box(modifier = Modifier.padding(horizontal = dimens.paddingLarge)) {
+            MenuGrid(
+                onNavigateToPrayer = onNavigateToPrayer
+            )
+        }
 
         Spacer(modifier = Modifier.height(dimens.paddingExtraLarge))
 

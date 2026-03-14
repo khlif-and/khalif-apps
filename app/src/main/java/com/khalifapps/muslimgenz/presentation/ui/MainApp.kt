@@ -1,5 +1,7 @@
 package com.khalifapps.muslimgenz.presentation.ui
 
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
@@ -8,23 +10,23 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.khalifapps.muslimgenz.presentation.navigation.Routes
 import com.khalifapps.muslimgenz.presentation.theme.MuslimGenzTheme
-import com.khalifapps.muslimgenz.presentation.ui.pages.onboarding.WelcomePage
-import com.khalifapps.muslimgenz.presentation.ui.pages.auth.RegisterPage
-import com.khalifapps.muslimgenz.presentation.ui.pages.splash.SplashPage
+import com.khalifapps.muslimgenz.presentation.ui.pages.LoFiPages.LoFiPage
+import com.khalifapps.muslimgenz.presentation.ui.pages.PlaylistPages.PlaylistPage
+import com.khalifapps.muslimgenz.presentation.ui.pages.PrayerPages.PrayerPage
+import com.khalifapps.muslimgenz.presentation.ui.pages.SharePages.SharePage
 import com.khalifapps.muslimgenz.presentation.ui.pages.auth.LoginEmailPage
+import com.khalifapps.muslimgenz.presentation.ui.pages.auth.LoginPhonePage
 import com.khalifapps.muslimgenz.presentation.ui.pages.auth.RegisterEmailPage
+import com.khalifapps.muslimgenz.presentation.ui.pages.auth.RegisterPage
 import com.khalifapps.muslimgenz.presentation.ui.pages.auth.RegisterPhonePage
 import com.khalifapps.muslimgenz.presentation.ui.pages.auth.VerifyOtpPage
-import com.khalifapps.muslimgenz.presentation.ui.pages.auth.LoginPhonePage
-import com.khalifapps.muslimgenz.presentation.ui.pages.choice.ChoiceUstadzPage
 import com.khalifapps.muslimgenz.presentation.ui.pages.choice.ChoiceTopicPage
-import com.khalifapps.muslimgenz.presentation.ui.pages.result.ResultPage
+import com.khalifapps.muslimgenz.presentation.ui.pages.choice.ChoiceUstadzPage
 import com.khalifapps.muslimgenz.presentation.ui.pages.home.HomePage
 import com.khalifapps.muslimgenz.presentation.ui.pages.home.ReflectionPages.ReflectionPage
-import com.khalifapps.muslimgenz.presentation.ui.pages.PlaylistPages.PlaylistPage
-import com.khalifapps.muslimgenz.presentation.ui.pages.SharePages.SharePage // Import SharePage
-import androidx.compose.animation.EnterTransition
-import androidx.compose.animation.ExitTransition
+import com.khalifapps.muslimgenz.presentation.ui.pages.onboarding.WelcomePage
+import com.khalifapps.muslimgenz.presentation.ui.pages.result.ResultPage
+import com.khalifapps.muslimgenz.presentation.ui.pages.splash.SplashPage
 
 @Composable
 fun MainApp(
@@ -163,6 +165,9 @@ fun MainApp(
                     },
                     onNavigateToPlaylist = {
                         navController.navigate(Routes.Playlist)
+                    },
+                    onNavigateToPrayer = {
+                        navController.navigate(Routes.Prayer)
                     }
                 )
             }
@@ -178,19 +183,30 @@ fun MainApp(
                     onNavigateBack = {
                         navController.popBackStack()
                     },
-                    onNavigateToShare = { // SEKARANG SUDAH ADA NILAINYA
-                        navController.navigate("share")
+                    onNavigateToShare = {
+                        navController.navigate(Routes.Share)
+                    },
+                    onTrackClick = {
+                        navController.navigate(Routes.LoFi)
                     }
                 )
             }
-
-            // Tambahkan Composable untuk rute Share
-            composable("share") {
+            composable(Routes.Share) {
                 SharePage(
                     onNavigateBack = {
                         navController.popBackStack()
                     }
                 )
+            }
+            composable(Routes.LoFi) {
+                LoFiPage(
+                    onNavigateBack = {
+                        navController.popBackStack()
+                    }
+                )
+            }
+            composable(Routes.Prayer) {
+                PrayerPage()
             }
         }
     }
