@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="gcm_defaultSenderId" translatable="false">1029154982032</string>
-    <string name="google_api_key" translatable="false">AIzaSyDwmN6XXbitiPzGjhgTXwZ22NK-zESj26I</string>
-    <string name="google_app_id" translatable="false">1:1029154982032:android:5e2ab3557a64fc687c7015</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDwmN6XXbitiPzGjhgTXwZ22NK-zESj26I</string>
-    <string name="google_storage_bucket" translatable="false">khalif-appsgenzie.firebasestorage.app</string>
-    <string name="project_id" translatable="false">khalif-appsgenzie</string>
-</resources>

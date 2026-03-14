@@ -15,4 +15,6 @@ object Routes {
     const val ChoiceTopic = "choice_topic"
     const val Result = "result"
     const val Home = "home"
+    const val Reflection = "reflection"
+    const val Playlist = "playlist"
 }
