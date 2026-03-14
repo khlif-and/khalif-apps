@@ -74,7 +74,8 @@ data class TrackItem(
 @Composable
 fun PlaylistPage(
     onNavigateBack: () -> Unit,
-    onNavigateToShare: () -> Unit // Tambahan parameter navigasi share
+    onNavigateToShare: () -> Unit,
+    onTrackClick: () -> Unit // Tambahan parameter navigasi ke Lofi
 ) {
     var selectedTrack by remember { mutableStateOf<TrackItem?>(null) }
     val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
@@ -110,12 +111,13 @@ fun PlaylistPage(
             Spacer(modifier = Modifier.height(24.dp))
 
             PlaylistActionRow(
-                onShareClick = onNavigateToShare // Teruskan ke baris aksi
+                onShareClick = onNavigateToShare
             )
 
             Spacer(modifier = Modifier.height(32.dp))
 
             PlaylistTrackList(
+                onTrackItemClick = onTrackClick, // Teruskan aksi klik item list
                 onMoreClick = { track ->
                     selectedTrack = track
                 }
@@ -143,8 +145,8 @@ fun PlaylistPage(
             TrackBottomSheetContent(
                 track = selectedTrack!!,
                 onShareClick = {
-                    selectedTrack = null // Tutup bottom sheet saat tombol share diklik
-                    onNavigateToShare()  // Navigasi ke halaman share
+                    selectedTrack = null
+                    onNavigateToShare()
                 }
             )
         }
@@ -220,7 +222,6 @@ fun TrackBottomSheetContent(
         BottomSheetMenuItem(icon = Icons.Default.Person, text = "View Reciter Details")
         BottomSheetMenuItem(icon = Icons.Default.KeyboardArrowDown, text = "Download for Offline", isPremium = true)
 
-        // Panggil onShareClick saat tombol share di Bottom Sheet ditekan
         BottomSheetMenuItem(
             icon = Icons.Outlined.Share,
             text = "Share to Instagram Stories",
@@ -238,14 +239,14 @@ fun BottomSheetMenuItem(
     text: String,
     isPremium: Boolean = false,
     isDestructive: Boolean = false,
-    onClick: () -> Unit = {} // Tambahkan parameter onClick
+    onClick: () -> Unit = {}
 ) {
     val contentColor = if (isDestructive) Color(0xFFE57373) else Color.White
 
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable { onClick() } // Jalankan onClick saat ditekan
+            .clickable { onClick() }
             .padding(horizontal = 24.dp, vertical = 16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -287,6 +288,7 @@ fun BottomSheetMenuItem(
 @Composable
 fun PlaylistTrackList(
     modifier: Modifier = Modifier,
+    onTrackItemClick: () -> Unit, // Parameter aksi klik list
     onMoreClick: (TrackItem) -> Unit
 ) {
     val tracks = listOf(
@@ -306,6 +308,7 @@ fun PlaylistTrackList(
             TrackItemRow(
                 index = index + 1,
                 track = track,
+                onItemClick = onTrackItemClick, // Teruskan ke Item Row
                 onMoreClick = { onMoreClick(track) }
             )
             Spacer(modifier = Modifier.height(12.dp))
@@ -317,6 +320,7 @@ fun PlaylistTrackList(
 fun TrackItemRow(
     index: Int,
     track: TrackItem,
+    onItemClick: () -> Unit, // Aksi saat seluruh baris diklik
     onMoreClick: () -> Unit
 ) {
     Row(
@@ -324,7 +328,7 @@ fun TrackItemRow(
             .fillMaxWidth()
             .clip(RoundedCornerShape(16.dp))
             .background(Color(0xFF1B2531))
-            .clickable { }
+            .clickable { onItemClick() } // Panggil saat diklik
             .padding(12.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -381,7 +385,7 @@ fun TrackItemRow(
             contentDescription = "More options",
             tint = Color(0xFF6B7280),
             modifier = Modifier
-                .clickable { onMoreClick() }
+                .clickable { onMoreClick() } // Menghindari merembet ke onItemClick jika menggunakan Modifier.clickable biasa tanpa indikator khusus, walau lebih baik pisahkan hit-box jika diperlukan presisi tinggi.
                 .padding(4.dp)
         )
     }
@@ -440,7 +444,7 @@ fun PlaylistInfoSection(modifier: Modifier = Modifier) {
 @Composable
 fun PlaylistActionRow(
     modifier: Modifier = Modifier,
-    onShareClick: () -> Unit // Terima klik dari Parent
+    onShareClick: () -> Unit
 ) {
     Row(
         modifier = modifier
@@ -480,7 +484,7 @@ fun PlaylistActionRow(
                 tint = Color(0xFFA0AAB2),
                 modifier = Modifier
                     .size(28.dp)
-                    .clickable { onShareClick() } // Panggil aksi navigasi ke Share
+                    .clickable { onShareClick() }
             )
         }
 

@@ -17,4 +17,7 @@ object Routes {
     const val Home = "home"
     const val Reflection = "reflection"
     const val Playlist = "playlist"
+    const val Share = "share"
+    const val LoFi = "lofi"
+    const val Prayer = "prayer"
 }
