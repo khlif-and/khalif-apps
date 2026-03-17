@@ -3,15 +3,21 @@ package com.khalifapps.muslimgenz.presentation.ui.organisms.home
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 import com.khalifapps.muslimgenz.R
 import com.khalifapps.muslimgenz.presentation.theme.*
 
@@ -40,19 +46,43 @@ fun GreetingCard() {
                 .align(Alignment.BottomCenter)
                 .padding(dimens.glassPadding)
         ) {
-            Column {
-                Text(
-                    text = HomeStrings.GREETING_TITLE,
-                    color = White,
-                    fontSize = dimens.textSizeSection,
-                    fontWeight = FontWeight.Bold
-                )
-                Spacer(modifier = Modifier.height(dimens.paddingSmall))
-                Text(
-                    text = HomeStrings.GREETING_SUBTITLE,
-                    color = White.copy(alpha = 0.8f),
-                    fontSize = dimens.textSizeBody
-                )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Column(
+                    modifier = Modifier.weight(1f)
+                ) {
+                    Text(
+                        text = HomeStrings.GREETING_TITLE,
+                        color = White,
+                        fontSize = dimens.textSizeSection,
+                        fontWeight = FontWeight.Bold
+                    )
+                    Spacer(modifier = Modifier.height(dimens.paddingSmall))
+                    Text(
+                        text = HomeStrings.GREETING_SUBTITLE,
+                        color = White.copy(alpha = 0.8f),
+                        fontSize = dimens.textSizeBody
+                    )
+                }
+
+                Spacer(modifier = Modifier.width(16.dp))
+
+                Box(
+                    modifier = Modifier
+                        .size(40.dp)
+                        .clip(CircleShape)
+                        .background(Color(0xFFEAB308)),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.PlayArrow,
+                        contentDescription = "Play",
+                        tint = Color.Black
+                    )
+                }
             }
         }
     }

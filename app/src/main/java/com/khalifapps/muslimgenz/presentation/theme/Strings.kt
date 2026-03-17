@@ -3,8 +3,8 @@ package com.khalifapps.muslimgenz.presentation.theme
 object HomeStrings {
     const val ISLAMIC_DATE = "15 Shawwal 1445"
     const val GREGORIAN_DATE = "May 24, 2024"
-    const val GREETING_TITLE = "Assalamu'alaikum, Khalif"
-    const val GREETING_SUBTITLE = "May your day be filled with barakah"
+    const val GREETING_TITLE = "Night Dhikr Lofi"
+    const val GREETING_SUBTITLE = "Buat nenangin dari kesibukan yang padet huhu"
     const val PRAYER_NAME = "Asr"
     const val PRAYER_COUNTDOWN = " · in 2h 14m"
     const val PRAYER_NEXT = "Next: 3:45 PM"

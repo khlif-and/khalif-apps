@@ -2,7 +2,7 @@ package com.khalifapps.muslimgenz.presentation.ui.molecules.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Search
@@ -13,7 +13,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 import com.khalifapps.muslimgenz.presentation.theme.*
 
 @Composable
@@ -26,11 +28,16 @@ fun HomeTopBar(onSearchClick: () -> Unit) {
         Box(
             modifier = Modifier
                 .size(dimens.topBarIconSize)
-                .clip(RoundedCornerShape(dimens.radiusMedium))
-                .background(CalendarBackground),
+                .clip(CircleShape)
+                .background(Color(0xFFEAB308)),
             contentAlignment = Alignment.Center
         ) {
-            Text("🗓️", fontSize = dimens.textSizeEmoji)
+            Text(
+                text = "K",
+                color = Color(0xFF0D1522),
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Bold
+            )
         }
         Spacer(modifier = Modifier.width(dimens.paddingMedium))
         Column(modifier = Modifier.weight(1f)) {
