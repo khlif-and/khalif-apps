@@ -7,11 +7,15 @@ import com.khalifapps.muslimgenz.presentation.ui.templates.HomePageTemplate
 fun HomePage(
     onNavigateToReflection: () -> Unit,
     onNavigateToPlaylist: () -> Unit,
-    onNavigateToPrayer: () -> Unit
+    onNavigateToPrayer: () -> Unit,
+    onNavigateToCalendar: () -> Unit, // Parameter baru
+    onSearchClick: () -> Unit
 ) {
     HomePageTemplate(
         onNavigateToReflection = onNavigateToReflection,
         onNavigateToPlaylist = onNavigateToPlaylist,
-        onNavigateToPrayer = onNavigateToPrayer
+        onNavigateToPrayer = onNavigateToPrayer,
+        onNavigateToCalendar = onNavigateToCalendar, // Diteruskan ke Template
+        onSearchClick = onSearchClick
     )
 }

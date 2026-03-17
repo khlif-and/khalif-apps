@@ -20,4 +20,8 @@ object Routes {
     const val Share = "share"
     const val LoFi = "lofi"
     const val Prayer = "prayer"
+    const val Search = "search"
+    const val TrendingNowDetail = "trending_now_detail"
+    const val AtmosphereDetail = "atmosphere_detail"
+    const val Calendar = "calendar"
 }

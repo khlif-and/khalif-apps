@@ -10,10 +10,14 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.khalifapps.muslimgenz.presentation.navigation.Routes
 import com.khalifapps.muslimgenz.presentation.theme.MuslimGenzTheme
+import com.khalifapps.muslimgenz.presentation.ui.pages.AtmosphereDetailPages.AtmosphereDetailPage
+import com.khalifapps.muslimgenz.presentation.ui.pages.CalendarPages.CalenderPage
 import com.khalifapps.muslimgenz.presentation.ui.pages.LoFiPages.LoFiPage
 import com.khalifapps.muslimgenz.presentation.ui.pages.PlaylistPages.PlaylistPage
 import com.khalifapps.muslimgenz.presentation.ui.pages.PrayerPages.PrayerPage
+import com.khalifapps.muslimgenz.presentation.ui.pages.SearchPages.SearchPage
 import com.khalifapps.muslimgenz.presentation.ui.pages.SharePages.SharePage
+import com.khalifapps.muslimgenz.presentation.ui.pages.TrendingNowDetailPages.TrendingNowDetailPage
 import com.khalifapps.muslimgenz.presentation.ui.pages.auth.LoginEmailPage
 import com.khalifapps.muslimgenz.presentation.ui.pages.auth.LoginPhonePage
 import com.khalifapps.muslimgenz.presentation.ui.pages.auth.RegisterEmailPage
@@ -168,6 +172,12 @@ fun MainApp(
                     },
                     onNavigateToPrayer = {
                         navController.navigate(Routes.Prayer)
+                    },
+                    onNavigateToCalendar = {
+                        navController.navigate(Routes.Calendar)
+                    },
+                    onSearchClick = {
+                        navController.navigate(Routes.Search)
                     }
                 )
             }
@@ -207,6 +217,25 @@ fun MainApp(
             }
             composable(Routes.Prayer) {
                 PrayerPage()
+            }
+            composable(Routes.Search) {
+                SearchPage(
+                    onNavigateToTrendingDetail = {
+                        navController.navigate(Routes.TrendingNowDetail)
+                    },
+                    onNavigateToAtmosphereDetail = {
+                        navController.navigate(Routes.AtmosphereDetail)
+                    }
+                )
+            }
+            composable(Routes.TrendingNowDetail) {
+                TrendingNowDetailPage()
+            }
+            composable(Routes.AtmosphereDetail) {
+                AtmosphereDetailPage()
+            }
+            composable(Routes.Calendar) {
+                CalenderPage()
             }
         }
     }

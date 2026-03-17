@@ -15,7 +15,9 @@ import com.khalifapps.muslimgenz.presentation.ui.organisms.home.*
 fun HomePageTemplate(
     onNavigateToReflection: () -> Unit,
     onNavigateToPlaylist: () -> Unit,
-    onNavigateToPrayer: () -> Unit
+    onNavigateToPrayer: () -> Unit,
+    onNavigateToCalendar: () -> Unit, // Parameter baru
+    onSearchClick: () -> Unit
 ) {
     val dimens = AppTheme.dimens
     Column(
@@ -27,7 +29,9 @@ fun HomePageTemplate(
             .verticalScroll(rememberScrollState())
             .padding(vertical = dimens.paddingLarge)
     ) {
-        Box(modifier = Modifier.padding(horizontal = dimens.paddingLarge)) { HomeTopBar() }
+        Box(modifier = Modifier.padding(horizontal = dimens.paddingLarge)) {
+            HomeTopBar(onSearchClick = onSearchClick)
+        }
 
         Spacer(modifier = Modifier.height(dimens.paddingLarge))
 
@@ -45,7 +49,8 @@ fun HomePageTemplate(
 
         Box(modifier = Modifier.padding(horizontal = dimens.paddingLarge)) {
             MenuGrid(
-                onNavigateToPrayer = onNavigateToPrayer
+                onNavigateToPrayer = onNavigateToPrayer,
+                onNavigateToCalendar = onNavigateToCalendar // Diteruskan ke MenuGrid
             )
         }
 
