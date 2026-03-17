@@ -17,7 +17,7 @@ import androidx.compose.ui.text.font.FontWeight
 import com.khalifapps.muslimgenz.presentation.theme.*
 
 @Composable
-fun HomeTopBar() {
+fun HomeTopBar(onSearchClick: () -> Unit) {
     val dimens = AppTheme.dimens
     Row(
         modifier = Modifier.fillMaxWidth(),
@@ -46,7 +46,7 @@ fun HomeTopBar() {
                 fontSize = dimens.textSizeBody
             )
         }
-        IconButton(onClick = { }) {
+        IconButton(onClick = onSearchClick) {
             Icon(
                 imageVector = Icons.Default.Search,
                 contentDescription = "Search",
